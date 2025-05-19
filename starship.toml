@@ -1,0 +1,41 @@
+add_newline = false 
+
+format = """
+$jobs\
+$directory\
+$git_branch\
+$git_status\
+$git_metrics\
+$git_state\
+$status
+$character
+"""
+
+[character]
+success_symbol = "[🔮❯](bold cyan)"
+
+[git_branch]
+symbol = "🌿 "
+style = "bold yellow"
+format = '[$symbol$branch(:$remote_branch)]($style) '
+
+[git_state]
+style = "bold red"
+cherry_pick = '[🍒 PICKING](bold red)'
+
+[git_metrics]
+disabled = false
+format = '([{+$added}]($added_style))([{-$deleted}]($deleted_style))'
+
+[git_status]
+format = '[$all_status$ahead_behind]($style)'
+conflicted = '🚩'
+ahead = '💨'
+behind = '🐢'
+untracked = '👻'
+modified = '✍️'
+staged = '🗃️'
+diverged = ''
+stashed = ''
+up_to_date = '👍'
+style = 'bold green'
