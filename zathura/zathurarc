@@ -1,0 +1,6 @@
+set guioptions  ""
+set scroll-full-overlap .05
+map <A-Space> scroll full-up
+set recolor-darkcolor "#6f7fff"
+
+set selection-clipboard clipboard

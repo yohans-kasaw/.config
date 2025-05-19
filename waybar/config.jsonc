@@ -1,0 +1,93 @@
+{
+  "position": "top",
+  "height": 30,
+  "spacing": 4,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": [],
+  "modules-right": [
+    "network",
+    "custom/network-usage",
+    "power-profiles-daemon",
+    "pulseaudio",
+    "battery",
+    "cpu",
+    "memory",
+    "clock",
+    "tray",
+  ],
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "warp-on-scroll": false,
+    "format": "{icon}  {id}",
+    "format-icons": {
+       "urgent": "",
+       "active": "",
+       "default": ""
+    },
+    "active-only": false,
+    "all-outputs": false
+  },
+
+  "clock": {
+      "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span size='13000' foreground='#eba0ac'>{icon}  </span>{capacity}%",
+    "format-warning": "<span size='13000' foreground='#eba0ac'>{icon}  </span> {capacity}%",
+    "format-critical": "<span size='13000' foreground='#eba0ac'>{icon}  </span> {capacity}%",
+    "format-charging": "<span size='13000' foreground='#eba0ac'>  </span>{capacity}%",
+    "format-plugged": "<span size='13000' foreground='#eba0ac'>  </span>{capacity}%",
+    "format-alt": "<span size='13000' foreground='#eba0ac'>{icon}  </span>{time}",
+    "format-full": "<span size='13000' foreground='#eba0ac'>󱊦  </span>{capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{time}"
+  },
+
+
+  "network": {
+    "format-wifi": " <span>⬇️{bandwidthDownBits:>5} </span> | <span size='13000' foreground='#f5e0dc'>  </span> {essid} 🔗{ipaddr}/{cidr}  | {signalStrength}% ",
+    "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
+    "interval": 1,
+  },
+
+  "pulseaudio": {
+        "format": "{icon}   {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+        "on-click": "pavucontrol"
+  },
+
+  "tray": {
+    "spacing": 10
+  },
+
+
+  "cpu": {
+      "format": "<span size='13000' foreground='#89b4fa'>  </span> {usage}%",
+      "tooltip": "CPU - {usage}%"
+  },
+
+  "memory": {
+      "format": "<span size='13000' foreground='#a6e3a1'>󰬔 </span> {}%",
+      "tooltip": "Memory - {used:0.1f}GB used"
+  },
+  //"custom/network-usage": {
+  //    "exec": "~/.config/waybar/data_usage.sh",
+  //    "interval": 30,
+  //    "format": "{}",
+  //    "tooltip": true
+  //}
+}
+
