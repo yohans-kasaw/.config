@@ -30,19 +30,7 @@ if status is-interactive
     alias tn "python /home/yohansh/.config/fish/scripts/take_note.py"
     alias gdnv 'neovide $(git diff main --name-only) & disown'
 
-    alias gs 'git status'
-    alias ga 'git add'
-    alias gc 'git commit'
-    alias gcz 'git cz'
-    alias gp 'git push'
-    alias gl 'git pull'
-    alias gd 'git diff'
-    alias gb 'git branch'
-    alias gco 'git checkout'
-    alias glg 'git log --oneline --graph'
-    alias gr 'git reset'
-    alias gf 'git fetch'
-    alias gm 'git merge'
+    alias vd DELTA_FEATURES=+side-by-side git diff
 end
 
 eval (tmuxifier init - fish)
