@@ -51,6 +51,5 @@ fzf --fish | source
 
 source ~/.config/fish/zoxide.fish
 starship init fish | source
-thefuck --alias | source
 
 __auto_git_fetch
