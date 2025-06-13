@@ -1,0 +1,27 @@
+font=Noto Sans 18
+format=<b>%a ⏵</b> %s\n%b
+sort=-time
+layer=overlay
+anchor=top-center
+background-color=#2e3440
+width=600
+height=400
+margin=5
+padding=0,20,25
+border-size=1
+border-color=#88c0d0
+border-radius=10
+icons=0
+max-icon-size=64
+default-timeout=10000
+ignore-timeout=1
+
+[urgency=normal]
+border-color=#d08770
+
+[urgency=high]
+border-color=#bf616a
+default-timeout=0
+
+[summary~="log-.*"]
+border-color=#a3be8c
