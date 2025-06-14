@@ -18,11 +18,14 @@
         "warp-on-scroll": false,
         "format": "{icon}  {id}",
         "format-icons": {
-            "4": "read",
+            "3": "temp",
+            "4": "llm",
             "5": "craft",
-            "6": "run",
+            "6": "read",
             "7": "test",
-            "10": "write",
+            "8": "run",
+            "9": "slack",
+            "10": "note",
             "urgent": "",
             "default": ""
         },
