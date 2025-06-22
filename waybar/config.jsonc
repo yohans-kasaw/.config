@@ -2,14 +2,17 @@
     "position": "top",
     "height": 30,
     "spacing": 4,
-    "modules-left": ["network", "clock"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": [
-        "power-profiles-daemon",
-        "pulseaudio",
+    "modules-left": [
+        "network",
         "battery",
         "cpu",
         "memory",
+    ],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": [
+        "clock",
+        "power-profiles-daemon",
+        "pulseaudio",
         "tray"
     ],
 

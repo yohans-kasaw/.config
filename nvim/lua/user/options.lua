@@ -71,5 +71,6 @@ vim.g.neovide_confirm_quit = true
 
 vim.opt.linebreak = true
 vim.opt.breakindent = true
+vim.o.guifont = "Monaspace Neon Frozen:h22"
 
 
