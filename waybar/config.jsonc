@@ -7,12 +7,11 @@
         "battery",
         "cpu",
         "memory",
+        "pulseaudio",
     ],
     "modules-center": ["hyprland/workspaces"],
     "modules-right": [
         "clock",
-        "power-profiles-daemon",
-        "pulseaudio",
         "tray"
     ],
 
