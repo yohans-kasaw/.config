@@ -1,10 +1,10 @@
 return {
 	plugins = {
-		{ "hrsh7th/nvim-cmp"},
-		{ "onsails/lspkind.nvim"},
-		{ "hrsh7th/cmp-nvim-lsp"},
-		{ "hrsh7th/cmp-buffer"},
-		{ "hrsh7th/cmp-path"},
+		{ "hrsh7th/nvim-cmp" },
+		{ "onsails/lspkind.nvim" },
+		{ "hrsh7th/cmp-nvim-lsp" },
+		{ "hrsh7th/cmp-buffer" },
+		{ "hrsh7th/cmp-path" },
 		{
 			"stevearc/conform.nvim",
 			cmd = { "ConformInfo" },
@@ -45,8 +45,8 @@ return {
 				})
 			end,
 		},
-		{ "Bilal2453/luvit-meta"},
-		{ "HiPhish/rainbow-delimiters.nvim"},
+		{ "Bilal2453/luvit-meta" },
+		{ "HiPhish/rainbow-delimiters.nvim" },
 		{
 			"nvim-treesitter/nvim-treesitter",
 			build = ":TSUpdate",
@@ -83,21 +83,18 @@ return {
 			"kylechui/nvim-surround",
 			version = "*",
 			event = "VeryLazy",
-			lazy = true,
 			config = function()
 				require("nvim-surround").setup({})
 			end,
 		},
 		{
 			"Wansmer/treesj",
-			lazy = true,
 			config = function()
 				require("treesj").setup({})
 			end,
 		},
 		{
 			"windwp/nvim-ts-autotag",
-			lazy = true,
 			config = function()
 				require("nvim-ts-autotag").setup()
 			end,

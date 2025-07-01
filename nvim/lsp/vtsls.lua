@@ -1,0 +1,22 @@
+--- put end in case of future use
+-- return {
+-- 	cmd = { "vtsls", "--stdio" },
+-- 	init_options = {
+-- 		plugins = {
+-- 			location = "/usr/lib/node_modules/@vue/language-server",
+-- 			configNamespace = "typescript",
+-- 			languages = { "vue" },
+-- 		},
+-- 	},
+-- 	filetypes = {
+-- 		"javascript",
+-- 		"javascriptreact",
+-- 		"javascript.jsx",
+-- 		"typescript",
+-- 		"typescriptreact",
+-- 		"typescript.tsx",
+-- 		"vue"
+-- 	},
+-- 	root_markers = { "tsconfig.json", "package.json", "jsconfig.json", ".git" },
+-- 	single_file_support = true,
+-- }

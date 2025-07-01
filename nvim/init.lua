@@ -10,6 +10,9 @@ vim.lsp.enable({
 	"lua_ls",
 	"ts_ls",
 	"vue_ls",
+	"tailwind",
+	"cssls",
+	"jsonls",
 })
 
 vim.diagnostic.config({
