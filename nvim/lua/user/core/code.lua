@@ -43,11 +43,11 @@ return {
 				lspconfig.cssls.setup({})
 			end,
 		},
-		{ "hrsh7th/nvim-cmp", lazy = true },
-		{ "onsails/lspkind.nvim", lazy = true },
-		{ "hrsh7th/cmp-nvim-lsp", lazy = true },
-		{ "hrsh7th/cmp-buffer", lazy = true },
-		{ "hrsh7th/cmp-path", lazy = true },
+		{ "hrsh7th/nvim-cmp"},
+		{ "onsails/lspkind.nvim"},
+		{ "hrsh7th/cmp-nvim-lsp"},
+		{ "hrsh7th/cmp-buffer"},
+		{ "hrsh7th/cmp-path"},
 		{
 			"stevearc/conform.nvim",
 			cmd = { "ConformInfo" },
