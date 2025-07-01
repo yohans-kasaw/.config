@@ -1,6 +1,9 @@
 return {
 	plugins = {
 		{
+			{ "wakatime/vim-wakatime", lazy = false },
+		},
+		{
 			"epwalsh/obsidian.nvim",
 			lazy = true,
 			ft = "markdown",
