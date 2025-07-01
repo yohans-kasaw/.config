@@ -3,7 +3,6 @@ vim.g.mapleader = " "
 require("user.options")
 require("user.core")
 require("user.cmp")
-require("user.autocmd")
 
 vim.cmd("colorscheme kanso-zen")
 
