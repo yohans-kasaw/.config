@@ -5,29 +5,6 @@ return {
 			dependencies = { "nvim-lua/plenary.nvim" },
 		},
 		{
-			"folke/snacks.nvim",
-			priority = 1000,
-			lazy = false,
-			opts = {
-				bigfile = { enabled = true },
-				dashboard = {
-					sections = {
-						{
-							section = "projects",
-							title = "projects",
-							icon = "",
-							indent = 2,
-							padding = 1,
-						},
-						{ section = "session" },
-						{ section = "startup" },
-					},
-				},
-				indent = { enabled = true },
-				notify = { enabled = true },
-			},
-		},
-		{
 			"ibhagwan/fzf-lua",
 			dependencies = { "nvim-tree/nvim-web-devicons" },
 			opts = {},
