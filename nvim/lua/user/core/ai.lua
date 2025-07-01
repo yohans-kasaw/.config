@@ -11,9 +11,6 @@ return {
 			config = function()
 				require("codecompanion").setup({
 					strategies = {
-						chat = {
-							adapter = "openrouter",
-						},
 						inline = {
 							adapter = "openrouter",
 						},

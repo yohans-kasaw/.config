@@ -1,4 +1,4 @@
-vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+vim.opt.clipboard = "unnamedplus"
 
 vim.opt.showtabline = 0
 vim.opt.tabstop = 4
@@ -18,6 +18,8 @@ vim.g.loaded_ruby_provider = 0
 
 vim.opt.number = true
 vim.opt.fillchars = { eob = " " }
+
+vim.opt.conceallevel = 2
 
 vim.opt.signcolumn = "yes"
 vim.g.airline_theme = "oceanicnext"
@@ -56,21 +58,11 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
 	end,
 })
 
--- fzf
-vim.g.fzf_buffers_jump = true
-vim.g.fzf_layout = { window = { width = 0.8, height = 0.4, yoffset = 0.2 } }
-vim.cmd([[let $FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS . ' --reverse --ansi']])
-
--- neovide
 vim.g.neovide_scroll_animation_length = 0
 vim.g.neovide_cursor_animation_length = 0
-
 vim.g.neovide_cursor_vfx_mode = ""
 vim.g.neovide_cursor_trail_size = 0
 vim.g.neovide_confirm_quit = true
-
 vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.o.guifont = "Monaspace Neon Frozen:h22"
-
-vim.opt.conceallevel = 2

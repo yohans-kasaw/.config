@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 local modules = {
 	"user.core.ui",
 	"user.core.editor",
-	"user.core.clever",
+	"user.core.msc",
 	"user.core.code",
 	"user.core.tools",
 	"user.core.motion",

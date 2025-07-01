@@ -1,4 +1,3 @@
-Icons = require("user.icons")
 vim.g.mapleader = " "
 
 require("user.options")
