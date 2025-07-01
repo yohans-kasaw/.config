@@ -2,16 +2,18 @@ return {
 	plugins = {
 		{
 			"ThePrimeagen/harpoon",
+			lazy = true,
 			config = function()
 				require("harpoon").setup({
 					tabline = true,
 				})
 			end,
 		},
-		{ "kelly-lin/ranger.nvim" },
+		{ "kelly-lin/ranger.nvim", lazy = true },
 		{
 			"chentoast/marks.nvim",
 			event = "VeryLazy",
+			lazy = true,
 			opts = {
 				mappings = {
 					set_next = "ma",

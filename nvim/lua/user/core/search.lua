@@ -2,10 +2,12 @@ return {
 	plugins = {
 		{
 			"nvim-telescope/telescope.nvim",
+			lazy = true,
 			dependencies = { "nvim-lua/plenary.nvim" },
 		},
 		{
 			"ibhagwan/fzf-lua",
+			lazy = true,
 			dependencies = { "nvim-tree/nvim-web-devicons" },
 			opts = {},
 		},

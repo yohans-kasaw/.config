@@ -43,22 +43,15 @@ return {
 				lspconfig.cssls.setup({})
 			end,
 		},
-		{ "hrsh7th/cmp-nvim-lsp" },
-		{ "hrsh7th/cmp-buffer" },
-		{ "hrsh7th/cmp-path" },
-		{ "hrsh7th/cmp-cmdline" },
-		{ "hrsh7th/nvim-cmp" },
-		{ "onsails/lspkind.nvim" },
-		{
-			"williamboman/mason.nvim",
-		},
-		{
-			"williamboman/mason-lspconfig.nvim",
-		},
+		{ "hrsh7th/nvim-cmp", lazy = true },
+		{ "onsails/lspkind.nvim", lazy = true },
+		{ "hrsh7th/cmp-nvim-lsp", lazy = true },
+		{ "hrsh7th/cmp-buffer", lazy = true },
+		{ "hrsh7th/cmp-path", lazy = true },
 		{
 			"stevearc/conform.nvim",
 			cmd = { "ConformInfo" },
-			lazy = false,
+			lazy = true,
 			config = function()
 				require("conform").setup({
 					formatters_by_ft = {
@@ -95,17 +88,8 @@ return {
 				})
 			end,
 		},
-		{
-			"folke/lazydev.nvim",
-			ft = "lua",
-			opts = {
-				library = {
-					{ path = "luvit-meta/library", words = { "vim%.uv" } },
-				},
-			},
-		},
 		{ "Bilal2453/luvit-meta", lazy = true },
-		{ "HiPhish/rainbow-delimiters.nvim" },
+		{ "HiPhish/rainbow-delimiters.nvim", lazy = true },
 		{
 			"nvim-treesitter/nvim-treesitter",
 			build = ":TSUpdate",
@@ -134,6 +118,7 @@ return {
 		},
 		{
 			"windwp/nvim-autopairs",
+			lazy = true,
 			config = function()
 				require("nvim-autopairs").setup()
 			end,
@@ -142,36 +127,26 @@ return {
 			"kylechui/nvim-surround",
 			version = "*",
 			event = "VeryLazy",
+			lazy = true,
 			config = function()
 				require("nvim-surround").setup({})
 			end,
 		},
 		{
 			"Wansmer/treesj",
+			lazy = true,
 			config = function()
 				require("treesj").setup({})
 			end,
 		},
 		{
 			"windwp/nvim-ts-autotag",
+			lazy = true,
 			config = function()
 				require("nvim-ts-autotag").setup()
 			end,
 		},
-		{ "microsoft/python-type-stubs" },
-		{
-			"supermaven-inc/supermaven-nvim",
-			config = function()
-				require("supermaven-nvim").setup({
-					keymaps = {
-						accept_suggestion = "<A-l>",
-						clear_suggestion = "<A-h>",
-					},
-					ignore_filetypes = { markdown = true },
-					disable_keymaps = true,
-				})
-			end,
-		},
+		{ "microsoft/python-type-stubs", lazy = true },
 	},
 	keys = function()
 		vim.keymap.set("n", "gl", function()

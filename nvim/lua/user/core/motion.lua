@@ -1,8 +1,9 @@
 return {
 	plugins = {
-		{ "aaronik/treewalker.nvim" },
+		{ "aaronik/treewalker.nvim", lazy = true },
 		{
 			"ggandor/leap.nvim",
+			lazy = true,
 			config = function()
 				require("leap").setup({
 					safe_labels = {},

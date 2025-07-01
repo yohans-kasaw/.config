@@ -2,6 +2,7 @@ return {
 	plugins = {
 		{
 			"folke/noice.nvim",
+			lazy = true,
 			event = "VeryLazy",
 			opts = {
 				top_down = false,
@@ -12,6 +13,7 @@ return {
 		},
 		{
 			"nvim-tree/nvim-tree.lua",
+			lazy = true,
 			config = function()
 				require("nvim-tree").setup({
 					view = {
@@ -48,12 +50,15 @@ return {
 		},
 		{
 			"folke/zen-mode.nvim",
+			lazy = true,
 		},
 		{
 			"nvim-tree/nvim-web-devicons",
+			lazy = true,
 		},
 		{
 			"yamatsum/nvim-cursorline",
+			lazy = true,
 			config = function()
 				require("nvim-cursorline").setup({
 					cursorline = {
@@ -70,36 +75,26 @@ return {
 			end,
 		},
 		{
-			"m4xshen/smartcolumn.nvim",
-			opts = {},
+			"nvimdev/dashboard-nvim",
+			lazy = true,
+			event = "VimEnter",
+			config = function()
+				require("dashboard").setup({})
+			end,
+			dependencies = { { "nvim-tree/nvim-web-devicons" } },
 		},
 		{
-			"OXY2DEV/helpview.nvim",
-			lazy = false,
+			"m4xshen/smartcolumn.nvim",
+			lazy = true,
+			opts = {},
 		},
 		{
 			"webhooked/kanso.nvim",
 			lazy = false,
 			priority = 1000,
 		},
-		{
-			"rebelot/kanagawa.nvim",
-			config = function()
-				require("kanagawa").setup()
-			end,
-		},
-		{
-			"xiyaowong/transparent.nvim",
-			lazy = false,
-			priority = 1000,
-		},
 	},
 	keys = function()
-		vim.api.nvim_set_keymap(
-            "n",
-            "<leader>e",
-            ":NvimTreeToggle<CR>",
-            { noremap = true, silent = true }
-        )
+		vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 	end,
 }
