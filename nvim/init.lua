@@ -9,7 +9,7 @@ vim.cmd("colorscheme kanso-zen")
 vim.lsp.enable({
 	"lua_ls",
 	"ts_ls",
-	-- "volar",
+	"vue_ls",
 })
 
 vim.diagnostic.config({
