@@ -53,11 +53,9 @@ return {
 		},
 		{
 			"nvim-tree/nvim-web-devicons",
-			lazy = true,
 		},
 		{
 			"yamatsum/nvim-cursorline",
-			lazy = true,
 			config = function()
 				require("nvim-cursorline").setup({
 					cursorline = {
@@ -75,7 +73,6 @@ return {
 		},
 		{
 			"nvimdev/dashboard-nvim",
-			lazy = true,
 			event = "VimEnter",
 			config = function()
 				require("dashboard").setup({})
@@ -84,12 +81,10 @@ return {
 		},
 		{
 			"m4xshen/smartcolumn.nvim",
-			lazy = true,
 			opts = {},
 		},
 		{
 			"webhooked/kanso.nvim",
-			lazy = false,
 			priority = 1000,
 		},
 	},

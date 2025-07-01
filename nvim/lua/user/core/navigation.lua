@@ -2,7 +2,6 @@ return {
 	plugins = {
 		{
 			"ThePrimeagen/harpoon",
-			lazy = true,
 			config = function()
 				require("harpoon").setup({
 					tabline = true,

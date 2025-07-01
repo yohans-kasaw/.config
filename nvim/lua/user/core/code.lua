@@ -1,48 +1,5 @@
 return {
 	plugins = {
-		{
-			"neovim/nvim-lspconfig",
-			config = function()
-				local lspconfig = require("lspconfig")
-
-				lspconfig.ts_ls.setup({
-					init_options = {
-						plugins = {
-							{
-								name = "@vue/typescript-plugin",
-								location = "/usr/lib/node_modules/@vue/typescript-plugin",
-								languages = { "javascript", "typescript", "vue" },
-							},
-						},
-					},
-					filetypes = {
-						"javascript",
-						"typescript",
-						-- "vue",
-					},
-				})
-
-				lspconfig.volar.setup({
-					filetypes = {
-						"vue",
-					},
-					init_options = {
-						typescript = {
-							tsdk = "/usr/lib/node_modules/typescript/lib",
-						},
-					},
-				})
-
-				lspconfig.pyright.setup({
-					before_init = function(_, config)
-						config.settings.python.analysis.stubPath =
-							vim.fs.joinpath(vim.fn.stdpath("data"), "lazy", "python-type-stubs")
-					end,
-				})
-
-				lspconfig.cssls.setup({})
-			end,
-		},
 		{ "hrsh7th/nvim-cmp"},
 		{ "onsails/lspkind.nvim"},
 		{ "hrsh7th/cmp-nvim-lsp"},
@@ -88,8 +45,8 @@ return {
 				})
 			end,
 		},
-		{ "Bilal2453/luvit-meta", lazy = true },
-		{ "HiPhish/rainbow-delimiters.nvim", lazy = true },
+		{ "Bilal2453/luvit-meta"},
+		{ "HiPhish/rainbow-delimiters.nvim"},
 		{
 			"nvim-treesitter/nvim-treesitter",
 			build = ":TSUpdate",
@@ -118,7 +75,6 @@ return {
 		},
 		{
 			"windwp/nvim-autopairs",
-			lazy = true,
 			config = function()
 				require("nvim-autopairs").setup()
 			end,
