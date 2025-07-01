@@ -1,6 +1,15 @@
 set guioptions  ""
 set scroll-full-overlap .05
 map <A-Space> scroll full-up
-set recolor-darkcolor "#6f7fff"
 
 set selection-clipboard clipboard
+
+set font "inconsolata 15"
+set default-bg "#1a1a1a"
+set default-fg "#F7F7F7"
+
+set recolor "true"
+set recolor-lightcolor "#1a1a1a" #00
+set recolor-darkcolor "#c2c2c2" #06
+set recolor-reverse-video "true"
+set recolor-keephue "true"
