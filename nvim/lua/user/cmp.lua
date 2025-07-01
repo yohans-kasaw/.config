@@ -113,7 +113,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
 		{ name = "path" },
-		-- { name = "cmdline" },
+		{ name = "cmdline" },
 		{ name = "lazydev", group_index = 0 },
 		{ name = "treesitter" },
 	}),
