@@ -106,7 +106,6 @@ return {
 		},
 		{ "Bilal2453/luvit-meta", lazy = true },
 		{ "HiPhish/rainbow-delimiters.nvim" },
-		{ "andymass/vim-matchup" },
 		{
 			"nvim-treesitter/nvim-treesitter",
 			build = ":TSUpdate",

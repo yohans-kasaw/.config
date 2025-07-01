@@ -12,6 +12,20 @@ return {
 				require("mini.diff").setup()
 			end,
 		},
+		{
+			"epwalsh/obsidian.nvim",
+			config = function()
+				require("obsidian").setup({
+
+					workspaces = {
+						{
+							name = "saga",
+							path = "~/obsidian/saga",
+						},
+					},
+				})
+			end,
+		},
 	},
 	keys = function()
 		-- mini.diff
@@ -34,7 +48,11 @@ return {
 			)
 		end, { noremap = true, silent = true, desc = "Toggle vertical split width" })
 
-		-- custom
 		vim.keymap.set("n", "md", "^i[x]<Esc>", { noremap = true, silent = false, desc = "add [x]" })
+		vim.keymap.set("n", "<leader>;", "<cmd>ObsidianSearch<CR>", {
+			noremap = true,
+			silent = false,
+			desc = "open ObsidianSearch",
+		})
 	end,
 }

@@ -73,4 +73,4 @@ vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.o.guifont = "Monaspace Neon Frozen:h22"
 
-
+vim.opt.conceallevel = 2

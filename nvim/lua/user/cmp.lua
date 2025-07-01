@@ -69,6 +69,18 @@ end
 
 -- Main cmp setup
 cmp.setup({
+	sorting = {
+		comparators = {
+			cmp.config.compare.score,
+			cmp.config.compare.order,
+			cmp.config.compare.kind,
+			cmp.config.compare.locality,
+			cmp.config.compare.exact,
+			cmp.config.compare.offset,
+			cmp.config.compare.sort_text,
+			cmp.config.compare.length,
+		},
+	},
 	window = {
 		completion = bordered_completion,
 		documentation = bordered_documentation,
@@ -101,7 +113,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
 		{ name = "path" },
-		{ name = "cmdline" },
+		-- { name = "cmdline" },
 		{ name = "lazydev", group_index = 0 },
 		{ name = "treesitter" },
 	}),
