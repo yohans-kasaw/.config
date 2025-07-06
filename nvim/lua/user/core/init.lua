@@ -13,18 +13,11 @@ vim.opt.rtp:prepend(lazypath)
 
 local modules = {
 	"user.core.ui",
-	"user.core.editor",
 	"user.core.msc",
 	"user.core.code",
-	"user.core.tools",
 	"user.core.motion",
 	"user.core.git",
-	"user.core.ai",
-	"user.core.search",
-	"user.core.plugin_dev",
-	"user.core.fun",
 	"user.core.trial",
-	"user.core.navigation",
 }
 
 local plugins = {}

@@ -87,14 +87,13 @@ return {
 			require("leap.remote").action()
 		end)
 
-		vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>", { noremap = true, silent = false })
-		vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>", { noremap = true, silent = false })
+		vim.keymap.set({ "n", "v" }, "<S-Down>", "<C-f>", { noremap = true, silent = false })
+		vim.keymap.set({ "n", "v" }, "<S-Up>", "<C-b>", { noremap = true, silent = false })
 
-		vim.keymap.set({ "n", "v" }, "<S-Up>", "<cmd>Treewalker Up<cr>", { silent = true })
-		vim.keymap.set({ "n", "v" }, "<S-Down>", "<cmd>Treewalker Down<cr>", { silent = true })
-		vim.keymap.set({ "n", "v" }, "<S-Left>", "<cmd>Treewalker Left<cr>", { silent = true })
-		vim.keymap.set({ "n", "v" }, "<S-Right>", "<cmd>Treewalker Right<cr>", { silent = true })
-
+		vim.keymap.set({ "n", "v" }, "<Up>", "<cmd>Treewalker Up<cr>", { silent = true })
+		vim.keymap.set({ "n", "v" }, "<Down>", "<cmd>Treewalker Down<cr>", { silent = true })
+		vim.keymap.set({ "n", "v" }, "<Left>", "<cmd>Treewalker Left<cr>", { silent = true })
+		vim.keymap.set({ "n", "v" }, "<Right>", "<cmd>Treewalker Right<cr>", { silent = true })
 
 		vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>Telescope<CR>", { noremap = true, silent = false })
 

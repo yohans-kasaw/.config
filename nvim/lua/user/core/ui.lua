@@ -87,6 +87,13 @@ return {
 			"webhooked/kanso.nvim",
 			priority = 1000,
 		},
+		{
+			"mcauley-penney/visual-whitespace.nvim",
+			lazy = true,
+			config = true,
+			event = "ModeChanged *:[vV\22]",
+			opts = {},
+		},
 	},
 	keys = function()
 		vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
