@@ -143,11 +143,11 @@ return {
 				})
 			end,
 		},
-		{ "Bilal2453/luvit-meta" },
 		{ "HiPhish/rainbow-delimiters.nvim" },
 		{
 			"nvim-treesitter/nvim-treesitter",
 			build = ":TSUpdate",
+			event = { "BufReadPre" },
 			config = function()
 				local configs = require("nvim-treesitter.configs")
 				configs.setup({
@@ -193,6 +193,7 @@ return {
 		},
 		{
 			"windwp/nvim-ts-autotag",
+			event = { "BufReadPre", "BufNewFile" },
 			config = function()
 				require("nvim-ts-autotag").setup()
 			end,

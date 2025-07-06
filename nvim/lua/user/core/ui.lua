@@ -75,7 +75,36 @@ return {
 			"nvimdev/dashboard-nvim",
 			event = "VimEnter",
 			config = function()
-				require("dashboard").setup({})
+				require("dashboard").setup({
+					theme = "doom",
+					config = {
+						header = {},
+						center = {
+							{
+								desc = "<CR> - start selection",
+								desc_hl = "String",
+							},
+							{
+								desc = "<leader> r - resume",
+								desc_hl = "String",
+							},
+							{
+								desc = "s - leap",
+								desc_hl = "String",
+							},
+							{
+								desc = "m - arrow buffer",
+								desc_hl = "String",
+							},
+							{
+								desc = "; - files buffer",
+								desc_hl = "String",
+							},
+						},
+						footer = {},
+						vertical_center = true,
+					},
+				})
 			end,
 			dependencies = { { "nvim-tree/nvim-web-devicons" } },
 		},
