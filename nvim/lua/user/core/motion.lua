@@ -1,27 +1,39 @@
 return {
 	plugins = {
+		{ "kelly-lin/ranger.nvim", lazy = true },
+		{ "aaronik/treewalker.nvim" },
+		{
+			"nvim-telescope/telescope.nvim",
+			dependencies = { "nvim-lua/plenary.nvim" },
+		},
 		{
 			"ThePrimeagen/harpoon",
 			config = function()
 				require("harpoon").setup({
-					tabline = true,
+					tabline = false,
 				})
 			end,
 		},
-		{ "kelly-lin/ranger.nvim", lazy = true },
 		{
-			"chentoast/marks.nvim",
-			event = "VeryLazy",
+			"chrisgrieser/nvim-spider",
 			lazy = true,
+			keys = {
+				{ "w", "<cmd>lua require('spider').motion('w')<CR>", mode = { "n", "o", "x" } },
+				{ "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n", "o", "x" } },
+				{ "b", "<cmd>lua require('spider').motion('b')<CR>", mode = { "n", "o", "x" } },
+			},
+		},
+		{
+			"otavioschwanck/arrow.nvim",
 			opts = {
+				buffer_leader_key = "m",
+				leader_key = ";",
 				mappings = {
-					set_next = "ma",
-					next = "mn",
-					preview = "mp",
+					next_item = "h",
+					prev_item = "n",
 				},
 			},
 		},
-		{ "aaronik/treewalker.nvim" },
 		{
 			"ggandor/leap.nvim",
 			config = function()
@@ -32,10 +44,6 @@ return {
 					end,
 				})
 			end,
-		},
-		{
-			"nvim-telescope/telescope.nvim",
-			dependencies = { "nvim-lua/plenary.nvim" },
 		},
 		{
 			"ibhagwan/fzf-lua",
