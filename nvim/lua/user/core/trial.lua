@@ -9,7 +9,6 @@ return {
 			ft = "markdown",
 			config = function()
 				require("obsidian").setup({
-
 					workspaces = {
 						{
 							name = "saga",

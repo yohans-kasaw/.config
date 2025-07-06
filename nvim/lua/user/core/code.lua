@@ -1,43 +1,22 @@
 return {
 	plugins = {
-		{ "onsails/lspkind.nvim" },
-		{ "hrsh7th/cmp-nvim-lsp" },
-		{ "hrsh7th/cmp-buffer" },
-		{ "hrsh7th/cmp-path" },
-		{ "hrsh7th/cmp-cmdline" },
 		{
 			"hrsh7th/nvim-cmp",
+			event = "InsertEnter",
 			config = function()
 				local cmp = require("cmp")
 				local cmp_mapping = require("cmp.config.mapping")
-
-				local custom_mapping = cmp.mapping.preset.insert({
-					["<Tab>"] = cmp_mapping(function(fb)
-						if cmp.visible() then
-							cmp.select_next_item()
-						else
-							fb()
-						end
-					end, { "i", "s" }),
-					["<S-Tab>"] = cmp_mapping(function(fb)
-						if cmp.visible() then
-							cmp.select_prev_item()
-						else
-							fb()
-						end
-					end, { "i", "s" }),
-					["<C-Space>"] = cmp_mapping.complete(),
-					["<CR>"] = cmp_mapping(function(fb)
-						if cmp.visible() and cmp.get_selected_entry() then
-							cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
-						else
-							fb()
-						end
-					end, { "i", "s" }),
-				})
+				local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+				local lspkind = require("lspkind")
 
 				cmp.setup({
-					mapping = custom_mapping,
+					sources = cmp.config.sources({
+						{ name = "nvim_lsp", group_index = 1 },
+						{ name = "treesitter", group_index = 2 },
+						{ name = "nvim_lua", group_index = 3 },
+						{ name = "path", group_index = 4 },
+						{ name = "buffer", group_index = 5 },
+					}),
 					sorting = {
 						comparators = {
 							cmp.config.compare.score,
@@ -49,38 +28,78 @@ return {
 						completion = cmp.config.window.bordered({
 							scrollbar = false,
 						}),
-
 						documentation = cmp.config.window.bordered({
 							scrollbar = false,
 						}),
 					},
+					formatting = {
+						format = lspkind.cmp_format({
+							mode = "symbol",
+							ellipsis_char = "...",
+							menu = {
+								nvim_lsp = "[lsp]",
+								nvim_lua = "[lua]",
+								buffer = "[buf]",
+								path = "[path]",
+								treesitter = "[tree]",
+							},
+						}),
+					},
 
-					sources = cmp.config.sources({
-						{ name = "nvim_lsp" },
-						{ name = "buffer" },
-						{ name = "path" },
-						{ name = "treesitter" },
+					mapping = cmp.mapping.preset.insert({
+						["<Tab>"] = cmp_mapping(function(fb)
+							if cmp.visible() then
+								cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+							else
+								fb()
+							end
+						end, { "i", "s" }),
+						["<S-Tab>"] = cmp_mapping(function(fb)
+							if cmp.visible() then
+								cmp.select_prev_item()
+							else
+								fb()
+							end
+						end, { "i", "s" }),
+						["<CR>"] = cmp_mapping(function(fb)
+							if cmp.visible() and cmp.get_selected_entry() then
+								cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
+							else
+								fb()
+							end
+						end, { "i", "s" }),
 					}),
 				})
-
+				cmp.setup.filetype("markdown", { enabled = false })
+				cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+			end,
+			dependencies = {
+				{ "hrsh7th/cmp-nvim-lsp" },
+				{ "hrsh7th/cmp-buffer" },
+				{ "hrsh7th/cmp-path" },
+				{ "ray-x/cmp-treesitter" },
+				{ "hrsh7th/cmp-nvim-lua" },
+				{ "onsails/lspkind.nvim" },
+			},
+		},
+		{
+			"hrsh7th/cmp-cmdline",
+			event = "CmdlineEnter",
+			config = function()
+				local cmp = require("cmp")
 				cmp.setup.cmdline({ "/", "?" }, {
-					mapping = custom_mapping,
+					mapping = cmp.mapping.preset.cmdline(),
 					sources = cmp.config.sources({
 						{ name = "buffer" },
 						{ name = "path" },
 					}),
 				})
-
 				cmp.setup.cmdline(":", {
-					mapping = custom_mapping,
+					mapping = cmp.mapping.preset.cmdline(),
 					sources = cmp.config.sources({
 						{ name = "path" },
 						{ name = "cmdline" },
 					}),
-				})
-
-				cmp.setup.filetype("markdown", {
-					enabled = false,
 				})
 			end,
 		},
