@@ -21,7 +21,7 @@ return {
 				},
 			},
 		},
-		{ "aaronik/treewalker.nvim"},
+		{ "aaronik/treewalker.nvim" },
 		{
 			"ggandor/leap.nvim",
 			config = function()
@@ -30,6 +30,29 @@ return {
 					preview_filter = function()
 						return false
 					end,
+				})
+			end,
+		},
+		{
+			"nvim-telescope/telescope.nvim",
+			dependencies = { "nvim-lua/plenary.nvim" },
+		},
+		{
+			"ibhagwan/fzf-lua",
+			dependencies = { "nvim-tree/nvim-web-devicons" },
+			config = function()
+				require("fzf-lua").setup({
+					winopts = {
+						height = 0.95,
+						row = 0.50,
+						preview = {
+							vertical = "down:70%",
+							layout = "vertical",
+							title = false,
+							scrollbar = false,
+							wrap = true,
+						},
+					},
 				})
 			end,
 		},
@@ -59,7 +82,6 @@ return {
 		vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
 		vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 
-
 		vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
 		vim.keymap.set({ "n", "x", "o" }, "gs", function()
 			require("leap.remote").action()
@@ -72,5 +94,17 @@ return {
 		vim.keymap.set({ "n", "v" }, "<S-Down>", "<cmd>Treewalker Down<cr>", { silent = true })
 		vim.keymap.set({ "n", "v" }, "<S-Left>", "<cmd>Treewalker Left<cr>", { silent = true })
 		vim.keymap.set({ "n", "v" }, "<S-Right>", "<cmd>Treewalker Right<cr>", { silent = true })
+
+
+		vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>Telescope<CR>", { noremap = true, silent = false })
+
+		vim.keymap.set("n", "<leader>g", require("fzf-lua").live_grep_native, { desc = "Grep" })
+		vim.keymap.set({ "n", "x" }, "<leader>w", require("fzf-lua").grep_cword, { desc = "Search word under cursor" })
+		vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "resume" })
+
+		vim.keymap.set("n", "<leader><space>", require("fzf-lua").files, { desc = "Git Files" })
+		vim.keymap.set("n", "<leader>b", require("fzf-lua").buffers, { desc = "buffers" })
+
+		vim.keymap.set("n", "<leader>j", require("fzf-lua").jumps, { desc = "jumps" })
 	end,
 }
