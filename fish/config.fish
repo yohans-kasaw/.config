@@ -9,9 +9,7 @@ if status is-interactive
     set fzf_fd_opts --hidden --max-depth 5
     set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
 
-    set -x OPENROUTER_API_KEY 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
-    set -x GOOGLE_API_KEY AIzaSyBcwwM3Hsbj-QH9nwcpw3r7DiU_6BAHn5c
-    set -x ANTHROPIC_API_KEY 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
+    set -x OPENROUTER_API_KEY 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
 
     alias r ranger
     alias g git
