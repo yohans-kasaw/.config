@@ -49,7 +49,7 @@ return {
 					mapping = cmp.mapping.preset.insert({
 						["<Tab>"] = cmp_mapping(function(fb)
 							if cmp.visible() then
-								cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+								cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
 							else
 								fb()
 							end
@@ -199,6 +199,20 @@ return {
 			end,
 		},
 		{ "microsoft/python-type-stubs", lazy = true },
+		{
+			"JoosepAlviste/nvim-ts-context-commentstring",
+			config = function()
+				require("ts_context_commentstring").setup({
+					enable_autocmd = false,
+				})
+				local orginal_get_option = vim.filetype.get_option
+				vim.filetype.get_option = function(filetype, option)
+					return option == "commentstring"
+							and require("ts_context_commentstring.internal").calculate_commentstring()
+						or orginal_get_option(filetype, option)
+				end
+			end,
+		},
 	},
 	keys = function()
 		vim.keymap.set("n", "gl", function()

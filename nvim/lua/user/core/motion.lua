@@ -10,7 +10,7 @@ return {
 			"ThePrimeagen/harpoon",
 			config = function()
 				require("harpoon").setup({
-					tabline = false,
+					tabline = true,
 				})
 			end,
 		},
@@ -27,7 +27,7 @@ return {
 			"otavioschwanck/arrow.nvim",
 			opts = {
 				buffer_leader_key = "m",
-				leader_key = ";",
+				leader_key = "<leader>;",
 				mappings = {
 					next_item = "h",
 					prev_item = "n",
