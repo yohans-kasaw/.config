@@ -108,6 +108,7 @@ return {
 			end,
 			dependencies = { { "nvim-tree/nvim-web-devicons" } },
 		},
+
 		{
 			"m4xshen/smartcolumn.nvim",
 			opts = {},

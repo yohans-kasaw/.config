@@ -10,12 +10,18 @@ return {
 				local lspkind = require("lspkind")
 
 				cmp.setup({
+					snippet = {
+						expand = function(args)
+							require("luasnip").lsp_expand(args.body)
+						end,
+					},
 					sources = cmp.config.sources({
-						{ name = "nvim_lsp", group_index = 1 },
-						{ name = "treesitter", group_index = 2 },
-						{ name = "nvim_lua", group_index = 3 },
-						{ name = "path", group_index = 4 },
-						{ name = "buffer", group_index = 5 },
+						{ name = "luasnip", group_index = 1 },
+						{ name = "nvim_lsp", group_index = 2 },
+						{ name = "treesitter", group_index = 3 },
+						{ name = "nvim_lua", group_index = 4 },
+						{ name = "path", group_index = 5 },
+						{ name = "buffer", group_index = 6 },
 					}),
 					sorting = {
 						comparators = {
@@ -80,7 +86,17 @@ return {
 				{ "ray-x/cmp-treesitter" },
 				{ "hrsh7th/cmp-nvim-lua" },
 				{ "onsails/lspkind.nvim" },
+				{ "saadparwaiz1/cmp_luasnip" },
 			},
+		},
+
+		{
+			"L3MON4D3/LuaSnip",
+			build = "make install_jsregexp",
+			dependencies = { "rafamadriz/friendly-snippets" },
+			config = function()
+				require("luasnip.loaders.from_vscode").lazy_load()
+			end,
 		},
 		{
 			"hrsh7th/cmp-cmdline",

@@ -18,9 +18,9 @@ return {
 			"chrisgrieser/nvim-spider",
 			lazy = true,
 			keys = {
-				{ "w", "<cmd>lua require('spider').motion('w')<CR>", mode = { "n",} },
-				{ "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n", } },
-				{ "b", "<cmd>lua require('spider').motion('b')<CR>", mode = { "n",} },
+				{ "w", "<cmd>lua require('spider').motion('w')<CR>", mode = { "n" } },
+				{ "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n" } },
+				{ "b", "<cmd>lua require('spider').motion('b')<CR>", mode = { "n" } },
 			},
 		},
 		{
@@ -66,11 +66,36 @@ return {
 		},
 	},
 	keys = function()
-		vim.keymap.set("n", "<leader>h", require("harpoon.mark").add_file, { noremap = true, silent = false })
-		vim.keymap.set("n", "<leader>l", require("harpoon.ui").toggle_quick_menu, { noremap = true, silent = false })
+		local harpoon = require("harpoon.ui")
 
-		vim.keymap.set("n", "tn", require("harpoon.ui").nav_next, { noremap = true, silent = false })
-		vim.keymap.set("n", "th", require("harpoon.ui").nav_prev, { noremap = true, silent = false })
+		vim.keymap.set("n", "tn", harpoon.nav_next)
+		vim.keymap.set("n", "th", harpoon.nav_prev)
+
+		vim.keymap.set("n", "<A-1>", function()
+			harpoon.nav_file(1)
+		end)
+		vim.keymap.set("n", "<A-2>", function()
+			harpoon.nav_file(2)
+		end)
+		vim.keymap.set("n", "<A-3>", function()
+			harpoon.nav_file(3)
+		end)
+		vim.keymap.set("n", "<A-4>", function()
+			harpoon.nav_file(4)
+		end)
+		vim.keymap.set("n", "<A-5>", function()
+			harpoon.nav_file(5)
+		end)
+		vim.keymap.set("n", "<A-6>", function()
+			harpoon.nav_file(6)
+		end)
+
+		vim.keymap.set("n", "<A-7>", function()
+			harpoon.nav_file(7)
+		end)
+		vim.keymap.set("n", "<A-8>", function()
+			harpoon.nav_file(8)
+		end)
 
 		vim.api.nvim_set_keymap("n", "<leader>bc", "<cmd>bd<CR>", { noremap = true, silent = false })
 		vim.keymap.set("n", "<leader>ba", function()
