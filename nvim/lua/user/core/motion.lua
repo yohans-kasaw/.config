@@ -22,17 +22,11 @@ return {
 				{ "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n" } },
 				{ "b", "<cmd>lua require('spider').motion('b')<CR>", mode = { "n" } },
 			},
-		},
-		{
-			"otavioschwanck/arrow.nvim",
-			opts = {
-				buffer_leader_key = "m",
-				leader_key = "<leader>;",
-				mappings = {
-					next_item = "h",
-					prev_item = "n",
-				},
-			},
+			config = function()
+				require("spider").setup({
+					skipInsignificantPunctuation = false,
+				})
+			end,
 		},
 		{
 			"ggandor/leap.nvim",
