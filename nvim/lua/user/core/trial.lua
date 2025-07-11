@@ -1,23 +1,27 @@
 return {
 	plugins = {
 		{
-			{ "wakatime/vim-wakatime", lazy = false },
+			"otavioschwanck/arrow.nvim",
+			opts = {
+				buffer_leader_key = "m",
+				leader_key = "<leader>;",
+				mappings = {
+					next_item = "h",
+					prev_item = "n",
+				},
+			},
 		},
 		{
-			"epwalsh/obsidian.nvim",
-			lazy = true,
-			ft = "markdown",
+			"ptdewey/yankbank-nvim",
+			dependencies = "kkharji/sqlite.lua",
 			config = function()
-				require("obsidian").setup({
-					workspaces = {
-						{
-							name = "saga",
-							path = "~/obsidian/saga",
-						},
-					},
+				require("yankbank").setup({
+					persist_type = "sqlite",
 				})
 			end,
 		},
 	},
-	keys = function() end,
+	keys = function()
+		vim.keymap.set("n", "<leader>y", "<cmd>YankBank<CR>", { noremap = true })
+	end,
 }

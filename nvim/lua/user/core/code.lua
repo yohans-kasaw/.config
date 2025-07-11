@@ -89,7 +89,6 @@ return {
 				{ "saadparwaiz1/cmp_luasnip" },
 			},
 		},
-
 		{
 			"L3MON4D3/LuaSnip",
 			build = "make install_jsregexp",
@@ -229,21 +228,8 @@ return {
 				end
 			end,
 		},
-		{
-			"Jxstxs/conceal.nvim",
-			requires = "nvim-treesitter/nvim-treesitter",
-			config = function()
-				local conceal = require("conceal")
-				conceal.setup({})
-				conceal.generate_conceals()
-			end,
-		},
 	},
 	keys = function()
-		vim.keymap.set("n", "<leader>tc", function()
-			require("conceal").toggle_conceal()
-		end, { silent = true })
-
 		vim.keymap.set("n", "gl", function()
 			vim.diagnostic.open_float(nil, {})
 		end, { noremap = true, silent = true, desc = "Show Line Diagnostics" })

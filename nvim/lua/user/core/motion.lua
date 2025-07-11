@@ -126,10 +126,10 @@ return {
 		vim.keymap.set({ "n", "v" }, "<S-Down>", "<C-f>", { noremap = true, silent = false })
 		vim.keymap.set({ "n", "v" }, "<S-Up>", "<C-b>", { noremap = true, silent = false })
 
-		vim.keymap.set({ "n", "v" }, "<Up>", "<cmd>Treewalker Up<cr>", { silent = true })
-		vim.keymap.set({ "n", "v" }, "<Down>", "<cmd>Treewalker Down<cr>", { silent = true })
-		vim.keymap.set({ "n", "v" }, "<Left>", "<cmd>Treewalker Left<cr>", { silent = true })
-		vim.keymap.set({ "n", "v" }, "<Right>", "<cmd>Treewalker Right<cr>", { silent = true })
+		vim.keymap.set({ "n", "v" }, "<Up>", "<cmd>Treewalker Up<cr>zz", { silent = true })
+		vim.keymap.set({ "n", "v" }, "<Down>", "<cmd>Treewalker Down<cr>zz", { silent = true })
+		vim.keymap.set({ "n", "v" }, "<Left>", "<cmd>Treewalker Left<cr>zz", { silent = true })
+		vim.keymap.set({ "n", "v" }, "<Right>", "<cmd>Treewalker Right<cr>zz", { silent = true })
 
 		vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>Telescope<CR>", { noremap = true, silent = false })
 
