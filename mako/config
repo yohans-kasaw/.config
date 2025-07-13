@@ -23,5 +23,8 @@ border-color=#d08770
 border-color=#bf616a
 default-timeout=0
 
-[summary~="log-.*"]
-border-color=#a3be8c
+[app-name="blueman"]
+invisible=1
+
+[app-name="NetworkManager Applet"]
+invisible=1
