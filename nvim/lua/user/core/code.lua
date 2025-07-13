@@ -26,8 +26,8 @@ return {
 					sorting = {
 						comparators = {
 							cmp.config.compare.score,
-							cmp.config.compare.order,
 							cmp.config.compare.kind,
+							cmp.config.compare.order,
 						},
 					},
 					window = {
