@@ -65,9 +65,6 @@ return {
 		vim.keymap.set("n", "<leader>h", require("harpoon.mark").add_file)
 		vim.keymap.set("n", "<leader>l", harpoon.toggle_quick_menu)
 
-		vim.keymap.set("n", "tn", harpoon.nav_next)
-		vim.keymap.set("n", "th", harpoon.nav_prev)
-
 		vim.keymap.set("n", "<A-a>", function()
 			harpoon.nav_file(1)
 		end)
