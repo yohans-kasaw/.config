@@ -1,0 +1,19 @@
+# 1. Ignore everything
+*
+
+# don't Ignore this
+!.gitignore
+
+!VSCodium/User/settings.json
+!fish/
+!hypr/
+!kitty/
+!mako/
+!nvim/
+!rofi/
+!waybar/
+!zathura/
+!starship.toml
+
+# ignore this one
+./hypr/env.conf
