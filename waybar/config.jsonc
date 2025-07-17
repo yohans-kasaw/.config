@@ -26,8 +26,10 @@
             "6": "brow",
             "7": "note",
             "8": "diff",
-            "9": "read",
-            "10": "slack",
+            "9": "slack",
+            "10": "ai",
+            "11": "timer",
+            "12": "temp",
             "urgent": "",
             "default": ""
         },
