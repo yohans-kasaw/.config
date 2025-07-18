@@ -1,17 +1,6 @@
 return {
 	plugins = {
 		{
-			"tummetott/reticle.nvim",
-			event = "VeryLazy",
-			opts = {
-				on_startup = {
-					cursorline = true,
-					cursorcolumn = true,
-				},
-			},
-		},
-        {"xiyaowong/transparent.nvim"},
-		{
 			"otavioschwanck/arrow.nvim",
 			opts = {
 				buffer_leader_key = "m",

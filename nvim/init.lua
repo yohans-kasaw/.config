@@ -3,7 +3,8 @@ vim.g.mapleader = " "
 require("user.options")
 require("user.core")
 
-vim.cmd("colorscheme kanso-zen")
+-- vim.cmd("colorscheme kanso-zen")
+vim.cmd("colorscheme kanagawa-wave")
 
 vim.lsp.enable({
 	"lua_ls",
@@ -20,4 +21,3 @@ vim.diagnostic.config({
 		source = true,
 	},
 })
-
