@@ -7,7 +7,7 @@
         "battery",
         "cpu",
         "memory",
-        "pulseaudio",
+        "pulseaudio"
     ],
     "modules-center": ["hyprland/workspaces"],
     "modules-right": [
@@ -18,7 +18,8 @@
     "hyprland/workspaces": {
         "disable-scroll": true,
         "warp-on-scroll": false,
-        "format": "{icon}  {id}",
+        // "format": "{icon}  {id}",
+        "format": "{icon}",
         "format-icons": {
             "3": "timer",
             "4": "craft ",
