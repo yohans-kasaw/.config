@@ -38,6 +38,8 @@ vim.opt.scrolloff = 2
 vim.opt.termguicolors = true
 vim.jumpoptions = "stack"
 
+vim.opt.confirm = true
+
 vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
 
 local function enable_spell()

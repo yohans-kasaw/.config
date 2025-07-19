@@ -136,6 +136,7 @@ return {
 						json = { "prettier" },
 						yaml = { "prettier" },
 						vue = { "prettier" },
+						go = { "gofmt" },
 					},
 					formatters = {
 						black = {
@@ -152,6 +153,11 @@ return {
 								"--no-semi",
 								"--trailing-comma",
 								"all",
+							},
+						},
+						gofmt = {
+							prepend_args = {
+								"-s",
 							},
 						},
 					},
