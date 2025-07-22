@@ -17,3 +17,4 @@
 
 # ignore this one
 ./hypr/env.conf
+./fish/fish_variables
