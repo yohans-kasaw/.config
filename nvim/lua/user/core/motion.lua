@@ -44,15 +44,10 @@ return {
 			dependencies = { "nvim-tree/nvim-web-devicons" },
 			config = function()
 				require("fzf-lua").setup({
-					winopts = {
-						height = 0.95,
-						row = 0.50,
-						preview = {
-							vertical = "down:70%",
-							layout = "vertical",
-							title = false,
-							scrollbar = false,
-							wrap = true,
+					"ivy", --"profile"
+					keymap = {
+						fzf = {
+							["ctrl-q"] = "select-all+accept",
 						},
 					},
 				})
