@@ -126,6 +126,14 @@ return {
 			event = "ModeChanged *:[vV\22]",
 			opts = {},
 		},
+		{
+			"sainnhe/sonokai",
+			lazy = false,
+			priority = 1000,
+			config = function()
+				vim.g.sonokai_enable_italic = true
+			end,
+		},
 	},
 	keys = function()
 		vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })

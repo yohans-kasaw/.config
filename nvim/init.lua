@@ -4,7 +4,10 @@ require("user.options")
 require("user.core")
 
 -- vim.cmd("colorscheme kanso-zen")
-vim.cmd("colorscheme kanagawa-wave")
+-- vim.cmd("colorscheme kanagawa-wave")
+
+vim.g.sonokai_style = 'espresso'
+vim.cmd.colorscheme("sonokai")
 
 vim.lsp.enable({
 	"lua_ls",
@@ -13,7 +16,8 @@ vim.lsp.enable({
 	"tailwind",
 	"cssls",
 	"jsonls",
-	"gopls"
+	"gopls",
+	"hyprlang"
 })
 
 vim.diagnostic.config({
@@ -21,4 +25,8 @@ vim.diagnostic.config({
 		border = "double",
 		source = true,
 	},
+})
+
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
 })
