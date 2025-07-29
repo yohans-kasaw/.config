@@ -10,7 +10,7 @@ return {
 			"ThePrimeagen/harpoon",
 			config = function()
 				require("harpoon").setup({
-					tabline = true,
+					tabline = false,
 				})
 			end,
 		},

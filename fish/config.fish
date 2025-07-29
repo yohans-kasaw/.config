@@ -3,7 +3,7 @@ if status is-interactive
     set -x VISUAL nvim
     set -x EDITOR nvim
     set -x FZF_DEFAULT_COMMAND "fd --type f"
-    set -x FZF_DEFAULT_OPTS "--preview 'bat --color=always {}'"
+    set -x FZF_DEFAULT_OPTS "--style full --preview 'bat --color=always {}'"
     set fzf_preview_dir_cmd eza --all --color=always
     set fzf_fd_opts --hidden --max-depth 5
     set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"

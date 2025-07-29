@@ -1,14 +1,14 @@
 * {
-    bg-col:  #1e1e2e;
-    bg-col-light: #1e1e2e;
-    border-col: #1e1e2e;
-    selected-col: #1e1e2e;
+    bg-col:  #2a2a2a;
+    bg-col-light: #1e1e1e;
+    border-col: #5e5e5e;
+    selected-col: #3a3a3a;
     blue: #89b4fa;
     fg-col: #cdd6f4;
     fg-col2: #f38ba8;
     grey: #6c7086;
     width: 1400;
-    font: "JetBrainsMono Nerd Font 18";
+    font: "JetBrainsMono Nerd Font 24";
 }
 
 element-text, element-icon , mode-switcher {
@@ -35,7 +35,7 @@ inputbar {
 }
 
 prompt {
-    background-color: @blue;
+    background-color: @grey;
     padding: 6px;
     text-color: @bg-col;
     border-radius: 3px;
@@ -58,19 +58,19 @@ listview {
     border: 0px 0px 0px;
     padding: 6px 0px 0px;
     margin: 10px 0px 0px 20px;
-    columns: 4;
+    columns: 3;
     lines: 15;
     background-color: @bg-col;
 }
 
 element {
-    padding: 5px;
+    padding: 2px 15px;
     background-color: @bg-col;
     text-color: @fg-col  ;
 }
 
 element-icon {
-    size: 25px;
+    size: 30px;
 }
 
 element selected {
