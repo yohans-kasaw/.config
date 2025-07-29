@@ -9,7 +9,8 @@ return {
 			"folke/which-key.nvim",
 			event = "VeryLazy",
 			opts = {
-				preset = "modern",
+				preset = "helix",
+				delay = 800,
 			},
 			init = function()
 				vim.o.timeout = true

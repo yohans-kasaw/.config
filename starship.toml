@@ -13,6 +13,7 @@ $character
 
 [character]
 success_symbol = "[❯](bold cyan)"
+error_symbol = "[x❯](bold red)"
 
 [git_branch]
 symbol = "🌿 "

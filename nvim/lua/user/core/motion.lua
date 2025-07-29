@@ -44,7 +44,12 @@ return {
 			dependencies = { "nvim-tree/nvim-web-devicons" },
 			config = function()
 				require("fzf-lua").setup({
-					"ivy", --"profile"
+					fzf_opts = {
+						["--layout"] = "reverse-list",
+					},
+					winopts = {
+						fullscreen = true,
+					},
 					keymap = {
 						fzf = {
 							["ctrl-q"] = "select-all+accept",
@@ -109,23 +114,20 @@ return {
 			require("leap.remote").action()
 		end)
 
-		vim.keymap.set({ "n", "v" }, "<S-Down>", "<C-f>", { noremap = true, silent = false })
-		vim.keymap.set({ "n", "v" }, "<S-Up>", "<C-b>", { noremap = true, silent = false })
+		vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>", { noremap = true, silent = false })
+		vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>", { noremap = true, silent = false })
 
-		vim.keymap.set({ "n", "v" }, "<Up>", "<cmd>Treewalker Up<cr>zz", { silent = true })
-		vim.keymap.set({ "n", "v" }, "<Down>", "<cmd>Treewalker Down<cr>zz", { silent = true })
-		vim.keymap.set({ "n", "v" }, "<Left>", "<cmd>Treewalker Left<cr>zz", { silent = true })
-		vim.keymap.set({ "n", "v" }, "<Right>", "<cmd>Treewalker Right<cr>zz", { silent = true })
+		vim.keymap.set({ "n", "v" }, "<S-Up>", "<cmd>Treewalker Up<cr>zz", { silent = true })
+		vim.keymap.set({ "n", "v" }, "<S-Down>", "<cmd>Treewalker Down<cr>zz", { silent = true })
+		vim.keymap.set({ "n", "v" }, "<S-Left>", "<cmd>Treewalker Left<cr>zz", { silent = true })
+		vim.keymap.set({ "n", "v" }, "<S-Right>", "<cmd>Treewalker Right<cr>zz", { silent = true })
 
 		vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>Telescope<CR>", { noremap = true, silent = false })
 
+		vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "resume" })
 		vim.keymap.set("n", "<leader>g", require("fzf-lua").live_grep_native, { desc = "Grep" })
 		vim.keymap.set({ "n", "x" }, "<leader>w", require("fzf-lua").grep_cword, { desc = "Search word under cursor" })
-		vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "resume" })
-
-		vim.keymap.set("n", "<leader><space>", require("fzf-lua").files, { desc = "Git Files" })
+		vim.keymap.set("n", "<leader><space>", require("fzf-lua").files, { desc = "Files" })
 		vim.keymap.set("n", "<leader>b", require("fzf-lua").buffers, { desc = "buffers" })
-
-		vim.keymap.set("n", "<leader>j", require("fzf-lua").jumps, { desc = "jumps" })
 	end,
 }
