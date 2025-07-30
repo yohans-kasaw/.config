@@ -15,6 +15,7 @@
 !waybar/
 !zathura/
 !starship.toml
+!fd/
 
 # ignore this one
 ./hypr/env.conf
