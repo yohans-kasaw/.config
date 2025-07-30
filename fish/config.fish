@@ -3,7 +3,7 @@ if status is-interactive
     set -x VISUAL nvim
     set -x EDITOR nvim
 
-    set -gx FZF_DEFAULT_COMMAND  "fd --exclude .git --exclude ~/.config/fd/fzfcd-ignore-rules ."
+    set -gx FZF_DEFAULT_COMMAND  "fd --hidden --exclude .git --exclude ~/.config/fd/fzfcd-ignore-rules ."
 
     set -x FZF_DEFAULT_OPTS "--tiebreak=index --style full --smart-case --preview 'bat --color=always {}'"
     set fzf_preview_dir_cmd eza --all --color=always

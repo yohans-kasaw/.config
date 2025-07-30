@@ -1,0 +1,41 @@
+# Ignore all hidden files and directories by default
+git_junks/
+
+node_modules/
+dist/
+build/
+*.o
+*.a
+*.swp
+
+# go
+vendor/
+bin/
+pkg/
+*.test
+*.out
+go.sum
+go.mod.bak
+
+
+# linux
+/proc/
+/sys/
+/dev/
+/tmp/
+/var/log/
+/var/cache/
+*.log
+*.pid
+core (core dump files)
+*.bak
+*.tmp
+
+#fonts
+*.ttf
+*.otf
+*.woff
+*.woff2
+*.eot
+/usr/share/fonts/
+/usr/local/share/fonts/
