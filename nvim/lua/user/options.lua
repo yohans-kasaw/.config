@@ -48,7 +48,7 @@ local function enable_spell()
 end
 
 vim.o.undofile = true
-vim.opt.spellcapcheck = ''
+vim.opt.spellcapcheck = ""
 
 vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
 	desc = "Conditional spell checking activation",
@@ -71,3 +71,10 @@ vim.o.guifont = "Monaspace Neon Frozen:h24"
 
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = ""
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 1
+vim.opt.foldnestmax = 2
