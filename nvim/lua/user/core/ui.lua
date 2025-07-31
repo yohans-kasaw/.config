@@ -59,7 +59,7 @@ return {
 			config = function()
 				require("nvim-cursorline").setup({
 					cursorline = {
-						enable = false,
+						enable = true,
 					},
 					cursorword = {
 						enable = true,
@@ -134,8 +134,14 @@ return {
 				vim.g.sonokai_enable_italic = true
 			end,
 		},
+		{ "xiyaowong/transparent.nvim" },
 	},
 	keys = function()
-		vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap(
+            "n",
+            "<leader>e",
+            ":NvimTreeToggle<CR>",
+            { noremap = true, silent = true }
+        )
 	end,
 }
