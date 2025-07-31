@@ -3,7 +3,7 @@ if status is-interactive
     set -x VISUAL nvim
     set -x EDITOR nvim
 
-    set -gx FZF_DEFAULT_COMMAND  "fd --follow --exclude .git --exclude ~/.config/fd/fzfcd-ignore-rules ."
+    set -gx FZF_DEFAULT_COMMAND  "fd --follow --exclude .git --exclude ~/.config/fd/fzfcd-ignore-rules . $HOME"
 
     set -x FZF_DEFAULT_OPTS "--tiebreak=index --style full --smart-case --preview 'bat --color=always {}'"
     set fzf_preview_dir_cmd eza --all --color=always
@@ -31,5 +31,3 @@ end
 
 fish_add_path "/home/yohansh/.local/bin"
 fish_add_path "/home/yohansh/.cargo/bin"
-
-
