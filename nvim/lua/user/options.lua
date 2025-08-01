@@ -75,6 +75,6 @@ vim.opt.cursorcolumn = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = ""
+vim.opt.foldlevelstart = 99
 vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 1
 vim.opt.foldnestmax = 2

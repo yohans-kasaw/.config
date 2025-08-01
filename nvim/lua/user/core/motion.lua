@@ -122,8 +122,6 @@ return {
 		vim.keymap.set({ "n", "v" }, "<S-Left>", "<cmd>Treewalker Left<cr>zz", { silent = true })
 		vim.keymap.set({ "n", "v" }, "<S-Right>", "<cmd>Treewalker Right<cr>zz", { silent = true })
 
-		vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>Telescope<CR>", { noremap = true, silent = false })
-
 		vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "resume" })
 		vim.keymap.set("n", "<leader>g", require("fzf-lua").live_grep_native, { desc = "Grep" })
 		vim.keymap.set({ "n", "x" }, "<leader>w", require("fzf-lua").grep_cword, { desc = "Search word under cursor" })
