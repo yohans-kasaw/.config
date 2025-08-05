@@ -67,7 +67,7 @@ vim.g.neovide_cursor_trail_size = 0
 vim.g.neovide_confirm_quit = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
-vim.o.guifont = "Monaspace Neon Frozen:h24"
+vim.o.guifont = "Monaspace Neon Frozen:h27"
 
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true

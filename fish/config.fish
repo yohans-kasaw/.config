@@ -20,11 +20,14 @@ if status is-interactive
 
     fzf --fish | source
 
+    fish_vi_key_bindings
+
     __auto_git_fetch
     starship init fish | source
     eval (tmuxifier init - fish)
 
-    bind \ef 'fzfopen'
+    bind -M insert \ef 'fzfopen'
+    bind -M default \ef 'fzfopen'
 
     zoxide init fish | source
 end
