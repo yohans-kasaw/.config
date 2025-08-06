@@ -59,7 +59,7 @@ return {
 			config = function()
 				require("nvim-cursorline").setup({
 					cursorline = {
-						enable = true,
+						enable = false,
 					},
 					cursorword = {
 						enable = true,
@@ -79,23 +79,7 @@ return {
 						header = {},
 						center = {
 							{
-								desc = "<CR> - start selection",
-								desc_hl = "String",
-							},
-							{
-								desc = "<leader> r - resume",
-								desc_hl = "String",
-							},
-							{
-								desc = "s - leap",
-								desc_hl = "String",
-							},
-							{
-								desc = "m - arrow buffer",
-								desc_hl = "String",
-							},
-							{
-								desc = "; - files buffer",
+								desc = "if remember sothing you forgot to do do it imediatly",
 								desc_hl = "String",
 							},
 						},
@@ -116,23 +100,11 @@ return {
 			priority = 1000,
 		},
 		{
-			"rebelot/kanagawa.nvim",
-			priority = 1000,
-		},
-		{
 			"mcauley-penney/visual-whitespace.nvim",
 			lazy = true,
 			config = true,
 			event = "ModeChanged *:[vV\22]",
 			opts = {},
-		},
-		{
-			"sainnhe/sonokai",
-			lazy = false,
-			priority = 1000,
-			config = function()
-				vim.g.sonokai_enable_italic = true
-			end,
 		},
 		{ "xiyaowong/transparent.nvim" },
 	},

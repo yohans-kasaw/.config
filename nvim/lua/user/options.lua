@@ -69,8 +69,8 @@ vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.o.guifont = "Monaspace Neon Frozen:h27"
 
-vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
+vim.opt.cursorline = true
 
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
