@@ -78,3 +78,6 @@ vim.opt.foldtext = ""
 vim.opt.foldlevelstart = 99
 vim.opt.foldlevel = 99
 vim.opt.foldnestmax = 2
+
+vim.opt.laststatus = 3
+
