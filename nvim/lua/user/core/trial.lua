@@ -107,9 +107,9 @@ require('incline').setup({
 
     return {
       ' ',
+      modified and { ' *', guifg = '#888888', gui = 'bold' } or '',
       {  get_git_diff() },
       { get_diagnostic_label() },
-      modified and { ' *', guifg = '#888888', gui = 'bold' } or '',
       filename,
       ' ',
     }
@@ -118,11 +118,50 @@ require('incline').setup({
             end,
           event = 'VimEnter',
         },
+{
+    'JellyApple102/flote.nvim',
+            config = function ()
+require('flote').setup{
+    q_to_quit = false,
+
+                }
+
+
+            end
+}
 	},
+
 	keys = function()
-		vim.keymap.set("n", "<leader>u", "<cmd>lua require('undotree').toggle()<cr>", { desc = "undo tree" })
-		vim.keymap.set("n", "<leader>y", "<cmd>YankBank<CR>", { noremap = true })
-		vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { silent = true })
-		vim.keymap.set("n", "<leader>t", ":ToggleTerm size=50 direction=vertical<cr>", { silent = true })
+		vim.keymap.set(
+            "n",
+            "<leader>u",
+            "<cmd>lua require('undotree').toggle()<cr>",
+            { desc = "undo tree" }
+        )
+		vim.keymap.set(
+            "n",
+            "<leader>y",
+            "<cmd>YankBank<CR>",
+            { noremap = true }
+        )
+		vim.api.nvim_set_keymap(
+            "t",
+            "<Esc>",
+            "<C-\\><C-n>",
+            { silent = true }
+        )
+		vim.keymap.set(
+            "n",
+            "<leader>t",
+            ":ToggleTerm size=50 direction=vertical<cr>",
+            { silent = true }
+        )
+
+        vim.keymap.set(
+            "n",
+            "<leader>n",
+            ":Flote<cr>",
+            {silent = true, desc = "Toggle global note", }
+        )
 	end,
 }

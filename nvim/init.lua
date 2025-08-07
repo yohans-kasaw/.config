@@ -26,5 +26,3 @@ vim.diagnostic.config({
 vim.filetype.add({
   pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
 })
-
-
