@@ -16,7 +16,6 @@ return {
 			config = function()
 				require("toggleterm").setup({
 					insert_mappings = true,
-					-- autochdir = true,
 				})
 			end,
 		},
@@ -35,10 +34,13 @@ return {
 			end,
 		},
 		{
-			"JellyApple102/flote.nvim",
-			config = function()
-				require("flote").setup({})
-			end,
+			"chrisgrieser/nvim-various-textobjs",
+			event = "VeryLazy",
+			opts = {
+				keymaps = {
+					useDefaults = true,
+				},
+			},
 		},
 	},
 
@@ -46,6 +48,12 @@ return {
 		vim.keymap.set("n", "<leader>y", "<cmd>YankBank<CR>", { noremap = true })
 		vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 		vim.keymap.set("n", "<leader>t", ":ToggleTerm size=50 direction=vertical<cr>", { silent = true })
-		vim.keymap.set("n", "<leader>n", ":Flote<cr>", { silent = true, desc = "Toggle global note" })
+
+        vim.keymap.set("n", "P", function()
+            require("various-textobjs").lastChange()
+            local changeFound = vim.fn.mode():find("v")
+            if changeFound then vim.cmd.normal { ">", bang = true } end
+        end)
+
 	end,
 }

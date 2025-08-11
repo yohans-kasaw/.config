@@ -172,16 +172,17 @@ return {
 			config = function()
 				local configs = require("nvim-treesitter.configs")
 				configs.setup({
-					modules = {},
-					ignore_install = {},
-					ensure_installed = "all",
-					sync_install = true,
 					auto_install = true,
-					highlight = { enable = true },
+
+					highlight = {
+						enable = true,
+					},
+
 					indent = {
 						enable = true,
 						disable = { "markdown" },
 					},
+
 					incremental_selection = {
 						enable = true,
 						keymaps = {
@@ -189,8 +190,25 @@ return {
 							node_incremental = "<CR>",
 						},
 					},
+
+					textobjects = {
+
+						select = {
+							enable = true,
+							lookahead = true,
+							keymaps = {
+								["af"] = "@function.outer",
+								["ac"] = "@class.outer",
+								["if"] = "@function.inner",
+								["ic"] = "@class.inner",
+							},
+						},
+					},
 				})
 			end,
+			dependencies = {
+				"nvim-treesitter/nvim-treesitter-textobjects",
+			},
 		},
 		{
 			"windwp/nvim-autopairs",

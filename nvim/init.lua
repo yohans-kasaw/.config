@@ -4,6 +4,7 @@ require("user.options")
 require("user.core")
 
 vim.cmd("colorscheme kanso-zen")
+vim.cmd("colorscheme kanso-ink")
 -- vim.cmd("colorscheme kanso-pearl")
 
 vim.lsp.enable({
@@ -22,3 +23,5 @@ vim.diagnostic.config({
 		source = true,
 	},
 })
+
+vim.cmd [[autocmd VimEnter * lua require('fzf-lua').files()]]
