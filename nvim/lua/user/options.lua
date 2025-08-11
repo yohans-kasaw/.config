@@ -47,8 +47,6 @@ vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 
--- Highlights
-vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
 
 -- spell
 vim.opt.spellcapcheck = ""

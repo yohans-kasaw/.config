@@ -24,4 +24,8 @@ vim.diagnostic.config({
 	},
 })
 
+-- autocmd
 vim.cmd([[autocmd VimEnter * lua require('fzf-lua').files()]])
+
+-- Highlights
+vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
