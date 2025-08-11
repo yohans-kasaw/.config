@@ -22,18 +22,16 @@ vim.opt.fillchars = { eob = " " }
 vim.opt.conceallevel = 2
 
 vim.opt.signcolumn = "yes"
-vim.g.airline_theme = "oceanicnext"
 vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 
 vim.opt.signcolumn = "yes"
-vim.g.airline_theme = "oceanicnext"
 vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.relativenumber = true
-vim.opt.scrolloff = 2
+vim.opt.scrolloff = 99999
 
 vim.opt.termguicolors = true
 vim.jumpoptions = "stack"

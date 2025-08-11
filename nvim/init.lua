@@ -14,7 +14,6 @@ vim.lsp.enable({
 	"cssls",
 	"jsonls",
 	"gopls",
-	"hyprlang"
 })
 
 vim.diagnostic.config({
@@ -22,8 +21,4 @@ vim.diagnostic.config({
 		border = "double",
 		source = true,
 	},
-})
-
-vim.filetype.add({
-  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
 })

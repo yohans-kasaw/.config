@@ -1,7 +1,5 @@
 return {
 	plugins = {
-		{ "kelly-lin/ranger.nvim", lazy = true },
-		{ "aaronik/treewalker.nvim" },
 		{
 			"nvim-telescope/telescope.nvim",
 			dependencies = { "nvim-lua/plenary.nvim" },
@@ -107,12 +105,6 @@ return {
 			harpoon.nav_file(8)
 		end)
 
-		vim.api.nvim_set_keymap(
-            "n",
-            "<leader>bc",
-            "<cmd>bd<CR>",
-            { noremap = true, silent = false }
-        )
 		vim.keymap.set("n", "<leader>ba", function()
 			for _, buf in ipairs(vim.api.nvim_list_bufs()) do
 				if buf ~= vim.api.nvim_get_current_buf() then
@@ -124,10 +116,6 @@ return {
             silent = true,
             desc = "Close Other Buffers (Tab All)",
         })
-
-		vim.keymap.set("n", "<leader>rr", function()
-			require("ranger-nvim").open(true)
-		end, { noremap = true, desc = "open ranger" })
 
 		vim.api.nvim_set_keymap(
             "n",
@@ -155,9 +143,6 @@ return {
         )
 
 		vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
-		vim.keymap.set({ "n", "x", "o" }, "gs", function()
-			require("leap.remote").action()
-		end)
 
 		vim.keymap.set(
             { "n", "v" },
@@ -170,31 +155,6 @@ return {
             "<Up>",
             "<C-b>",
             { noremap = true, silent = false }
-        )
-
-		vim.keymap.set(
-            { "n", "v" },
-            "<S-Up>",
-            "<cmd>Treewalker Up<cr>zz",
-            { silent = true }
-        )
-		vim.keymap.set(
-            { "n", "v" },
-            "<S-Down>",
-            "<cmd>Treewalker Down<cr>zz",
-            { silent = true }
-        )
-		vim.keymap.set(
-            { "n", "v" },
-            "<S-Left>",
-            "<cmd>Treewalker Left<cr>zz",
-            { silent = true }
-        )
-		vim.keymap.set(
-            { "n", "v" },
-            "<S-Right>",
-            "<cmd>Treewalker Right<cr>zz",
-            { silent = true }
         )
 
 		vim.keymap.set(

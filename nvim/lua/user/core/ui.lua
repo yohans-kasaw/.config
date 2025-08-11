@@ -48,10 +48,6 @@ return {
 			end,
 		},
 		{
-			"folke/zen-mode.nvim",
-			lazy = true,
-		},
-		{
 			"nvim-tree/nvim-web-devicons",
 		},
 		{
@@ -69,28 +65,6 @@ return {
 				})
 			end,
 		},
-		{
-			"nvimdev/dashboard-nvim",
-			event = "VimEnter",
-			config = function()
-				require("dashboard").setup({
-					theme = "doom",
-					config = {
-						header = {},
-						center = {
-							{
-								desc = "if remember sothing you forgot to do do it imediatly",
-								desc_hl = "String",
-							},
-						},
-						footer = {},
-						vertical_center = true,
-					},
-				})
-			end,
-			dependencies = { { "nvim-tree/nvim-web-devicons" } },
-		},
-
 		{
 			"m4xshen/smartcolumn.nvim",
 			opts = {},
