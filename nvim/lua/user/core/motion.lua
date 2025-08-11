@@ -17,20 +17,20 @@ return {
 			lazy = true,
 			keys = {
 				{
-                    "w",
-                    "<cmd>lua require('spider').motion('w')<CR>",
-                    mode = { "n" },
-                },
+					"w",
+					"<cmd>lua require('spider').motion('w')<CR>",
+					mode = { "n" },
+				},
 				{
-                    "e",
-                    "<cmd>lua require('spider').motion('e')<CR>",
-                    mode = { "n" },
-                },
+					"e",
+					"<cmd>lua require('spider').motion('e')<CR>",
+					mode = { "n" },
+				},
 				{
-                    "b",
-                    "<cmd>lua require('spider').motion('b')<CR>",
-                    mode = { "n" },
-                },
+					"b",
+					"<cmd>lua require('spider').motion('b')<CR>",
+					mode = { "n" },
+				},
 			},
 			config = function()
 				require("spider").setup({
@@ -43,13 +43,17 @@ return {
 			config = function()
 				require("leap").setup({
 					safe_labels = {},
-					preview_filter = function() return false end,
-                    on_beacons = function (targets, _, _)
-                      for _, t in ipairs(targets) do
-                        if t.label and t.beacon then t.beacon[1] = 0 end
-                      end
-                      return true
-                    end
+					preview_filter = function()
+						return false
+					end,
+					on_beacons = function(targets, _, _)
+						for _, t in ipairs(targets) do
+							if t.label and t.beacon then
+								t.beacon[1] = 0
+							end
+						end
+						return true
+					end,
 				})
 			end,
 		},
@@ -112,80 +116,25 @@ return {
 				end
 			end
 		end, {
-            noremap = true,
-            silent = true,
-            desc = "Close Other Buffers (Tab All)",
-        })
+			noremap = true,
+			silent = true,
+			desc = "Close Other Buffers (Tab All)",
+		})
 
-		vim.api.nvim_set_keymap(
-            "n",
-            "<C-h>",
-            "<C-w>h",
-            { noremap = true, silent = true }
-        )
-		vim.api.nvim_set_keymap(
-            "n",
-            "<C-l>",
-            "<C-w>l",
-            { noremap = true, silent = true }
-        )
-		vim.api.nvim_set_keymap(
-            "n",
-            "<C-k>",
-            "<C-w>k",
-            { noremap = true, silent = true }
-        )
-		vim.api.nvim_set_keymap(
-            "n",
-            "<C-j>",
-            "<C-w>j",
-            { noremap = true, silent = true }
-        )
+		vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
+		vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 
 		vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
 
-		vim.keymap.set(
-            { "n", "v" },
-            "<Down>",
-            "<C-f>",
-            { noremap = true, silent = false }
-        )
-		vim.keymap.set(
-            { "n", "v" },
-            "<Up>",
-            "<C-b>",
-            { noremap = true, silent = false }
-        )
+		vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>", { noremap = true, silent = false })
+		vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>", { noremap = true, silent = false })
 
-		vim.keymap.set(
-            "n",
-            "<leader>r",
-            require("fzf-lua").resume,
-            { desc = "resume" }
-        )
-		vim.keymap.set(
-            "n",
-            "<leader>g",
-            require("fzf-lua").live_grep_native,
-            { desc = "Grep" }
-        )
-		vim.keymap.set(
-            { "n", "x" },
-            "<leader>w",
-            require("fzf-lua").grep_cword,
-            { desc = "Search word under cursor" }
-        )
-		vim.keymap.set(
-            "n",
-            "<leader><space>",
-            require("fzf-lua").files,
-            { desc = "Files" }
-        )
-		vim.keymap.set(
-            "n",
-            "<leader>b",
-            require("fzf-lua").buffers,
-            { desc = "buffers" }
-        )
+		vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "resume" })
+		vim.keymap.set("n", "<leader>g", require("fzf-lua").live_grep_native, { desc = "Grep" })
+		vim.keymap.set({ "n", "x" }, "<leader>w", require("fzf-lua").grep_cword, { desc = "Search word under cursor" })
+		vim.keymap.set("n", "<leader><space>", require("fzf-lua").files, { desc = "Files" })
+		vim.keymap.set("n", "<leader>b", require("fzf-lua").buffers, { desc = "buffers" })
 	end,
 }
