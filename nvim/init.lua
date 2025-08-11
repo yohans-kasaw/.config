@@ -24,4 +24,4 @@ vim.diagnostic.config({
 	},
 })
 
-vim.cmd [[autocmd VimEnter * lua require('fzf-lua').files()]]
+vim.cmd([[autocmd VimEnter * lua require('fzf-lua').files()]])

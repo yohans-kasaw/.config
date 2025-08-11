@@ -49,11 +49,12 @@ return {
 		vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 		vim.keymap.set("n", "<leader>t", ":ToggleTerm size=50 direction=vertical<cr>", { silent = true })
 
-        vim.keymap.set("n", "P", function()
-            require("various-textobjs").lastChange()
-            local changeFound = vim.fn.mode():find("v")
-            if changeFound then vim.cmd.normal { ">", bang = true } end
-        end)
-
+		vim.keymap.set("n", "P", function()
+			require("various-textobjs").lastChange()
+			local changeFound = vim.fn.mode():find("v")
+			if changeFound then
+				vim.cmd.normal({ ">", bang = true })
+			end
+		end)
 	end,
 }
