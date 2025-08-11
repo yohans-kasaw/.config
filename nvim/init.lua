@@ -4,6 +4,7 @@ require("user.options")
 require("user.core")
 
 vim.cmd("colorscheme kanso-zen")
+-- vim.cmd("colorscheme kanso-pearl")
 
 vim.lsp.enable({
 	"lua_ls",

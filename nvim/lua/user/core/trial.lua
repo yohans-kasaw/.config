@@ -21,16 +21,6 @@ return {
 			end,
 		},
 		{
-			"jiaoshijie/undotree",
-			dependencies = "nvim-lua/plenary.nvim",
-			config = function()
-				require("undotree").setup({
-					float_diff = false,
-					position = "right",
-				})
-			end,
-		},
-		{
 			"nvimtools/none-ls.nvim",
 			config = function()
 				local null_ls = require("null-ls")
@@ -50,20 +40,12 @@ return {
 				require("flote").setup({})
 			end,
 		},
-		{
-			"CrystalDime/epub.nvim",
-			opts = {
-			},
-			config = true,
-		},
 	},
 
 	keys = function()
-		vim.keymap.set("n", "<leader>u", "<cmd>lua require('undotree').toggle()<cr>", { desc = "undo tree" })
 		vim.keymap.set("n", "<leader>y", "<cmd>YankBank<CR>", { noremap = true })
 		vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 		vim.keymap.set("n", "<leader>t", ":ToggleTerm size=50 direction=vertical<cr>", { silent = true })
-
 		vim.keymap.set("n", "<leader>n", ":Flote<cr>", { silent = true, desc = "Toggle global note" })
 	end,
 }
