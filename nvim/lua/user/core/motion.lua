@@ -109,12 +109,21 @@ return {
 			harpoon.nav_file(8)
 		end)
 
+		vim.keymap.set("n", "<leader>c", require("harpoon.mark").clear_all, {})
+
 		vim.keymap.set("n", "<leader>ba", function()
 			for _, buf in ipairs(vim.api.nvim_list_bufs()) do
 				if buf ~= vim.api.nvim_get_current_buf() then
 					vim.api.nvim_buf_delete(buf, { force = false })
 				end
 			end
+		end, {
+			noremap = true,
+			silent = true,
+			desc = "Close Other Buffers (Tab All)",
+		})
+
+		vim.keymap.set("n", "<A-t>", function()
 		end, {
 			noremap = true,
 			silent = true,

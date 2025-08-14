@@ -16,6 +16,7 @@ return {
 			config = function()
 				require("toggleterm").setup({
 					insert_mappings = true,
+					shade_terminals = false,
 				})
 			end,
 		},
@@ -48,6 +49,7 @@ return {
 		vim.keymap.set("n", "<leader>y", "<cmd>YankBank<CR>", { noremap = true })
 		vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 		vim.keymap.set("n", "<leader>t", ":ToggleTerm size=50 direction=vertical<cr>", { silent = true })
+		vim.keymap.set("n", "<A-r>", ":TermExec cmd='go run .'<cr>", { silent = true })
 
 		vim.keymap.set("n", "P", function()
 			require("various-textobjs").lastChange()
@@ -57,4 +59,11 @@ return {
 			end
 		end)
 	end,
+
+	vim.api.nvim_set_keymap(
+		"i",
+		"<C-e>",
+		"if err != nil {\nfmt.Println(err)\n}\x1bo",
+		{ noremap = true, silent = true, expr = false }
+	),
 }
