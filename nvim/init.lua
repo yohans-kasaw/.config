@@ -1,6 +1,19 @@
-vim.g.mapleader = " "
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable",
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup(require("user.plugin"))
 require("user.options")
-require("user.core")
+require("user.binding")
 
 vim.cmd("colorscheme kanso-zen")
 vim.cmd("colorscheme kanso-ink")

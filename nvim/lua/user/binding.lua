@@ -1,0 +1,94 @@
+-- Diagnostics
+vim.keymap.set("n", "gl", function()
+	vim.diagnostic.open_float(nil, {})
+end, { noremap = true, silent = true, desc = "Show Line Diagnostics" })
+
+-- Formatting
+vim.keymap.set({ "n", "v" }, "<leader>ff", function()
+	require("conform").format({
+		lsp_fallback = false,
+		async = false,
+		timeout_ms = 500,
+	})
+end, { desc = "Format" })
+
+-- Git integration (gitsigns)
+vim.keymap.set({ "n", "x" }, "<A-Down>", function()
+	require("gitsigns").nav_hunk("next")
+end, { desc = "Next Hunk" })
+vim.keymap.set({ "n", "x" }, "<A-Up>", function()
+	require("gitsigns").nav_hunk("prev")
+end, { desc = "Previous Hunk" })
+vim.keymap.set({ "n", "x" }, "<leader>hr", require("gitsigns").reset_hunk, { desc = "Reset Hunk" })
+vim.keymap.set({ "n", "x" }, "<leader>hp", require("gitsigns").preview_hunk_inline, { desc = "Preview Hunk Inline" })
+
+-- Harpoon navigation
+vim.keymap.set("n", "<leader>c", require("harpoon.mark").clear_all, {})
+vim.keymap.set("n", "<leader>h", require("harpoon.mark").add_file)
+vim.keymap.set("n", "<leader>l", require("harpoon.ui").toggle_quick_menu)
+vim.keymap.set("n", "<A-a>", function()
+	require("harpoon.ui").nav_file(1)
+end)
+vim.keymap.set("n", "<A-o>", function()
+	require("harpoon.ui").nav_file(2)
+end)
+vim.keymap.set("n", "<A-e>", function()
+	require("harpoon.ui").nav_file(3)
+end)
+vim.keymap.set("n", "<A-u>", function()
+	require("harpoon.ui").nav_file(4)
+end)
+vim.keymap.set("n", "<A-i>", function()
+	require("harpoon.ui").nav_file(5)
+end)
+
+-- window
+vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
+
+-- leap
+vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
+
+-- fzf
+vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "Resume Last Search" })
+vim.keymap.set("n", "<leader>g", require("fzf-lua").live_grep_native, { desc = "Grep" })
+vim.keymap.set({ "n", "x" }, "<leader>w", require("fzf-lua").grep_cword, { desc = "Search Word Under Cursor" })
+vim.keymap.set("n", "<leader><space>", require("fzf-lua").files, { desc = "Find Files" })
+vim.keymap.set("n", "<leader>b", require("fzf-lua").buffers, { desc = "List Buffers" })
+
+-- Msc
+vim.keymap.set("n", "<C-n>", "<Cmd>noh<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>o", ":w<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "o" }, "H", "0", { noremap = true })
+vim.keymap.set({ "n", "v", "o" }, "L", "$", { noremap = true })
+vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>", { noremap = true, silent = false })
+vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>", { noremap = true, silent = false })
+
+-- session
+vim.keymap.set("n", "<leader>s", function()
+	require("persistence").load()
+end, { desc = "Select a session to load" })
+
+-- File explorer
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+
+-- terminal
+vim.keymap.set("n", "<leader>t", ":ToggleTerm size=50 direction=vertical<cr>", { silent = true })
+vim.keymap.set("n", "<A-r>", ":TermExec cmd='go run .'<cr>", { silent = true })
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { silent = true })
+
+-- snippets
+vim.keymap.set("n", "<C-e>", "if err != nil {\n\tfmt.Println(err)\n}<Esc>", { silent = true })
+
+-- lsp
+vim.keymap.set("n", "<c-k>", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+vim.keymap.set("n", "<C-i>", "<cmd>Lspsaga incoming_calls<CR>", { silent = true })
+vim.keymap.set("n", "<C-o>", "<cmd>Lspsaga outgoing_calls<CR>", { silent = true })
+vim.keymap.set("n", "<C-d>", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+vim.keymap.set("n", "<C-t>", "<cmd>Lspsaga peek_type_definition<CR>", { silent = true })
+vim.keymap.set("n", "<C-u>", "<cmd>Lspsaga outline<CR>", { silent = true })
+vim.keymap.set("n", "<C-f>", "<cmd>Lspsaga finder<CR>", { silent = true })
+
+-- trail

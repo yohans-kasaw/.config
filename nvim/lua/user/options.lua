@@ -1,3 +1,4 @@
+vim.g.mapleader = " "
 -- Looks
 vim.opt.termguicolors = true
 vim.opt.showtabline = 0
