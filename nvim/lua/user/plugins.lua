@@ -138,7 +138,6 @@ return {
 	},
 	{
 		"chrisgrieser/nvim-spider",
-		lazy = true,
 		keys = {
 			{ "w", "<cmd>lua require('spider').motion('w')<CR>", mode = { "n" } },
 			{ "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n" } },
@@ -151,7 +150,6 @@ return {
 	{
 		"kylechui/nvim-surround",
 		version = "*",
-		event = "VeryLazy",
 		config = function()
 			require("nvim-surround").setup({})
 		end,
@@ -176,7 +174,12 @@ return {
 		end,
 	},
 	{ "HiPhish/rainbow-delimiters.nvim" },
-	{ "mcauley-penney/visual-whitespace.nvim", lazy = true, config = true, event = "ModeChanged *:[vV\22]", opts = {} },
+	{
+		"mcauley-penney/visual-whitespace.nvim",
+		config = true,
+		event = "ModeChanged *:[vV\22]",
+		opts = {},
+	},
 	{ "xiyaowong/transparent.nvim" },
 	{
 		"yamatsum/nvim-cursorline",
@@ -194,7 +197,6 @@ return {
 	{
 		"stevearc/conform.nvim",
 		cmd = { "ConformInfo" },
-		lazy = true,
 		config = function()
 			require("conform").setup({
 				formatters_by_ft = {
@@ -240,6 +242,9 @@ return {
 		config = function()
 			require("harpoon").setup({ tabline = true })
 		end,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
 	},
 	{
 		"ibhagwan/fzf-lua",
@@ -259,7 +264,6 @@ return {
 	},
 	{
 		"folke/which-key.nvim",
-		event = "VeryLazy",
 		opts = { preset = "helix", delay = 800 },
 		init = function()
 			vim.o.timeout = true
@@ -268,7 +272,6 @@ return {
 	},
 	{
 		"epwalsh/obsidian.nvim",
-		lazy = true,
 		ft = "markdown",
 		config = function()
 			require("obsidian").setup({
@@ -323,13 +326,10 @@ return {
 
 	{
 		"chrisgrieser/nvim-various-textobjs",
-		event = "VeryLazy",
 		opts = { keymaps = { useDefaults = true } },
 	},
 	{
 		"folke/noice.nvim",
-		lazy = true,
-		event = "VeryLazy",
 		opts = {
 			top_down = false,
 			presets = {
@@ -358,7 +358,9 @@ return {
 			})
 		end,
 	},
-	{ "wakatime/vim-wakatime", lazy = false },
+	{
+		"wakatime/vim-wakatime",
+	},
 	{ "webhooked/kanso.nvim", priority = 1000 },
 	{
 		"ggandor/leap.nvim",
