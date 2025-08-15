@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-
 require("user.options")
 require("user.core")
 

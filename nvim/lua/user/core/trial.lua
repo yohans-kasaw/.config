@@ -71,16 +71,11 @@ return {
 
 	keys = function()
 		vim.keymap.set("n", "<leader>y", "<cmd>YankBank<CR>", { noremap = true })
-		vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { silent = true })
+		vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 		vim.keymap.set("n", "<leader>t", ":ToggleTerm size=50 direction=vertical<cr>", { silent = true })
 		vim.keymap.set("n", "<A-r>", ":TermExec cmd='go run .'<cr>", { silent = true })
 
-		vim.api.nvim_set_keymap(
-			"i",
-			"<C-e>",
-			"if err != nil {\nfmt.Println(err)\n}\x1bo",
-			{ noremap = true, silent = true, expr = false }
-		)
+		vim.keymap.set("n", "<C-e>", "if err != nil {\n\tfmt.Println(err)\n}<Esc>", { silent = true })
 		vim.keymap.set("n", "<c-k>", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 		vim.keymap.set("n", "<C-i>", "<cmd>Lspsaga incoming_calls<CR>", { silent = true })
 		vim.keymap.set("n", "<C-o>", "<cmd>Lspsaga outgoing_calls<CR>", { silent = true })
