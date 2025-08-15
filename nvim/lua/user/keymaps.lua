@@ -45,11 +45,12 @@ vim.keymap.set({ "n", "v", "o" }, "H", "0", { noremap = true })
 vim.keymap.set({ "n", "v", "o" }, "L", "$", { noremap = true })
 vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>", { noremap = true, silent = false })
 vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>", { noremap = true, silent = false })
+vim.keymap.set("n", "'", "`", { noremap = true })
 
 -- session
-vim.keymap.set("n", "<leader>s", function()
-	require("persistence").load()
-end, { desc = "Select a session to load" })
+-- vim.keymap.set("n", "<leader>s", function()
+-- 	require("persistence").load()
+-- end, { desc = "Select a session to load" })
 
 -- File explorer
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
@@ -70,5 +71,16 @@ vim.keymap.set("n", "<C-d>", "<cmd>Lspsaga peek_definition<CR>", { silent = true
 vim.keymap.set("n", "<C-t>", "<cmd>Lspsaga peek_type_definition<CR>", { silent = true })
 vim.keymap.set("n", "<C-u>", "<cmd>Lspsaga outline<CR>", { silent = true })
 vim.keymap.set("n", "<C-f>", "<cmd>Lspsaga finder<CR>", { silent = true })
+
+-- file navigation
+
+vim.keymap.set("n", "<leader>h", "<cmd>Grapple toggle<cr><cmd>redrawstatus<cr>", { desc = "Tag a file" })
+vim.keymap.set("n", "<leader>l", "<cmd>Grapple toggle_tags<cr>", { desc = "Toggle tags menu" })
+vim.keymap.set("n", "<D-'>", "<cmd>Grapple select index=1<cr>", { desc = "Select 1 tag" })
+vim.keymap.set("n", "<D-,>", "<cmd>Grapple select index=2<cr>", { desc = "Select 2 tag" })
+vim.keymap.set("n", "<D-.>", "<cmd>Grapple select index=3<cr>", { desc = "Select 3 tag" })
+vim.keymap.set("n", "<D-p>", "<cmd>Grapple select index=4<cr>", { desc = "Select 4 tag" })
+vim.keymap.set("n", "<D-y>", "<cmd>Grapple select index=5<cr>", { desc = "Select 5 tag" })
+vim.keymap.set("n", "<D-;>", "<cmd>Grapple select index=6<cr>", { desc = "Select 6 tag" })
 
 -- trail

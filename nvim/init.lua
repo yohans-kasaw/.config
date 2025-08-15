@@ -19,6 +19,8 @@ require("lazy").setup({
 	spec = require("user.plugins"),
 })
 require("user.keymaps")
+vim.opt.statusline = "%!v:lua.get_grapple_status()"
+require("user.functions")
 
 vim.cmd("colorscheme kanso-zen")
 vim.cmd("colorscheme kanso-ink")

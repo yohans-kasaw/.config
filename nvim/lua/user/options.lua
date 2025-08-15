@@ -38,7 +38,7 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldlevel = 99
 vim.opt.foldnestmax = 2
 
--- Clipboard 
+-- Clipboard
 vim.opt.clipboard = "unnamedplus"
 
 -- Completion
@@ -48,21 +48,20 @@ vim.opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 
-
 -- spell
 vim.opt.spellcapcheck = ""
 local function enable_spell()
-  vim.opt_local.spell = true
-  vim.opt_local.spelllang = { "en_us" }
+	vim.opt_local.spell = true
+	vim.opt_local.spelllang = { "en_us" }
 end
 vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
-  desc = "Conditional spell checking activation",
-  callback = function(args)
-    local ft = vim.bo[args.buf].filetype
-    if vim.tbl_contains({ "markdown", "text" }, ft) then
-      enable_spell()
-    end
-  end,
+	desc = "Conditional spell checking activation",
+	callback = function(args)
+		local ft = vim.bo[args.buf].filetype
+		if vim.tbl_contains({ "markdown", "text" }, ft) then
+			enable_spell()
+		end
+	end,
 })
 
 -- Neovide
@@ -72,3 +71,5 @@ vim.g.neovide_cursor_animation_length = 0
 vim.g.neovide_cursor_vfx_mode = ""
 vim.g.neovide_cursor_trail_size = 0
 vim.g.neovide_confirm_quit = true
+
+-- vim.o.statusline = "%f%m%r%w%=" ..require("grapple").name_or_index()

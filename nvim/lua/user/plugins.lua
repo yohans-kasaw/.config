@@ -1,4 +1,7 @@
 return {
+	{ "nvim-lua/plenary.nvim" },
+	{ "nvim-tree/nvim-web-devicons" },
+	{ "wakatime/vim-wakatime" },
 	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -9,18 +12,12 @@ return {
 			local lspkind = require("lspkind")
 
 			cmp.setup({
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
 				sources = cmp.config.sources({
-					{ name = "luasnip", group_index = 1 },
-					{ name = "nvim_lsp", group_index = 2 },
-					{ name = "treesitter", group_index = 3 },
-					{ name = "nvim_lua", group_index = 4 },
-					{ name = "path", group_index = 5 },
-					{ name = "buffer", group_index = 6 },
+					{ name = "nvim_lsp" },
+					{ name = "treesitter" },
+					{ name = "nvim_lua" },
+					{ name = "path" },
+					{ name = "buffer" },
 				}),
 				sorting = {
 					comparators = {
@@ -80,7 +77,6 @@ return {
 			{ "ray-x/cmp-treesitter" },
 			{ "hrsh7th/cmp-nvim-lua" },
 			{ "onsails/lspkind.nvim" },
-			{ "saadparwaiz1/cmp_luasnip" },
 		},
 	},
 	{
@@ -239,7 +235,6 @@ return {
 	},
 	{
 		"ibhagwan/fzf-lua",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			require("fzf-lua").setup({
 				fzf_opts = { ["--layout"] = "reverse-list" },
@@ -248,26 +243,17 @@ return {
 			})
 		end,
 	},
-	{
-		"folke/persistence.nvim",
-		event = "BufReadPre",
-		opts = {},
-	},
+	-- {
+	-- 	"folke/persistence.nvim",
+	-- 	event = "BufReadPre",
+	-- 	opts = {},
+	-- },
 	{
 		"folke/which-key.nvim",
 		opts = { preset = "helix", delay = 800 },
 		init = function()
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
-		end,
-	},
-	{
-		"epwalsh/obsidian.nvim",
-		ft = "markdown",
-		config = function()
-			require("obsidian").setup({
-				workspaces = { { name = "saga", path = "~/obsidian/saga" } },
-			})
 		end,
 	},
 	{
@@ -349,9 +335,6 @@ return {
 			})
 		end,
 	},
-	{
-		"wakatime/vim-wakatime",
-	},
 	{ "webhooked/kanso.nvim", priority = 1000 },
 	{
 		"ggandor/leap.nvim",
@@ -371,5 +354,11 @@ return {
 				end,
 			})
 		end,
+	},
+	{
+		"cbochs/grapple.nvim",
+		opts = {
+			scope = "git_branch",
+		},
 	},
 }
