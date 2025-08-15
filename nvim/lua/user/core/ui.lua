@@ -6,9 +6,10 @@ return {
 			event = "VeryLazy",
 			opts = {
 				top_down = false,
-			},
-			dependencies = {
-				"MunifTanjim/nui.nvim",
+				presets = {
+					bottom_search = true,
+					command_palette = true,
+				},
 			},
 		},
 		{
