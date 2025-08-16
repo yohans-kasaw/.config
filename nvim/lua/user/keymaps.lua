@@ -43,8 +43,8 @@ vim.keymap.set("n", "<C-n>", "<Cmd>noh<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>o", ":w<CR>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v", "o" }, "H", "0", { noremap = true })
 vim.keymap.set({ "n", "v", "o" }, "L", "$", { noremap = true })
-vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>", { noremap = true, silent = false })
-vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>", { noremap = true, silent = false })
+-- vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>", { noremap = true, silent = false })
+-- vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>", { noremap = true, silent = false })
 vim.keymap.set("n", "'", "`", { noremap = true })
 
 -- session
@@ -84,3 +84,11 @@ vim.keymap.set("n", "<D-y>", "<cmd>Grapple select index=5<cr>", { desc = "Select
 vim.keymap.set("n", "<D-;>", "<cmd>Grapple select index=6<cr>", { desc = "Select 6 tag" })
 
 -- trail
+vim.keymap.set({ 'n', 'v' }, '<S-Up>', '<cmd>Treewalker Up<cr>', { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<S-Down>', '<cmd>Treewalker Down<cr>', { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<S-Left>', '<cmd>Treewalker Left<cr>', { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<S-Right>', '<cmd>Treewalker Right<cr>', { silent = true })
+
+-- swapping
+vim.keymap.set('n', '<C-S-Up>', '<cmd>Treewalker SwapUp<cr>', { silent = true })
+vim.keymap.set('n', '<C-S-Down>', '<cmd>Treewalker SwapDown<cr>', { silent = true })

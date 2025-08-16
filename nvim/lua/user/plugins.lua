@@ -361,4 +361,5 @@ return {
 			scope = "git_branch",
 		},
 	},
+	{ "aaronik/treewalker.nvim" },
 }
