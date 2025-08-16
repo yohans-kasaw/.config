@@ -92,3 +92,8 @@ vim.keymap.set({ 'n', 'v' }, '<S-Right>', '<cmd>Treewalker Right<cr>', { silent 
 -- swapping
 vim.keymap.set('n', '<C-S-Up>', '<cmd>Treewalker SwapUp<cr>', { silent = true })
 vim.keymap.set('n', '<C-S-Down>', '<cmd>Treewalker SwapDown<cr>', { silent = true })
+
+vim.keymap.set("n", "-", "<CMD>Oil --float --preview<CR>", { desc = "Open parent directory" })
+
+
+

@@ -104,11 +104,22 @@ return {
 		"nvimdev/lspsaga.nvim",
 		config = function()
 			require("lspsaga").setup({
-				ui = { border = "rounded", winblend = 10 },
-				hover = { max_width = 0.5 },
-				symbol_in_winbar = { enable = false },
-				finder = { left_width = 0.16, right_width = 0.5 },
-				lightbulb = { enable = false },
+				ui = {
+                    border = "rounded",
+                },
+				hover = {
+                    max_width = 0.5,
+                },
+				symbol_in_winbar = {
+                    enable = false,
+                },
+				finder = {
+                    left_width = 0.16,
+                    right_width = 0.5,
+                },
+				lightbulb = {
+                    enable = false,
+                },
 			})
 		end,
 	},
@@ -362,4 +373,18 @@ return {
 		},
 	},
 	{ "aaronik/treewalker.nvim" },
+	{
+		"stevearc/oil.nvim",
+		opts = {
+			float = {
+				padding = 0,
+				max_width = 0.98,
+				max_height = 0.98,
+				get_win_title = function()
+					return "oil"
+				end,
+				preview_split = "right",
+			},
+		},
+	},
 }
