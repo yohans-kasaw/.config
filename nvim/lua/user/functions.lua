@@ -4,12 +4,10 @@ function get_grapple_status()
 	if current_buf_path == "" then
 		file_path = "[No Name]"
 	else
-		-- file_path = vim.fn.fnamemodify(current_buf_path, ":.")
-       file_path = vim.fn.pathshorten(vim.fn.fnamemodify(current_buf_path, ":.:r"))
+		file_path = vim.fn.pathshorten(vim.fn.fnamemodify(current_buf_path, ":.:r"))
 	end
 
 	local right_part = file_path .. "%m%r%w"
-
 
 	if not pcall(require, "grapple") then
 		return right_part
@@ -22,11 +20,10 @@ function get_grapple_status()
 	for _, tag in ipairs(tags) do
 		local file_name = vim.fn.fnamemodify(tag.path, ":t:r")
 		if tag.path == current_buf_path then
-			table.insert(file_list, string.format("[%s]", file_name))
-		else
-			table.insert(file_list, file_name)
+			file_name = string.format("[%s]", file_name)
 		end
+		table.insert(file_list, file_name)
 	end
 
-	return  table.concat(file_list, " ") .. "%=" .. right_part
+	return table.concat(file_list, " ") .. "%=" .. right_part
 end
