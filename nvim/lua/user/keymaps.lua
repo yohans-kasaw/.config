@@ -62,7 +62,7 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 
 
 -- lsp
-vim.keymap.set("n", "<c-k>", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+vim.keymap.set("n", "<C-k>", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 vim.keymap.set("n", "<C-i>", "<cmd>Lspsaga incoming_calls<CR>", { silent = true })
 vim.keymap.set("n", "<C-o>", "<cmd>Lspsaga outgoing_calls<CR>", { silent = true })
 vim.keymap.set("n", "<C-d>", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
@@ -98,3 +98,6 @@ vim.keymap.set("n", "<leader>e", "<CMD>Oil --float --preview<CR>", { desc = "Ope
 -- snippets
 vim.keymap.set("i", "<C-e>", "if err != nil {\n\tfmt.Println(err)\n}<Esc>", { silent = true })
 vim.api.nvim_set_keymap('i', '<C-t>', '<C-R>=strftime("%H:%M")<CR>', {noremap = true})
+
+-- trial
+vim.keymap.set({'n', 'v'}, '<leader>lf', vim.lsp.buf.format, { desc = 'Format file' })
