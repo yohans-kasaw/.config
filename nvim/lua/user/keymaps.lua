@@ -43,8 +43,8 @@ vim.keymap.set("n", "<C-n>", "<Cmd>noh<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>o", ":w<CR>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v", "o" }, "H", "0", { noremap = true })
 vim.keymap.set({ "n", "v", "o" }, "L", "$", { noremap = true })
--- vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>", { noremap = true, silent = false })
--- vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>", { noremap = true, silent = false })
+vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>", { noremap = true, silent = false })
+vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>", { noremap = true, silent = false })
 vim.keymap.set("n", "'", "`", { noremap = true })
 
 -- session
@@ -53,15 +53,13 @@ vim.keymap.set("n", "'", "`", { noremap = true })
 -- end, { desc = "Select a session to load" })
 
 -- File explorer
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
 -- terminal
 vim.keymap.set("n", "<leader>t", ":ToggleTerm size=50 direction=vertical<cr>", { silent = true })
 vim.keymap.set("n", "<A-r>", ":TermExec cmd='go run .'<cr>", { silent = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 
--- snippets
-vim.keymap.set("n", "<C-e>", "if err != nil {\n\tfmt.Println(err)\n}<Esc>", { silent = true })
 
 -- lsp
 vim.keymap.set("n", "<c-k>", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
@@ -93,7 +91,10 @@ vim.keymap.set({ 'n', 'v' }, '<S-Right>', '<cmd>Treewalker Right<cr>', { silent 
 vim.keymap.set('n', '<C-S-Up>', '<cmd>Treewalker SwapUp<cr>', { silent = true })
 vim.keymap.set('n', '<C-S-Down>', '<cmd>Treewalker SwapDown<cr>', { silent = true })
 
-vim.keymap.set("n", "-", "<CMD>Oil --float --preview<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>e", "<CMD>Oil --float --preview<CR>", { desc = "Open parent directory" })
 
 
 
+-- snippets
+vim.keymap.set("i", "<C-e>", "if err != nil {\n\tfmt.Println(err)\n}<Esc>", { silent = true })
+vim.api.nvim_set_keymap('i', '<C-t>', '<C-R>=strftime("%H:%M")<CR>', {noremap = true})

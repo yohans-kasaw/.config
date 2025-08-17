@@ -45,7 +45,8 @@ vim.diagnostic.config({
 
 -- autocmd
 -- vim.cmd([[autocmd VimEnter * lua require('fzf-lua').files()]])
-vim.cmd([[autocmd VimEnter * Grapple toggle_tags]])
+-- vim.cmd([[autocmd VimEnter * Grapple toggle_tags]])
 
 -- Highlights
 vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
+

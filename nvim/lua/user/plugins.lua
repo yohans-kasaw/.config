@@ -105,21 +105,21 @@ return {
 		config = function()
 			require("lspsaga").setup({
 				ui = {
-                    border = "rounded",
-                },
+					border = "rounded",
+				},
 				hover = {
-                    max_width = 0.5,
-                },
+					max_width = 0.5,
+				},
 				symbol_in_winbar = {
-                    enable = false,
-                },
+					enable = false,
+				},
 				finder = {
-                    left_width = 0.16,
-                    right_width = 0.5,
-                },
+					left_width = 0.16,
+					right_width = 0.5,
+				},
 				lightbulb = {
-                    enable = false,
-                },
+					enable = false,
+				},
 			})
 		end,
 	},
@@ -384,6 +384,12 @@ return {
 					return "oil"
 				end,
 				preview_split = "right",
+			},
+			keymaps = {
+				["q"] = { "actions.close", mode = "n" },
+			},
+			view_options = {
+				show_hidden = true,
 			},
 		},
 	},
