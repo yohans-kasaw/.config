@@ -4,6 +4,7 @@ hypr/hyprpaper.conf
 /fish/fish_variables
 
 # Ignore all the following directories and files
+htop/
 activitywatch/
 aichat/
 autostart/
