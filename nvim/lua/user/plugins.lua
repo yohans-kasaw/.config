@@ -324,6 +324,11 @@ return {
 				bottom_search = true,
 				command_palette = true,
 			},
+			lsp = {
+				progress = {
+					enabled = false,
+				},
+			},
 		},
 	},
 	{

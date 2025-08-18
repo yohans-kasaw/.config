@@ -34,6 +34,7 @@ vim.lsp.enable({
 	"cssls",
 	"jsonls",
 	"gopls",
+	"pylsp",
 })
 
 vim.diagnostic.config({
@@ -49,4 +50,3 @@ vim.diagnostic.config({
 
 -- Highlights
 vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
-
