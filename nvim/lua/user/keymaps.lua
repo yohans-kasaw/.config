@@ -34,6 +34,7 @@ vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
 -- fzf
 vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "Resume Last Search" })
 vim.keymap.set("n", "<leader>g", require("fzf-lua").live_grep_native, { desc = "Grep" })
+vim.keymap.set("n", "<leader>q", require("fzf-lua").quickfix, { desc = "Grep" })
 vim.keymap.set({ "n", "x" }, "<leader>w", require("fzf-lua").grep_cword, { desc = "Search Word Under Cursor" })
 vim.keymap.set("n", "<leader><space>", require("fzf-lua").files, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>b", require("fzf-lua").buffers, { desc = "List Buffers" })
