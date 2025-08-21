@@ -100,3 +100,4 @@ vim.api.nvim_set_keymap("i", "<C-t>", '<C-R>=strftime("%H:%M")<CR>', { noremap =
 
 -- trial
 vim.keymap.set({ "n", "v" }, "<leader>lf", vim.lsp.buf.format, { desc = "Format file" })
+vim.keymap.set({ "n", "v", "o" }, "m", "%")
