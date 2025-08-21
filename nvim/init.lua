@@ -44,9 +44,18 @@ vim.diagnostic.config({
 	},
 })
 
--- autocmd
--- vim.cmd([[autocmd VimEnter * lua require('fzf-lua').files()]])
--- vim.cmd([[autocmd VimEnter * Grapple toggle_tags]])
+-- auto cmd
+vim.cmd("autocmd CursorMoved * normal! zz")
+local function center_cursor()
+	local pos = vim.fn.getpos(".")
+	vim.cmd("normal! zz")
+	vim.fn.setpos(".", pos)
+end
+
+vim.api.nvim_create_autocmd("CursorMovedI", {
+	pattern = "*",
+	callback = center_cursor,
+})
 
 -- Highlights
 vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })

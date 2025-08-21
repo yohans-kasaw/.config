@@ -409,4 +409,26 @@ return {
 			})
 		end,
 	},
+	{
+		"zbirenbaum/copilot.lua",
+		config = function()
+			require("copilot").setup({
+				auto_trigger = false,
+				filetypes = {
+					javascript = true,
+					typescript = true,
+					vue = true,
+					go = true,
+					python = true,
+					["*"] = false,
+				},
+				suggestion = {
+					auto_trigger = false,
+					keymap = {
+						accept = "<A-l>",
+					},
+				},
+			})
+		end,
+	},
 }

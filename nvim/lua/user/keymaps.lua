@@ -48,14 +48,6 @@ vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>", { noremap = true, silent = false
 vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>", { noremap = true, silent = false })
 vim.keymap.set("n", "'", "`", { noremap = true })
 
--- session
--- vim.keymap.set("n", "<leader>s", function()
--- 	require("persistence").load()
--- end, { desc = "Select a session to load" })
-
--- File explorer
--- vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
-
 -- terminal
 vim.keymap.set("n", "<leader>t", ":ToggleTerm size=50 direction=vertical<cr>", { silent = true })
 vim.keymap.set("n", "<A-r>", ":TermExec cmd='go run .'<cr>", { silent = true })
