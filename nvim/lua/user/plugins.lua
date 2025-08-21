@@ -432,4 +432,12 @@ return {
 			})
 		end,
 	},
+	{
+		"folke/persistence.nvim",
+		config = true,
+	},
+	{
+		"olimorris/codecompanion.nvim",
+		opts = {},
+	},
 }
