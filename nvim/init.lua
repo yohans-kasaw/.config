@@ -46,15 +46,22 @@ vim.diagnostic.config({
 
 -- auto cmd
 vim.cmd("autocmd CursorMoved * normal! zz")
-local function center_cursor()
-	local pos = vim.fn.getpos(".")
-	vim.cmd("normal! zz")
-	vim.fn.setpos(".", pos)
-end
-
 vim.api.nvim_create_autocmd("CursorMovedI", {
 	pattern = "*",
-	callback = center_cursor,
+	group = vim.api.nvim_create_augroup("center", { clear = true }),
+	callback = function()
+		local pos = vim.fn.getpos(".")
+		vim.cmd("normal! zz")
+		vim.fn.setpos(".", pos)
+	end,
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	nested = true,
+	group = vim.api.nvim_create_augroup("persistence", { clear = true }),
+	callback = function()
+		require("persistence").load()
+	end,
 })
 
 -- Highlights

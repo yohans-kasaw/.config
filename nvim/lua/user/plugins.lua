@@ -254,11 +254,11 @@ return {
 			})
 		end,
 	},
-	-- {
-	-- 	"folke/persistence.nvim",
-	-- 	event = "BufReadPre",
-	-- 	opts = {},
-	-- },
+	{
+		"folke/persistence.nvim",
+		event = "BufReadPre",
+		opts = {},
+	},
 	{
 		"folke/which-key.nvim",
 		opts = { preset = "helix", delay = 800 },
@@ -420,6 +420,7 @@ return {
 					vue = true,
 					go = true,
 					python = true,
+					lua = true,
 					["*"] = false,
 				},
 				suggestion = {
