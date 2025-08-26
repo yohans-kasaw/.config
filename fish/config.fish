@@ -3,6 +3,8 @@ if status is-interactive
     set -x VISUAL nvim
     set -x EDITOR nvim
 
+    set -gx PATH "~/.tmuxifier/bin" $PATH
+
     set -gx FZF_DEFAULT_COMMAND  "fd --follow --exclude .git --exclude ~/.config/fd/fzfcd-ignore-rules . $HOME"
 
     set -x FZF_DEFAULT_OPTS "--tiebreak=index --style full --smart-case --preview 'bat --color=always {}'"
@@ -24,7 +26,7 @@ if status is-interactive
 
     __auto_git_fetch
     starship init fish | source
-    eval (tmuxifier init - fish)
+    eval (~/.tmuxifier/bin/tmuxifier init - fish)
 
     bind -M insert \ef 'fzfopen'
     bind -M default \ef 'fzfopen'
