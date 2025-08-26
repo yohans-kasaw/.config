@@ -34,7 +34,6 @@ vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
 -- fzf
 vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "Resume Last Search" })
 vim.keymap.set("n", "<leader>g", require("fzf-lua").live_grep_native, { desc = "Grep" })
-vim.keymap.set("n", "<leader>q", require("fzf-lua").quickfix, { desc = "Grep" })
 vim.keymap.set({ "n", "x" }, "<leader>w", require("fzf-lua").grep_cword, { desc = "Search Word Under Cursor" })
 vim.keymap.set("n", "<leader><space>", require("fzf-lua").files, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>b", require("fzf-lua").buffers, { desc = "List Buffers" })
@@ -50,7 +49,6 @@ vim.keymap.set("n", "'", "`", { noremap = true })
 
 -- terminal
 vim.keymap.set("n", "<leader>t", ":ToggleTerm size=50 direction=vertical<cr>", { silent = true })
-vim.keymap.set("n", "<A-r>", ":TermExec cmd='go run .'<cr>", { silent = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 
 -- lsp
@@ -93,3 +91,14 @@ vim.api.nvim_set_keymap("i", "<C-t>", '<C-R>=strftime("%H:%M")<CR>', { noremap =
 -- trial
 vim.keymap.set({ "n", "v" }, "<leader>lf", vim.lsp.buf.format, { desc = "Format file" })
 vim.keymap.set({ "n", "v", "o" }, "m", "%")
+
+vim.keymap.set("n", "<leader>q", require("fzf-lua").quickfix, { desc = "Grep" })
+vim.keymap.set("n", "<A-j>", "<cmd>cnext<cr>", { desc = "Next in Quickfix" })
+vim.keymap.set("n", "<A-k>", "<cmd>cprev<cr>", { desc = "Preview in Quickfix" })
+vim.keymap.set("n", "<A-o>", function()
+	if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
+		vim.cmd("cclose")
+	else
+		vim.cmd("copen")
+	end
+end, { desc = "Open Quickfix" })
