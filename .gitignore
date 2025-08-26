@@ -26,6 +26,7 @@ gnome-layout-switcher.conf
 gnome-session/
 gtk-3.0/
 gtk-4.0/
+github-copilot/
 ibus/
 lazygit/
 libvirt/
