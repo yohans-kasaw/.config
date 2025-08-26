@@ -440,4 +440,10 @@ return {
 		"olimorris/codecompanion.nvim",
 		opts = {},
 	},
+	{
+		"esmuellert/nvim-eslint",
+		config = function()
+			require("nvim-eslint").setup({})
+		end,
+	},
 }
