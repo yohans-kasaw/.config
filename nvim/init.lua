@@ -67,9 +67,13 @@ vim.api.nvim_create_autocmd("VimEnter", {
 vim.api.nvim_create_autocmd("VimEnter", {
 	group = vim.api.nvim_create_augroup("restore_session", { clear = true }),
 	callback = function()
-		if vim.fn.getcwd() ~= vim.env.HOME then
-			require("persistence").load()
-		end
+        local is_not_home = vim.fn.getcwd() ~= vim.env.HOME
+        local no_file_args = vim.fn.argc() == 0
+        local is_not_git_repo = vim.fn.finddir(".git", vim.fn.getcwd() .. ";") == nil
+
+        if is_not_home and no_file_args and is_not_git_repo then
+            require("persistence").load()
+        end
 	end,
 	nested = true,
 })
