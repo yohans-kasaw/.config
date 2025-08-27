@@ -65,14 +65,10 @@ xfce4/
 yay/
 VSCodium/
 .gsd-keyboard.settings-ported
-<<<<<<< HEAD
 session/
 kiorc
 knfsshare
 kde.org/
 dolphinrc
 baloofileinformationrc
-||||||| parent of 25b96b0 (bruno)
-=======
 bruno/
->>>>>>> 25b96b0 (bruno)

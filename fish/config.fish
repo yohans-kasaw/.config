@@ -36,3 +36,4 @@ end
 
 fish_add_path "/home/yohansh/.local/bin"
 fish_add_path "/home/yohansh/.cargo/bin"
+fish_add_path "/home/yohansh/go/bin"
