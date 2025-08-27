@@ -1,0 +1,74 @@
+{
+	"window-bounds": {
+		"x": 5,
+		"y": 35,
+		"width": 3190,
+		"height": 1760
+	},
+	"preferences": {
+		"request": {
+			"sslVerification": true,
+			"customCaCertificate": {
+				"enabled": false,
+				"filePath": null
+			},
+			"keepDefaultCaCertificates": {
+				"enabled": true
+			},
+			"storeCookies": true,
+			"sendCookies": true,
+			"timeout": 0
+		},
+		"font": {
+			"codeFont": "default",
+			"codeFontSize": 24
+		},
+		"proxy": {
+			"mode": "off",
+			"protocol": "http",
+			"hostname": "",
+			"port": null,
+			"auth": {
+				"enabled": false,
+				"username": "",
+				"password": ""
+			},
+			"bypassProxy": ""
+		},
+		"features": {
+			"terminal": true,
+			"apiSpec": false,
+			"fileExplorer": true,
+			"git": true,
+			"brunoJson": false
+		},
+		"secretsProviders": [],
+		"awsConfig": {
+			"enabled": false,
+			"accessKeyId": "",
+			"secretAccessKey": "",
+			"region": "",
+			"sessionToken": ""
+		},
+		"azureConfig": {
+			"enabled": false,
+			"tenantId": "",
+			"clientId": "",
+			"clientSecret": ""
+		},
+		"autoupdate": {
+			"downloadUpdates": true
+		},
+		"layout": {
+			"responsePaneOrientation": "horizontal"
+		},
+		"license": {
+			"proxy": {
+				"auth": {}
+			}
+		}
+	},
+	"lastOpenedCollections": [
+		"/home/yohansh/.bruno/floey"
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"collections": [
+		{
+			"path": "/home/yohansh/.bruno/floey",
+			"securityConfig": {
+				"jsSandboxMode": "safe"
+			}
+		}
+	]
+}
