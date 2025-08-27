@@ -22,7 +22,6 @@ vim.opt.linebreak = true
 vim.opt.breakindent = true
 
 -- Core Editor Behavior
-vim.opt.scrolloff = 99999
 vim.o.undofile = true
 vim.opt.swapfile = false
 vim.o.hidden = true

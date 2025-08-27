@@ -111,7 +111,7 @@ return {
 					max_width = 0.5,
 				},
 				symbol_in_winbar = {
-					enable = false,
+					enable = true,
 				},
 				finder = {
 					left_width = 0.16,
