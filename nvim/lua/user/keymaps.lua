@@ -90,7 +90,7 @@ vim.api.nvim_set_keymap("i", "<C-t>", '<C-R>=strftime("%H:%M")<CR>', { noremap =
 
 -- trial
 vim.keymap.set({ "n", "v" }, "<leader>lf", vim.lsp.buf.format, { desc = "Format file" })
-vim.keymap.set({ "n", "v", "o" }, "m", "%")
+vim.keymap.set({ "n", "v", "o" }, "M", "%")
 
 vim.keymap.set("n", "<A-d>", vim.diagnostic.setqflist, { desc = "Preview in Quickfix" })
 vim.keymap.set("n", "<leader>q", require("fzf-lua").quickfix, { desc = "Grep" })
