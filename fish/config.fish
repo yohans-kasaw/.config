@@ -17,7 +17,7 @@ if status is-interactive
     alias v "nvim"
 
     alias floey "tmuxifier load-session floey"
-    alias focus "pomodoro start --duration 30 --wait && kitty @ focus-window"
+    alias focus "pomodoro start -d 30 -w && kitty @focus-window"
     alias regroup "pomodoro break 5 --wait && kitty @ focus-window"
 
     __auto_git_fetch
