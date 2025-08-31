@@ -18,17 +18,16 @@
     "hyprland/workspaces": {
         "disable-scroll": true,
         "warp-on-scroll": false,
-        // "format": "{icon}  {id}",
         "format": "{icon}",
         "format-icons": {
             "1": "1",
             "2": "2",
             "3": "3",
             "4": "craft ",
-            "5": "test",
-            "6": "brow",
-            "7": "note",
-            "8": "msc",
+            "6": "test",
+            "5": "brow",
+            "7": "msc",
+            "8": "temp",
             "urgent": "",
             "default": ""
         },
