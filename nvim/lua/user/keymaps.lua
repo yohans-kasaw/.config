@@ -94,8 +94,8 @@ vim.keymap.set({ "n", "v", "o" }, "M", "%")
 
 vim.keymap.set("n", "<A-d>", vim.diagnostic.setqflist, { desc = "Preview in Quickfix" })
 vim.keymap.set("n", "<leader>q", require("fzf-lua").quickfix, { desc = "Grep" })
-vim.keymap.set("n", "<A-j>", "<cmd>cnext<cr>", { desc = "Next in Quickfix" })
-vim.keymap.set("n", "<A-k>", "<cmd>cprev<cr>", { desc = "Preview in Quickfix" })
+vim.keymap.set("n", "<A-h>", "<cmd>cnext<cr>", { desc = "Next in Quickfix" })
+vim.keymap.set("n", "<A-l>", "<cmd>cprev<cr>", { desc = "Preview in Quickfix" })
 vim.keymap.set("n", "<A-o>", function()
 	if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
 		vim.cmd("cclose")
