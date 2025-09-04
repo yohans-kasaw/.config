@@ -70,3 +70,14 @@ vim.g.neovide_cursor_animation_length = 0
 vim.g.neovide_cursor_vfx_mode = ""
 vim.g.neovide_cursor_trail_size = 0
 vim.g.neovide_confirm_quit = true
+
+-- git diff
+vim.opt.diffopt = {
+	"internal",
+	"filler",
+	"closeoff",
+	"context:12",
+	"algorithm:patience",
+	"linematch:200",
+	"indent-heuristic",
+}

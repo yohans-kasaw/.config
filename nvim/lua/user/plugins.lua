@@ -423,4 +423,8 @@ return {
 			require("nvim-eslint").setup({})
 		end,
 	},
+	{
+		"NeogitOrg/neogit",
+	},
+	{"sindrets/diffview.nvim"},
 }
