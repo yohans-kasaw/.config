@@ -111,3 +111,15 @@ vim.keymap.set("n", "<leader>v", function()
 		vim.cmd("DiffviewClose")
 	end
 end, { desc = "toggle diff view" })
+
+vim.keymap.set("n", "<leader>d", function()
+	if next(require("diffview.lib").views) == nil then
+		vim.cmd("DiffviewOpen dev")
+	else
+		vim.cmd("DiffviewClose")
+	end
+end, { desc = "toggle diff view" })
+
+vim.keymap.set("n", "<leader>G", function()
+	vim.cmd("Neogit")
+end, { desc = "toggle diff view" })

@@ -77,7 +77,8 @@ vim.opt.diffopt = {
 	"filler",
 	"closeoff",
 	"context:12",
-	"algorithm:patience",
+	-- "algorithm:patience",
+	"algorithm:histogram",
 	"linematch:200",
 	"indent-heuristic",
 }
