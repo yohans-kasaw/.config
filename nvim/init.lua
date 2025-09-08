@@ -44,7 +44,6 @@ vim.diagnostic.config({
 	},
 })
 
--- vim.cmd("autocmd CursorMoved * normal! zz")
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	nested = true,
