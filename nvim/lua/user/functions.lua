@@ -3,6 +3,10 @@ function get_grapple_status()
 	local grapple = require("grapple")
 	local tags = grapple.tags()
 
+	if tags == nil then
+	    return
+	end
+
 	local file_list = {}
 	for _, tag in ipairs(tags) do
 		local file_name = vim.fn.fnamemodify(tag.path, ":t:r")

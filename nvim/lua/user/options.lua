@@ -82,3 +82,5 @@ vim.opt.diffopt = {
 	"linematch:200",
 	"indent-heuristic",
 }
+
+vim.opt.fillchars:append { diff = "╱" }

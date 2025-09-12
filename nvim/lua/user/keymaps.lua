@@ -96,31 +96,16 @@ vim.keymap.set("n", "<A-d>", vim.diagnostic.setqflist, { desc = "Preview in Quic
 vim.keymap.set("n", "<leader>q", require("fzf-lua").quickfix, { desc = "Grep" })
 vim.keymap.set("n", "<A-h>", "<cmd>cnext<cr>", { desc = "Next in Quickfix" })
 vim.keymap.set("n", "<A-l>", "<cmd>cprev<cr>", { desc = "Preview in Quickfix" })
-vim.keymap.set("n", "<A-o>", function()
-	if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
-		vim.cmd("cclose")
-	else
-		vim.cmd("copen")
-	end
-end, { desc = "Open Quickfix" })
-
-vim.keymap.set("n", "<leader>v", function()
-	if next(require("diffview.lib").views) == nil then
-		vim.cmd("DiffviewOpen")
-	else
-		vim.cmd("DiffviewClose")
-	end
-end, { desc = "toggle diff view" })
-
-vim.keymap.set("n", "<leader>d", function()
-	if next(require("diffview.lib").views) == nil then
-		vim.cmd("DiffviewOpen dev")
-	else
-		vim.cmd("DiffviewClose")
-	end
-end, { desc = "toggle diff view" })
-
-vim.keymap.set("n", "<leader>G", function()
-	vim.cmd("Neogit")
-end, { desc = "toggle diff view" })
+vim.keymap.set("n", "<A-o>", "<cmd>copen<cr>", { desc = "Open Quickfix" })
+vim.keymap.set("n", "<leader>v", "<cmd>DiffviewOpen<cr>", { desc = "toggle diff view" })
+vim.keymap.set("n", "<leader>d", "<cmd>DiffviewOpen dev<cr>", { desc = "toggle diff view" })
+vim.keymap.set("n", "<leader>G", "<cmd>Neogit<cr>", { desc = "toggle diff view" })
 vim.keymap.set("n", "<leader>c", "<cmd>Assistant<cr>", { desc = "Preview in Quickfix" })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "qf",
+	callback = function(args)
+		vim.api.nvim_buf_set_keymap(args.buf, "n", "q", "<cmd>cclose<cr>", { noremap = true, silent = true })
+	end,
+	desc = "Close quickfix window with q",
+})

@@ -381,7 +381,7 @@ return {
 	{
 		"cbochs/grapple.nvim",
 		opts = {
-			scope = "git_branch",
+			scope = "cwd",
 		},
 	},
 	{ "aaronik/treewalker.nvim" },
@@ -433,7 +433,24 @@ return {
 	{
 		"NeogitOrg/neogit",
 	},
-	{ "sindrets/diffview.nvim" },
+	{
+		"sindrets/diffview.nvim",
+		config = function()
+			require("diffview").setup({
+				keymaps = {
+					view = {
+						{ "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+					},
+					file_panel = {
+						{ "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+					},
+					file_history_panel = {
+						{ "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
+					},
+				},
+			})
+		end,
+	},
 	{
 		"A7lavinraj/assistant.nvim",
 		opts = {},
