@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+
 -- Looks
 vim.opt.termguicolors = true
 vim.opt.showtabline = 0
@@ -77,7 +78,6 @@ vim.opt.diffopt = {
 	"filler",
 	"closeoff",
 	"context:12",
-	-- "algorithm:patience",
 	"algorithm:histogram",
 	"linematch:200",
 	"indent-heuristic",

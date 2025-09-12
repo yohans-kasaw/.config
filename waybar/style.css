@@ -11,11 +11,17 @@
 }
 
 window#waybar {
-    background: transparent;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 button {
     border-radius: 0;
+}
+
+#workspaces {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 4px;
 }
 
 #workspaces button {

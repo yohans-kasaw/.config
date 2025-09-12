@@ -44,28 +44,19 @@ vim.diagnostic.config({
 	},
 })
 
--- vim.cmd("autocmd CursorMoved * normal! zz")
-
-vim.api.nvim_create_autocmd("VimEnter", {
-	nested = true,
-	group = vim.api.nvim_create_augroup("persistence", { clear = true }),
-	callback = function()
-		require("persistence").load()
-	end,
-})
-
 vim.api.nvim_create_autocmd("VimEnter", {
 	group = vim.api.nvim_create_augroup("restore_session", { clear = true }),
 	callback = function()
-        local is_not_home = vim.fn.getcwd() ~= vim.env.HOME
-        local no_file_args = vim.fn.argc() == 0
-        local is_not_git_repo = vim.fn.finddir(".git", vim.fn.getcwd() .. ";") == nil
+		local is_not_home = vim.fn.getcwd() ~= vim.env.HOME
+		local no_file_args = vim.fn.argc() == 0
+		local is_git_repo = vim.fn.finddir(".git", vim.fn.getcwd() .. ";") ~= nil
 
-        if is_not_home and no_file_args and is_not_git_repo then
-            require("persistence").load()
-        end
+		if is_not_home and no_file_args and is_git_repo then
+			require("persistence").load()
+		end
 	end,
 	nested = true,
 })
+
 -- Highlights
 vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
