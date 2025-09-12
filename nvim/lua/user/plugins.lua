@@ -187,7 +187,14 @@ return {
 		event = "ModeChanged *:[vV\22]",
 		opts = {},
 	},
-	{ "xiyaowong/transparent.nvim" },
+	{
+		"xiyaowong/transparent.nvim",
+		config = function()
+			require("transparent").setup({
+				exclude_groups = { "CursorLine" },
+			})
+		end,
+	},
 	{
 		"yamatsum/nvim-cursorline",
 		config = function()
@@ -426,5 +433,9 @@ return {
 	{
 		"NeogitOrg/neogit",
 	},
-	{"sindrets/diffview.nvim"},
+	{ "sindrets/diffview.nvim" },
+	{
+		"A7lavinraj/assistant.nvim",
+		opts = {},
+	},
 }
