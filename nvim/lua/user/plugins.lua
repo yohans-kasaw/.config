@@ -378,12 +378,6 @@ return {
 			})
 		end,
 	},
-	{
-		"cbochs/grapple.nvim",
-		opts = {
-			scope = "cwd",
-		},
-	},
 	{ "aaronik/treewalker.nvim" },
 	{
 		"stevearc/oil.nvim",
@@ -419,10 +413,6 @@ return {
 	{
 		"folke/persistence.nvim",
 		config = true,
-	},
-	{
-		"olimorris/codecompanion.nvim",
-		opts = {},
 	},
 	{
 		"esmuellert/nvim-eslint",

@@ -22,12 +22,13 @@
         "format-icons": {
             "1": "1",
             "2": "2",
-            "3": "3",
+            "3": "craft_a",
             "4": "craft ",
             "6": "test",
             "5": "brow",
             "7": "note",
-            "8": "temp",
+            "8": "slack",
+            "9": "msc",
             "urgent": "",
             "default": ""
         },

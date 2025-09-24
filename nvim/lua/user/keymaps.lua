@@ -60,17 +60,6 @@ vim.keymap.set("n", "<C-t>", "<cmd>Lspsaga peek_type_definition<CR>", { silent =
 vim.keymap.set("n", "<C-u>", "<cmd>Lspsaga outline<CR>", { silent = true })
 vim.keymap.set("n", "<C-f>", "<cmd>Lspsaga finder<CR>", { silent = true })
 
--- file navigation
-
-vim.keymap.set("n", "<leader>h", "<cmd>Grapple toggle<cr><cmd>redrawstatus<cr>", { desc = "Tag a file" })
-vim.keymap.set("n", "<leader>l", "<cmd>Grapple toggle_tags<cr>", { desc = "Toggle tags menu" })
-vim.keymap.set("n", "<D-'>", "<cmd>Grapple select index=1<cr>", { desc = "Select 1 tag" })
-vim.keymap.set("n", "<D-,>", "<cmd>Grapple select index=2<cr>", { desc = "Select 2 tag" })
-vim.keymap.set("n", "<D-.>", "<cmd>Grapple select index=3<cr>", { desc = "Select 3 tag" })
-vim.keymap.set("n", "<D-p>", "<cmd>Grapple select index=4<cr>", { desc = "Select 4 tag" })
-vim.keymap.set("n", "<D-y>", "<cmd>Grapple select index=5<cr>", { desc = "Select 5 tag" })
-vim.keymap.set("n", "<D-;>", "<cmd>Grapple select index=6<cr>", { desc = "Select 6 tag" })
-
 -- trail
 vim.keymap.set({ "n", "v" }, "<S-Up>", "<cmd>Treewalker Up<cr>", { silent = true })
 vim.keymap.set({ "n", "v" }, "<S-Down>", "<cmd>Treewalker Down<cr>", { silent = true })
@@ -97,10 +86,10 @@ vim.keymap.set("n", "<leader>q", require("fzf-lua").quickfix, { desc = "Grep" })
 vim.keymap.set("n", "<A-h>", "<cmd>cnext<cr>", { desc = "Next in Quickfix" })
 vim.keymap.set("n", "<A-l>", "<cmd>cprev<cr>", { desc = "Preview in Quickfix" })
 vim.keymap.set("n", "<A-o>", "<cmd>copen<cr>", { desc = "Open Quickfix" })
-vim.keymap.set("n", "<leader>v", "<cmd>DiffviewOpen<cr>", { desc = "toggle diff view" })
-vim.keymap.set("n", "<leader>d", "<cmd>DiffviewOpen dev<cr>", { desc = "toggle diff view" })
-vim.keymap.set("n", "<leader>G", "<cmd>Neogit<cr>", { desc = "toggle diff view" })
-vim.keymap.set("n", "<leader>c", "<cmd>Assistant<cr>", { desc = "Preview in Quickfix" })
+vim.keymap.set("n", ";v", "<cmd>DiffviewOpen<cr>", { desc = "toggle diff view" })
+vim.keymap.set("n", ";d", "<cmd>DiffviewOpen dev<cr>", { desc = "toggle diff view" })
+vim.keymap.set("n", ";g", "<cmd>Neogit<cr>", { desc = "toggle diff view" })
+vim.keymap.set("n", ";c", "<cmd>Assistant<cr>", { desc = "Preview in Quickfix" })
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "qf",
@@ -109,3 +98,9 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 	desc = "Close quickfix window with q",
 })
+
+
+-- Normal and Visual modes
+vim.keymap.set({"n", "v"}, "<leader>d", '"_d')
+vim.keymap.set({"n", "v"}, "<leader>D", '"_D')
+vim.keymap.set({"n", "v"}, "<leader>dd", '"_dd')
