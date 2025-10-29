@@ -1,5 +1,6 @@
 if status is-interactive
     set -U fish_greeting ""
+    set -x PAGER nvimpager
     set -x VISUAL nvim
     set -x EDITOR nvim
 
@@ -17,8 +18,8 @@ if status is-interactive
     alias v "nvim"
 
     alias floey "tmuxifier load-session floey"
-    alias zen "pomodoro start -d 30 -w && kitty @focus-window"
-    alias regroup "pomodoro break 5 --wait && kitty @ focus-window"
+    alias t_fr "tmuxifier load-session t_fr"
+    alias t_fota "tmuxifier load-session t_fota"
 
     __auto_git_fetch
     starship init fish | source

@@ -10,7 +10,7 @@
         "memory",
         "pulseaudio"
     ],
-    "modules-center": ["clock#time", "hyprland/workspaces"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": [
         "clock#date"
     ],
@@ -41,7 +41,7 @@
     },
 
     "clock#date": {
-        "format": "{:%a, %d %b %Y}"
+        "format": "{:%I:%M %p, %a, %d %b %Y}"
     },
 
     "battery": {

@@ -1,6 +1,7 @@
 add_newline = false 
 
 format = """
+$env_var\
 $jobs\
 $directory\
 $git_branch\
@@ -46,3 +47,9 @@ diverged = ''
 stashed = ''
 up_to_date = '👍'
 style = 'bold green'
+
+[env_var.TMUX]
+symbol = "⧉"
+style = "bold green"
+format = "[$symbol]($style)"
+disabled = false
