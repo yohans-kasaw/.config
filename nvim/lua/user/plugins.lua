@@ -18,6 +18,7 @@ return {
 					{ name = "nvim_lua" },
 					{ name = "path" },
 					{ name = "buffer" },
+					{ name = "go_pkgs" },
 				}),
 				sorting = {
 					comparators = {
@@ -40,6 +41,7 @@ return {
 							buffer = "[buf]",
 							path = "[path]",
 							treesitter = "[tree]",
+							go_pkgs = "[pkgs]",
 						},
 					}),
 				},
@@ -66,6 +68,7 @@ return {
 						end
 					end, { "i", "s" }),
 				}),
+				matching = { disallow_symbol_nonprefix_matching = false },
 			})
 			cmp.setup.filetype("markdown", { enabled = false })
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
@@ -77,6 +80,7 @@ return {
 			{ "ray-x/cmp-treesitter" },
 			{ "hrsh7th/cmp-nvim-lua" },
 			{ "onsails/lspkind.nvim" },
+			{ "Snikimonkd/cmp-go-pkgs" },
 		},
 	},
 	{
@@ -126,7 +130,10 @@ return {
 	{
 		"Wansmer/treesj",
 		config = function()
-			require("treesj").setup({})
+			require("treesj").setup({
+				use_default_keymaps = false,
+				max_join_length = 420,
+			})
 		end,
 	},
 	{
@@ -146,9 +153,9 @@ return {
 	{
 		"chrisgrieser/nvim-spider",
 		keys = {
-			{ "w", "<cmd>lua require('spider').motion('w')<CR>", mode = { "n" } },
-			{ "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n" } },
-			{ "b", "<cmd>lua require('spider').motion('b')<CR>", mode = { "n" } },
+			{ "w", "<cmd>lua require('spider').motion('w')<CR>", mode = { "n", "v", "x" } },
+			{ "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n", "v", "x" } },
+			{ "b", "<cmd>lua require('spider').motion('b')<CR>", mode = { "n", "v", "x" } },
 		},
 		config = function()
 			require("spider").setup({ skipInsignificantPunctuation = false })
@@ -443,6 +450,109 @@ return {
 	},
 	{
 		"A7lavinraj/assistant.nvim",
+		opts = {},
+	},
+	{
+		"m4xshen/hardtime.nvim",
+		lazy = false,
+		dependencies = { "MunifTanjim/nui.nvim" },
+		opts = {
+			disabled_keys = {
+				["<Up>"] = false,
+				["<Down>"] = false,
+			},
+		},
+	},
+	-- {
+	-- 	"supermaven-inc/supermaven-nvim",
+	-- 	config = function()
+	-- 		require("supermaven-nvim").setup({
+	-- 			ignore_filetypes = { "markdown" },
+	-- 			keymaps = {
+	-- 				accept_suggestion = "<A-S-Space>",
+	-- 				clear_suggestion = "<A-BS>",
+	-- 				accept_word = "<A-Space>",
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
+	{
+		"romus204/go-tagger.nvim",
+		config = function()
+			require("go-tagger").setup({
+				skip_private = true, -- Skip unexported fields (starting with lowercase)
+			})
+		end,
+	},
+	{
+		"maxandron/goplements.nvim",
+		ft = "go",
+		opts = {
+			prefix = {
+				interface = "//Implemented by: ",
+				struct = "//Implements: ",
+			},
+			highlight = "Comment",
+		},
+	},
+	{ "nvim-telescope/telescope.nvim" },
+	{
+		"fredrikaverpil/godoc.nvim",
+		version = "*",
+		build = "go install github.com/lotusirous/gostdsym/stdsym@latest",
+		cmd = { "GoDoc" },
+		opts = {
+			window = {
+				type = "vsplit",
+			},
+			picker = {
+				type = "fzf_lua",
+				fzf_lua = {},
+			},
+		},
+	},
+	{
+		"edolphin-ydf/goimpl.nvim",
+		config = function()
+			require("telescope").load_extension("goimpl")
+		end,
+	},
+	{
+		"mfussenegger/nvim-dap",
+		dependencies = {
+			"leoluz/nvim-dap-go",
+			"rcarriga/nvim-dap-ui",
+			"theHamsta/nvim-dap-virtual-text",
+			"nvim-neotest/nvim-nio",
+		},
+		config = function()
+			require("dapui").setup({})
+			require("dap-go").setup({})
+			require("nvim-dap-virtual-text").setup({})
+
+			local dap = require("dap")
+			local dapui = require("dapui")
+
+			dap.listeners.after.attach.dapui_config = function()
+				dapui.open()
+			end
+
+			dap.listeners.after.launch.dapui_config = function()
+				dapui.open()
+			end
+
+			dap.listeners.before.event_terminated.dapui_config = function()
+				dapui.close()
+			end
+
+			dap.listeners.before.event_exited.dapui_config = function()
+				dapui.close()
+			end
+		end,
+	},
+	{
+		"chentoast/marks.nvim",
+		event = "VeryLazy",
 		opts = {},
 	},
 }

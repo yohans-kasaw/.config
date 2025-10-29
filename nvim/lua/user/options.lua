@@ -31,8 +31,8 @@ vim.opt.smartcase = true
 vim.jumpoptions = "stack"
 
 -- Folding
-vim.opt.foldmethod = "indent"
--- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- vim.opt.foldmethod = "indent"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = ""
 vim.opt.foldlevelstart = 99
 vim.opt.foldlevel = 99

@@ -37,6 +37,7 @@ vim.keymap.set("n", "<leader>g", require("fzf-lua").live_grep_native, { desc = "
 vim.keymap.set({ "n", "x" }, "<leader>w", require("fzf-lua").grep_cword, { desc = "Search Word Under Cursor" })
 vim.keymap.set("n", "<leader><space>", require("fzf-lua").files, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>b", require("fzf-lua").buffers, { desc = "List Buffers" })
+vim.keymap.set("n", "<leader>j", require("fzf-lua").jumps, { desc = "List Buffers" })
 
 -- Msc
 vim.keymap.set("n", "<C-n>", "<Cmd>noh<CR>", { noremap = true })
@@ -99,8 +100,34 @@ vim.api.nvim_create_autocmd("FileType", {
 	desc = "Close quickfix window with q",
 })
 
-
 -- Normal and Visual modes
-vim.keymap.set({"n", "v"}, "<leader>d", '"_d')
-vim.keymap.set({"n", "v"}, "<leader>D", '"_D')
-vim.keymap.set({"n", "v"}, "<leader>dd", '"_dd')
+vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
+vim.keymap.set({ "n", "v" }, "<leader>D", '"_D')
+vim.keymap.set({ "n", "v" }, "<leader>dd", '"_dd')
+vim.keymap.set("n", "gv", "`[v`]", { desc = "Reselect last pasted text" })
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>im",
+	[[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]],
+	{ noremap = true, silent = true }
+)
+
+-- add breakpoint using dap
+vim.keymap.set("n", "<leader>db", require("dap").toggle_breakpoint, { silent = true })
+-- run cursor
+vim.keymap.set("n", "<leader>dr", require("dap").run_to_cursor, { silent = true })
+
+-- lets use ctr- the arrow for continue and such
+vim.keymap.set("n", "<C-Right>", require("dap").continue)
+vim.keymap.set("n", "<C-Down>", require("dap").step_over, { silent = true })
+vim.keymap.set("n", "<Space>?", function()
+	require("dapui").eval(nil, { enter = true })
+end, { silent = true })
+-- vim.keymap.set("n", "<C-Down>", require("dap").step_into, { silent = true })
+-- vim.keymap.set("n", "<C-Up>", require("dap").step_out, { silent = true })
+-- have storte over as C-c
+vim.keymap.set("n", "<leader>m", require("treesj").toggle)
+-- For extending default preset with `recursive = true`
+vim.keymap.set("n", "<leader>M", function()
+	require("treesj").toggle({ split = { recursive = true } })
+end)

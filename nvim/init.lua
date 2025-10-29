@@ -19,11 +19,12 @@ require("lazy").setup({
 	spec = require("user.plugins"),
 })
 require("user.keymaps")
-vim.opt.statusline = "%f"
+vim.o.laststatus = 0
+
 require("user.functions")
 
-vim.cmd("colorscheme kanso-zen")
 vim.cmd("colorscheme kanso-ink")
+vim.cmd("colorscheme kanso-zen")
 -- vim.cmd("colorscheme kanso-pearl")
 
 vim.lsp.enable({
@@ -51,7 +52,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		local no_file_args = vim.fn.argc() == 0
 		local is_git_repo = vim.fn.finddir(".git", vim.fn.getcwd() .. ";") ~= nil
 
-		if is_not_home and no_file_args and is_git_repo then
+		if no_file_args and is_git_repo and is_not_home then
 			require("persistence").load()
 		end
 	end,
@@ -59,4 +60,5 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 -- Highlights
-vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
+-- vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
+--
