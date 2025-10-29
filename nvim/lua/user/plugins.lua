@@ -553,6 +553,15 @@ return {
 	{
 		"chentoast/marks.nvim",
 		event = "VeryLazy",
-		opts = {},
+		opts = {
+			mappings = {
+				next = "<C-S-Down>",
+				prev = "<C-S-Up>",
+				toggle = "m,",
+				set = false,
+				preview = false,
+				set_next = false,
+			},
+		},
 	},
 }

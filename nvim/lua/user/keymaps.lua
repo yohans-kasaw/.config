@@ -38,6 +38,7 @@ vim.keymap.set({ "n", "x" }, "<leader>w", require("fzf-lua").grep_cword, { desc 
 vim.keymap.set("n", "<leader><space>", require("fzf-lua").files, { desc = "Find Files" })
 vim.keymap.set("n", "<leader>b", require("fzf-lua").buffers, { desc = "List Buffers" })
 vim.keymap.set("n", "<leader>j", require("fzf-lua").jumps, { desc = "List Buffers" })
+vim.keymap.set("n", "<leader>jm", require("fzf-lua").marks, { desc = "List Buffers" })
 
 -- Msc
 vim.keymap.set("n", "<C-n>", "<Cmd>noh<CR>", { noremap = true })
