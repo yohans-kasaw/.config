@@ -564,4 +564,21 @@ return {
 			},
 		},
 	},
+	{
+		"XXiaoA/atone.nvim",
+		cmd = "Atone",
+		opts = {
+			layout = {
+				direction = "left",
+				width = 0.99,
+			},
+			diff_cur_node = {
+				enabled = true,
+				split_percent = 0.5,
+			},
+			ui = {
+				border = "rounded",
+			},
+		},
+	},
 }
