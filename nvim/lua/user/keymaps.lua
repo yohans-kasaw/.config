@@ -134,3 +134,6 @@ vim.keymap.set("n", "<leader>M", function()
 end)
 
 vim.keymap.set("n", "<leader>u", "<Cmd>Atone toggle<CR>")
+vim.keymap.set("n", ";i", function()
+	require("mini.diff").toggle_overlay(0)
+end)
