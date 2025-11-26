@@ -152,22 +152,15 @@ return {
 	},
 	{
 		"chrisgrieser/nvim-spider",
-		keys = {
-			{ "w", "<cmd>lua require('spider').motion('w')<CR>", mode = { "n", "v", "x" } },
-			{ "e", "<cmd>lua require('spider').motion('e')<CR>", mode = { "n", "v", "x" } },
-			{ "b", "<cmd>lua require('spider').motion('b')<CR>", mode = { "n", "v", "x" } },
-		},
 		config = function()
-			require("spider").setup({ skipInsignificantPunctuation = false })
+			require("spider").setup({})
 		end,
 	},
 	{
 		"kylechui/nvim-surround",
 		version = "*",
 		config = function()
-			require("nvim-surround").setup({
-				skipInsignificantPunctuation = false,
-			})
+			require("nvim-surround").setup({})
 		end,
 	},
 	{
