@@ -72,7 +72,7 @@ vim.keymap.set({ "n", "v" }, "<S-Right>", "<cmd>Treewalker Right<cr>", { silent 
 vim.keymap.set("n", "<C-S-Up>", "<cmd>Treewalker SwapUp<cr>", { silent = true })
 vim.keymap.set("n", "<C-S-Down>", "<cmd>Treewalker SwapDown<cr>", { silent = true })
 
-vim.keymap.set("n", "<leader>e", "<CMD>Oil --float --preview<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>e", "<cmd>Fyler kind=float<cr>", { desc = "Open Fyler View" })
 
 -- snippets
 vim.keymap.set("i", "<C-e>", "if err != nil {\n\tfmt.Println(err)\n}<Esc>", { silent = true })
@@ -136,4 +136,28 @@ end)
 vim.keymap.set("n", "<leader>u", "<Cmd>Atone toggle<CR>")
 vim.keymap.set("n", ";i", function()
 	require("mini.diff").toggle_overlay(0)
+end)
+
+vim.keymap.set({ "n", "v" }, "<leader>n", function()
+	local mode = vim.fn.mode()
+	require("focus").toggle_zen({
+		zen = {
+			opts = {},
+		},
+	})
+	if mode == "v" or mode == "V" then
+		local start = vim.fn.line("v")
+		local cursor = vim.fn.line(".")
+
+		require("focus").toggle_narrow({
+			line1 = math.min(start, cursor),
+			line2 = math.max(start, cursor),
+		})
+	else
+		require("focus").toggle({
+			window = {
+				width = 0.50,
+			},
+		})
+	end
 end)

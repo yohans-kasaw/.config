@@ -165,7 +165,9 @@ return {
 		"kylechui/nvim-surround",
 		version = "*",
 		config = function()
-			require("nvim-surround").setup({})
+			require("nvim-surround").setup({
+				skipInsignificantPunctuation = false,
+			})
 		end,
 	},
 	{
@@ -387,24 +389,9 @@ return {
 	},
 	{ "aaronik/treewalker.nvim" },
 	{
-		"stevearc/oil.nvim",
-		opts = {
-			float = {
-				padding = 0,
-				max_width = 0.98,
-				max_height = 0.98,
-				get_win_title = function()
-					return "oil"
-				end,
-				preview_split = "right",
-			},
-			keymaps = {
-				["q"] = { "actions.close", mode = "n" },
-			},
-			view_options = {
-				show_hidden = true,
-			},
-		},
+		"A7Lavinraj/fyler.nvim",
+		dependencies = { "nvim-mini/mini.icons" },
+		opts = {},
 	},
 	{
 		"nvimtools/none-ls.nvim",
@@ -587,5 +574,33 @@ return {
 		config = function()
 			require("mini.diff").setup()
 		end,
+	},
+	{
+		"mistweaverco/kulala.nvim",
+		ft = { "http" },
+		opts = {
+			global_keymaps = true,
+			global_keymaps_prefix = ".",
+			ui = {
+				display_mode = "float",
+			},
+		},
+	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {
+			scope = {
+				enabled = false,
+			},
+			indent = {
+				char = "┊",
+			},
+		},
+	},
+	{
+		"cdmill/focus.nvim",
+		cmd = { "Focus", "Zen", "Narrow" },
+		opts = {},
 	},
 }

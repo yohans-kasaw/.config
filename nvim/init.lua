@@ -24,8 +24,8 @@ vim.o.laststatus = 0
 require("user.functions")
 
 -- vim.cmd("colorscheme kanso-ink")
-vim.cmd("colorscheme kanso-zen")
--- vim.cmd("colorscheme kanso-pearl")
+-- vim.cmd("colorscheme kanso-zen")
+vim.cmd("colorscheme kanso-pearl")
 
 vim.lsp.enable({
 	"lua_ls",
@@ -61,4 +61,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
 -- Highlights
 -- vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
---
+
+vim.filetype.add({
+  extension = {
+    ['http'] = 'http',
+  },
+})
+
