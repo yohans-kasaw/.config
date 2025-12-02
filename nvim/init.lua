@@ -24,8 +24,8 @@ vim.o.laststatus = 0
 require("user.functions")
 
 -- vim.cmd("colorscheme kanso-ink")
--- vim.cmd("colorscheme kanso-zen")
-vim.cmd("colorscheme kanso-pearl")
+vim.cmd("colorscheme kanso-zen")
+-- vim.cmd("colorscheme kanso-pearl")
 
 vim.lsp.enable({
 	"lua_ls",

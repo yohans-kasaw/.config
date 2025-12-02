@@ -153,7 +153,9 @@ return {
 	{
 		"chrisgrieser/nvim-spider",
 		config = function()
-			require("spider").setup({})
+			require("spider").setup({
+				skipInsignificantPunctuation = false,
+			})
 		end,
 	},
 	{
@@ -595,5 +597,8 @@ return {
 		"cdmill/focus.nvim",
 		cmd = { "Focus", "Zen", "Narrow" },
 		opts = {},
+	},
+	{
+		"bullets-vim/bullets.vim",
 	},
 }
