@@ -121,11 +121,8 @@ vim.keymap.set("n", "<leader>dr", require("dap").run_to_cursor, { silent = true 
 -- lets use ctr- the arrow for continue and such
 vim.keymap.set("n", "<C-Right>", require("dap").continue)
 vim.keymap.set("n", "<C-Down>", require("dap").step_over, { silent = true })
-vim.keymap.set("n", "<Space>?", function()
-	require("dapui").eval(nil, { enter = true })
-end, { silent = true })
--- vim.keymap.set("n", "<C-Down>", require("dap").step_into, { silent = true })
--- vim.keymap.set("n", "<C-Up>", require("dap").step_out, { silent = true })
+vim.keymap.set("n", "<C-Up>", require("dap").step_out, { silent = true })
+
 -- have storte over as C-c
 vim.keymap.set("n", "<leader>m", require("treesj").toggle)
 -- For extending default preset with `recursive = true`
