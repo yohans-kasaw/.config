@@ -36,6 +36,7 @@ vim.lsp.enable({
 	"jsonls",
 	"gopls",
 	"pylsp",
+	"sqls",
 })
 
 vim.diagnostic.config({
