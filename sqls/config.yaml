@@ -1,0 +1,5 @@
+lowercaseKeywords: false
+connections:
+  - alias: 
+    driver: postgresql
+    dataSourceName: 'host=localhost user=postgres dbname=gorm_starter'
