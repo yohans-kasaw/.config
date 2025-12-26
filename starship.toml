@@ -1,7 +1,7 @@
 add_newline = false 
 
 format = """
-$env_var\
+$custom\
 $jobs\
 $directory\
 $git_branch\
@@ -48,8 +48,9 @@ stashed = ''
 up_to_date = '👍'
 style = 'bold green'
 
-[env_var.TMUX]
-symbol = "⧉"
-style = "bold green"
-format = "[$symbol]($style)"
-disabled = false
+[custom.tmux]
+command = "tmux display-message -p '[#I:#W]'"
+when = 'printenv TMUX'
+shell = ["sh", "--norc"]
+style = "bold cyan"
+format = "[$output]($style)"
