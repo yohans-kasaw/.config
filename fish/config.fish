@@ -23,6 +23,7 @@ if status is-interactive
     alias floey "tmuxifier load-session floey"
     alias t_fr "tmuxifier load-session t_fr"
     alias t_fota "tmuxifier load-session t_fota"
+    alias libam "tmuxifier load-session libam"
 
     __auto_git_fetch
     starship init fish | source

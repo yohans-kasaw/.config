@@ -1,2 +1,3 @@
 [EmbedSettings]
+embed-application/epub+zip=false
 embed-application/pdf=false
