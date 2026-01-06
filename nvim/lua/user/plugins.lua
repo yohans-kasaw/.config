@@ -14,19 +14,13 @@ return {
 			cmp.setup({
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
-					{ name = "treesitter" },
 					{ name = "nvim_lua" },
+					{ name = "go_pkgs" },
+				}, {
+					{ name = "treesitter" },
 					{ name = "path" },
 					{ name = "buffer" },
-					{ name = "go_pkgs" },
 				}),
-				sorting = {
-					comparators = {
-						cmp.config.compare.score,
-						cmp.config.compare.kind,
-						cmp.config.compare.order,
-					},
-				},
 				window = {
 					completion = cmp.config.window.bordered({ scrollbar = false }),
 					documentation = cmp.config.window.bordered({ scrollbar = false }),
