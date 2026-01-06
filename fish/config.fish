@@ -25,6 +25,10 @@ if status is-interactive
     alias t_fota "tmuxifier load-session t_fota"
     alias libam "tmuxifier load-session libam"
 
+    alias glog "git log"
+    alias gpull "git pull"
+    alias gpush "git push"
+
     __auto_git_fetch
     starship init fish | source
 
