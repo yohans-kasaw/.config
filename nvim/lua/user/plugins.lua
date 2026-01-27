@@ -306,9 +306,9 @@ return {
 						lookahead = true,
 						keymaps = {
 							["af"] = "@function.outer",
-							["ac"] = "@class.outer",
 							["if"] = "@function.inner",
-							["ic"] = "@class.inner",
+							["ac"] = "@call.outer",
+							["ic"] = "@call.inner",
 						},
 					},
 				},
@@ -603,5 +603,12 @@ return {
 				only_in_normal_buffers = true,
 			})
 		end,
+	},
+	{
+		"arnamak/stay-centered.nvim",
+		lazy = false,
+		opts = {
+			-- skip_filetypes = { "lua", "typescript" },
+		},
 	},
 }

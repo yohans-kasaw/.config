@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.o.smoothscroll = true
 
 -- Looks
 vim.opt.termguicolors = true
