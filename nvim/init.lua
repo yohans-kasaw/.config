@@ -30,6 +30,7 @@ vim.cmd("colorscheme kanso-ink")
 vim.lsp.enable({
 	"lua_ls",
 	-- "ts_ls",
+	"emmet_language_server",
 	"vue_ls",
 	"tailwind",
 	"cssls",
