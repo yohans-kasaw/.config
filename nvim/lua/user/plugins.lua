@@ -611,4 +611,26 @@ return {
 			-- skip_filetypes = { "lua", "typescript" },
 		},
 	},
+	{
+		"youyoumu/pretty-ts-errors.nvim",
+		opts = {
+			executable = "pretty-ts-errors-markdown",
+			float_opts = {
+				border = "rounded",
+				max_width = 80,
+				max_height = 20,
+				wrap = true,
+			},
+			auto_open = false,
+			lazy_window = false,
+		},
+	},
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-mini/mini.icons",
+		},
+		opts = {},
+	},
 }

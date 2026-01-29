@@ -167,3 +167,7 @@ vim.keymap.set({ "n" }, ";t", function()
 	local time = os.date("### --- %H:%M ---")
 	vim.api.nvim_put({ time }, "l", false, true)
 end)
+
+vim.keymap.set("n", "<leader>te", function()
+	require("pretty-ts-errors").show_formatted_error()
+end, { desc = "Show TS error" })
