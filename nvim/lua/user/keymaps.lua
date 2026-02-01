@@ -1,23 +1,23 @@
 -- Diagnostics
 vim.keymap.set("n", "gl", function()
-	vim.diagnostic.open_float(nil, {})
+    vim.diagnostic.open_float(nil, {})
 end, { noremap = true, silent = true, desc = "Show Line Diagnostics" })
 
 -- Formatting
-vim.keymap.set({ "n", "v" }, "<leader>ff", function()
-	require("conform").format({
-		lsp_fallback = false,
-		async = false,
-		timeout_ms = 500,
-	})
-end, { desc = "Format" })
+-- vim.keymap.set({ "n", "v" }, "<leader>ff", function()
+-- 	require("conform").format({
+-- 		lsp_fallback = false,
+-- 		async = false,
+-- 		timeout_ms = 500,
+-- 	})
+-- end, { desc = "Format" })
 
 -- Git integration (gitsigns)
 vim.keymap.set({ "n", "x" }, "<A-Down>", function()
-	require("gitsigns").nav_hunk("next")
+    require("gitsigns").nav_hunk("next")
 end, { desc = "Next Hunk" })
 vim.keymap.set({ "n", "x" }, "<A-Up>", function()
-	require("gitsigns").nav_hunk("prev")
+    require("gitsigns").nav_hunk("prev")
 end, { desc = "Previous Hunk" })
 vim.keymap.set({ "n", "x" }, "<leader>hr", require("gitsigns").reset_hunk, { desc = "Reset Hunk" })
 vim.keymap.set({ "n", "x" }, "<leader>hp", require("gitsigns").preview_hunk_inline, { desc = "Preview Hunk Inline" })
@@ -94,11 +94,11 @@ vim.keymap.set("n", ";g", "<cmd>Neogit<cr>", { desc = "toggle diff view" })
 vim.keymap.set("n", ";c", "<cmd>Assistant<cr>", { desc = "Preview in Quickfix" })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "qf",
-	callback = function(args)
-		vim.api.nvim_buf_set_keymap(args.buf, "n", "q", "<cmd>cclose<cr>", { noremap = true, silent = true })
-	end,
-	desc = "Close quickfix window with q",
+    pattern = "qf",
+    callback = function(args)
+        vim.api.nvim_buf_set_keymap(args.buf, "n", "q", "<cmd>cclose<cr>", { noremap = true, silent = true })
+    end,
+    desc = "Close quickfix window with q",
 })
 
 -- Normal and Visual modes
@@ -107,10 +107,10 @@ vim.keymap.set({ "n", "v" }, "<leader>D", '"_D')
 vim.keymap.set({ "n", "v" }, "<leader>dd", '"_dd')
 vim.keymap.set("n", "gv", "`[v`]", { desc = "Reselect last pasted text" })
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>im",
-	[[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]],
-	{ noremap = true, silent = true }
+    "n",
+    "<leader>im",
+    [[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]],
+    { noremap = true, silent = true }
 )
 
 -- add breakpoint using dap
@@ -127,36 +127,36 @@ vim.keymap.set("n", "<C-Up>", require("dap").step_out, { silent = true })
 vim.keymap.set("n", "<leader>m", require("treesj").toggle)
 -- For extending default preset with `recursive = true`
 vim.keymap.set("n", "<leader>M", function()
-	require("treesj").toggle({ split = { recursive = true } })
+    require("treesj").toggle({ split = { recursive = true } })
 end)
 
 vim.keymap.set("n", "<leader>u", "<Cmd>Atone toggle<CR>")
 vim.keymap.set("n", ";i", function()
-	require("mini.diff").toggle_overlay(0)
+    require("mini.diff").toggle_overlay(0)
 end)
 
 vim.keymap.set({ "n", "v" }, "<leader>n", function()
-	local mode = vim.fn.mode()
-	require("focus").toggle_zen({
-		zen = {
-			opts = {},
-		},
-	})
-	if mode == "v" or mode == "V" then
-		local start = vim.fn.line("v")
-		local cursor = vim.fn.line(".")
+    local mode = vim.fn.mode()
+    require("focus").toggle_zen({
+        zen = {
+            opts = {},
+        },
+    })
+    if mode == "v" or mode == "V" then
+        local start = vim.fn.line("v")
+        local cursor = vim.fn.line(".")
 
-		require("focus").toggle_narrow({
-			line1 = math.min(start, cursor),
-			line2 = math.max(start, cursor),
-		})
-	else
-		require("focus").toggle({
-			window = {
-				width = 0.50,
-			},
-		})
-	end
+        require("focus").toggle_narrow({
+            line1 = math.min(start, cursor),
+            line2 = math.max(start, cursor),
+        })
+    else
+        require("focus").toggle({
+            window = {
+                width = 0.50,
+            },
+        })
+    end
 end)
 
 vim.keymap.set({ "n", "o" }, "w", "<cmd>lua require('spider').motion('w')<CR>")
@@ -164,10 +164,10 @@ vim.keymap.set({ "n", "o" }, "e", "<cmd>lua require('spider').motion('e')<CR>")
 vim.keymap.set({ "n", "o" }, "b", "<cmd>lua require('spider').motion('b')<CR>")
 
 vim.keymap.set({ "n" }, ";t", function()
-	local time = os.date("### --- %H:%M ---")
-	vim.api.nvim_put({ time }, "l", false, true)
+    local time = os.date("### --- %H:%M ---")
+    vim.api.nvim_put({ time }, "l", false, true)
 end)
 
 vim.keymap.set("n", "<leader>te", function()
-	require("pretty-ts-errors").show_formatted_error()
+    require("pretty-ts-errors").show_formatted_error()
 end, { desc = "Show TS error" })

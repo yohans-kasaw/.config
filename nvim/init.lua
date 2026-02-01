@@ -36,7 +36,8 @@ vim.lsp.enable({
 	"cssls",
 	"jsonls",
 	"gopls",
-	"pylsp",
+	"pyright",
+	"ruff",
 	"sqls",
 })
 
