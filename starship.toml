@@ -1,6 +1,7 @@
 add_newline = false 
 
 format = """
+$python\
 $custom\
 $jobs\
 $directory\
@@ -54,3 +55,7 @@ when = 'printenv TMUX'
 shell = ["sh", "--norc"]
 style = "bold cyan"
 format = "[$output]($style)"
+
+[python]
+pyenv_version_name = true
+format = "[${pyenv_prefix}](bold cyan)"
