@@ -11,17 +11,24 @@
 }
 
 window#waybar {
-    background: rgba(0, 0, 0, 0.7);
+    background: transparent;
 }
 
 button {
     border-radius: 0;
 }
 
-#workspaces {
+.modules-left, .modules-center, .modules-right {
     background: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    padding: 4px;
+    border: 0.8px solid @overlay0;
+    border-radius: 8px;
+    padding: 0px 12px;
+    margin: 0px;
+}
+
+#workspaces {
+    /* Removed background and border-radius as the parent .modules-center handles the group style */
+    padding: 0;
 }
 
 #workspaces button {
@@ -49,8 +56,8 @@ button {
 #memory,
 #tray,
 #network {
-    margin-left: 6px;
-    margin-right: 6px;
+    /* Remove margins as padding is handled by the group container */
+    padding: 0 8px;
     color: @overlay2;
 }
 
