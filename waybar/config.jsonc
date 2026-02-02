@@ -7,6 +7,7 @@
         "network",
         "battery",
         "cpu",
+        "custom/gpu",
         "memory",
         "backlight",
         "pulseaudio",
@@ -43,6 +44,13 @@
 
     "clock#date": {
         "format": "{:%I:%M %p, %a, %d %b %Y}"
+    },
+
+    "custom/gpu": {
+        "exec": "/home/yohansh/config/waybar/scripts/gpu_usage.sh",
+        "format": "gpu {}",
+        "return-type": "json",
+        "interval": 2
     },
 
     "battery": {

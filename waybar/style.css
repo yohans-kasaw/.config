@@ -18,7 +18,9 @@ button {
     border-radius: 0;
 }
 
-.modules-left, .modules-center, .modules-right {
+.modules-left,
+.modules-center,
+.modules-right {
     background: rgba(0, 0, 0, 0.8);
     border: 0.8px solid @overlay0;
     border-radius: 8px;
@@ -41,7 +43,8 @@ button {
 }
 
 #workspaces button.empty {
-    color: #666666; /* Grayed out but still visible */
+    color: #666666;
+    /* Grayed out but still visible */
 }
 
 #workspaces button.urgent {
@@ -69,6 +72,11 @@ button {
     color: @overlay1;
 }
 
-#try{
+
+#try {
     padding-right: 25px;
+}
+
+#custom-gpu {
+    color: @overlay1;
 }
