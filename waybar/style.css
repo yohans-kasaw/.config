@@ -5,7 +5,7 @@
 @define-color overlay0 #6c7086;
 
 * {
-    font-size: 14px;
+    font-size: 16px;
     min-height: 0;
     font-weight: bold;
 }
@@ -58,25 +58,9 @@ button {
 #cpu,
 #memory,
 #tray,
+#custom-gpu,
 #network {
     /* Remove margins as padding is handled by the group container */
-    padding: 0 8px;
+    padding: 0 4px;
     color: @overlay2;
-}
-
-#clock {
-    color: @yellow-dark;
-}
-
-#network {
-    color: @overlay1;
-}
-
-
-#try {
-    padding-right: 25px;
-}
-
-#custom-gpu {
-    color: @overlay1;
 }

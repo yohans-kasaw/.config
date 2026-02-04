@@ -2,7 +2,7 @@
     "position": "top",
     "height": 30,
     "spacing": 4,
-    "modules-left": [
+    "modules-right": [
         "tray",
         "network",
         "battery",
@@ -12,47 +12,46 @@
         "backlight",
         "pulseaudio",
     ],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": [
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-left": [
         "clock#date"
     ],
-
     "hyprland/workspaces": {
         "disable-scroll": true,
         "warp-on-scroll": false,
         "format": "{icon}",
         "format-icons": {
-            "1": "1",
-            "2": "2",
-            "3": "craft_a",
-            "4": "craft ",
-            "6": "test",
-            "5": "brow",
-            "7": "nots",
-            "8": "slack",
-            "9": "msic",
-            "urgent": "",
-            "default": ""
+            "1": "󰲠",
+            "2": "󰲢",
+            "3": "",
+            "4": "",
+            "6": "󰙨",
+            "5": "󰈹",
+            "7": "",
+            "8": "󰒱",
+            "9": " ",
+            "10": "󱚥",
+            "11": "",
+            "urgent": "󱈸",
+            "default": ""
         },
         "active-only": false,
         "all-outputs": false
     },
-
     "clock#time": {
         "format": "{:%I:%M %p}"
     },
-
     "clock#date": {
         "format": "{:%I:%M %p, %a, %d %b %Y}"
     },
-
     "custom/gpu": {
         "exec": "/home/yohansh/config/waybar/scripts/gpu_usage.sh",
         "format": "gpu {}",
         "return-type": "json",
         "interval": 2
     },
-
     "battery": {
         "states": {
             "warning": 30,
@@ -65,37 +64,40 @@
         "format-plugged": "<span >  </span>{capacity}%",
         "format-alt": "<span >{icon}  </span>{time}",
         "format-full": "<span >󱊦  </span>{capacity}%",
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
         "tooltip-format": "{time}"
     },
-
     "network": {
         "format-wifi": "{essid}  | {ipaddr}/{cidr}",
         "format-ethernet": "eth",
         "format-disconnected": "Disconnected",
         "interval": 1
     },
-
     "pulseaudio": {
         "format": "vol {volume}%",
         "format-muted": "🔇",
         "on-click": "pavucontrol"
     },
-
     "backlight": {
         "format": "{percent}% {icon}",
         "device": "intel_backlight",
-        "format-icons": ["", ""]
+        "format-icons": [
+            "",
+            ""
+        ]
     },
-
     "tray": {
         "spacing": 10
     },
-
     "cpu": {
         "format": "cpu {usage}%"
     },
-
     "memory": {
         "format": "Mem {used:0.1f}GB"
     }

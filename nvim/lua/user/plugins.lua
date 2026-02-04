@@ -432,30 +432,6 @@ return {
         opts = {},
     },
     {
-        "m4xshen/hardtime.nvim",
-        lazy = false,
-        dependencies = { "MunifTanjim/nui.nvim" },
-        opts = {
-            disabled_keys = {
-                ["<Up>"] = false,
-                ["<Down>"] = false,
-            },
-        },
-    },
-    -- {
-    -- 	"supermaven-inc/supermaven-nvim",
-    -- 	config = function()
-    -- 		require("supermaven-nvim").setup({
-    -- 			ignore_filetypes = { "markdown" },
-    -- 			keymaps = {
-    -- 				accept_suggestion = "<A-S-Space>",
-    -- 				clear_suggestion = "<A-BS>",
-    -- 				accept_word = "<A-Space>",
-    -- 			},
-    -- 		})
-    -- 	end,
-    -- },
-    {
         "romus204/go-tagger.nvim",
         config = function()
             require("go-tagger").setup({
