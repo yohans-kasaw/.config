@@ -3,14 +3,9 @@
     "height": 30,
     "spacing": 4,
     "modules-right": [
-        "tray",
-        "network",
-        "battery",
-        "cpu",
-        "custom/gpu",
-        "memory",
-        "backlight",
-        "pulseaudio",
+        "group/tray-group",
+        "group/settings-group",
+        "group/metrics-group"
     ],
     "modules-center": [
         "hyprland/workspaces"
@@ -52,6 +47,28 @@
         "return-type": "json",
         "interval": 2
     },
+    "group/tray-group": {
+        "orientation": "inherit",
+        "modules": [
+            "tray"
+        ]
+    },
+    "group/metrics-group": {
+        "orientation": "inherit",
+        "modules": [
+            "cpu",
+            "custom/gpu",
+            "memory"
+        ]
+    },
+    "group/settings-group": {
+        "orientation": "inherit",
+        "modules": [
+            "backlight",
+            "pulseaudio",
+            "battery"
+        ]
+    },
     "battery": {
         "states": {
             "warning": 30,
@@ -73,23 +90,26 @@
         ],
         "tooltip-format": "{time}"
     },
-    "network": {
-        "format-wifi": "{essid}  | {ipaddr}/{cidr}",
-        "format-ethernet": "eth",
-        "format-disconnected": "Disconnected",
-        "interval": 1
-    },
     "pulseaudio": {
-        "format": "vol {volume}%",
+        "format": "{icon} {volume}%",
         "format-muted": "🔇",
+        "format-icons": {
+            "headphones": "󰋋",
+            "headset": "󰋎",
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
+        },
         "on-click": "pavucontrol"
     },
     "backlight": {
-        "format": "{percent}% {icon}",
+        "format": "{icon} {percent}%",
         "device": "intel_backlight",
         "format-icons": [
-            "",
-            ""
+            "  ",
+            "  "
         ]
     },
     "tray": {

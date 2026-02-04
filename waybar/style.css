@@ -20,12 +20,15 @@ button {
 
 .modules-left,
 .modules-center,
-.modules-right {
+#tray-group,
+#settings-group,
+#metrics-group
+{
     background: rgba(0, 0, 0, 0.8);
     border: 0.8px solid @overlay0;
     border-radius: 8px;
     padding: 0px 12px;
-    margin: 0px;
+    margin: 2px 4px;
 }
 
 #workspaces {
