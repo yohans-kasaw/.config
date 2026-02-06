@@ -1,4 +1,4 @@
-configuration{
+configuration {
     modi: "run,window,combi";
     icon-theme: "Oranchelo";
     show-icons: true;
@@ -7,6 +7,119 @@ configuration{
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
+    display-drun: "   ";
+    display-run: "   ";
+    display-window: "   ";
+    display-combi: "   ";
 }
 
-@theme "catppuccin-mocha"
+* {
+    bg0:     #0d1117;
+    bg1:     #161b22;
+    bg2:     #21262d;
+    border:  #30363d;
+    fg0:     #c9d1d9;
+    fg1:     #8b949e;
+    accent:  #58a6ff;
+    urgent:  #f85149;
+
+    background-color: transparent;
+    text-color:       @fg0;
+    margin:           0;
+    padding:          0;
+    spacing:          0;
+
+    active-background:           @bg1;
+    active-foreground:           @fg0;
+    normal-background:           @bg0;
+    normal-foreground:           @fg0;
+    urgent-background:           @red;
+    urgent-foreground:           @bg0;
+
+    alternate-active-background: @bg1;
+    alternate-active-foreground: @fg0;
+    alternate-normal-background: @bg0;
+    alternate-normal-foreground: @fg0;
+    alternate-urgent-background: @red;
+    alternate-urgent-foreground: @bg0;
+
+    selected-active-background:  @blue;
+    selected-active-foreground:  @bg0;
+    selected-normal-background:  @bg1;
+    selected-normal-foreground:  @fg0;
+    selected-urgent-background:  @yellow;
+    selected-urgent-foreground:  @bg0;
+
+    background-color:            @bg0;
+    background:                  @bg0;
+    foreground:                  @fg0;
+}
+
+window {
+    background-color: @bg0;
+    border-color:     @border;
+    border-radius:    1 px;
+}
+
+mainbox {
+    padding:          12px;
+    children:         [ inputbar, listview ];
+}
+
+inputbar {
+    background-color: @bg1;
+    border:           1px;
+    border-color:     @border;
+    border-radius:    6px;
+    margin:           0 0 12px 0;
+    padding:          4px 8px;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    padding:          8px;
+    text-color:       @accent;
+}
+
+entry {
+    padding:          8px;
+    text-color:       @fg0;
+    placeholder:      "Search...";
+    placeholder-color: @fg1;
+}
+
+listview {
+    lines:            8;
+    columns:          1;
+    fixed-height:     false;
+    spacing:          4px;
+}
+
+element {
+    padding:          8px 12px;
+    spacing:          12px;
+    border-radius:    6px;
+}
+
+element normal.normal {
+    background-color: transparent;
+}
+
+element selected.normal {
+    background-color: @bg2;
+    border:           1px;
+    border-color:     @accent;
+}
+
+element-icon {
+    size:             24px;
+}
+
+element-text {
+    vertical-align:   0.5;
+    text-color:       inherit;
+}
+
+element-text selected {
+    text-color:       @accent;
+}
