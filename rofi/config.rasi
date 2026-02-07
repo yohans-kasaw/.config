@@ -11,6 +11,7 @@ configuration {
     display-run: "   ";
     display-window: "   ";
     display-combi: "   ";
+    font: "Noto Sans 30";
 }
 
 * {
@@ -91,7 +92,7 @@ entry {
 listview {
     lines:            8;
     columns:          1;
-    fixed-height:     false;
+    fixed-height:     true;
     spacing:          4px;
 }
 
