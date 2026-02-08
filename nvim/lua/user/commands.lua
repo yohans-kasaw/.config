@@ -26,7 +26,7 @@ create_fzf_cmd("Schemes", "colorschemes", { desc = "Colorschemes" })
 create_fzf_cmd("Marks", "marks", { desc = "Marks" })
 create_fzf_cmd("Jumps", "jumps", { desc = "Jumps" })
 create_fzf_cmd("Spell", "spell_suggest", { desc = "Spelling Suggestions" })
-
+create_fzf_cmd("Commands", "commands", { desc = "Neovim Commands" })
 
 -- tern this to command
 -- vim.api.nvim_set_keymap(
