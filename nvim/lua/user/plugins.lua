@@ -1,7 +1,6 @@
 return {
     { "nvim-lua/plenary.nvim" },
     { "nvim-tree/nvim-web-devicons" },
-    { "wakatime/vim-wakatime" },
     {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
@@ -137,19 +136,12 @@ return {
                 enable_autocmd = false,
             })
             local org_get_option = vim.filetype.get_option
+            ---@diagnostic disable-next-line: duplicate-set-field, duplicate-field
             vim.filetype.get_option = function(filetype, option)
                 return option == "commentstring"
                     and require("ts_context_commentstring.internal").calculate_commentstring()
                     or org_get_option(filetype, option)
             end
-        end,
-    },
-    {
-        "chrisgrieser/nvim-spider",
-        config = function()
-            require("spider").setup({
-                skipInsignificantPunctuation = false,
-            })
         end,
     },
     {
@@ -253,8 +245,16 @@ return {
         "ibhagwan/fzf-lua",
         config = function()
             require("fzf-lua").setup({
-                fzf_opts = { ["--layout"] = "reverse-list" },
-                winopts = { fullscreen = true },
+                fzf_opts = { ["--layout"] = "reverse" },
+                -- winopts = { fullscreen = true },
+                winopts = {
+                    height = 0.95,
+                    width  = 0.80,
+                    border = "rounded",
+                },
+                defaults = {
+                    file_icons = "mini",
+                },
                 keymap = { fzf = { ["ctrl-q"] = "select-all+accept" } },
             })
         end,
@@ -377,11 +377,6 @@ return {
         end,
     },
     { "aaronik/treewalker.nvim" },
-    {
-        "A7Lavinraj/fyler.nvim",
-        dependencies = { "nvim-mini/mini.icons" },
-        opts = {},
-    },
     {
         "nvimtools/none-ls.nvim",
         config = function()
@@ -520,23 +515,6 @@ return {
         },
     },
     {
-        "XXiaoA/atone.nvim",
-        cmd = "Atone",
-        opts = {
-            layout = {
-                direction = "left",
-                width = 0.99,
-            },
-            diff_cur_node = {
-                enabled = true,
-                split_percent = 0.5,
-            },
-            ui = {
-                border = "rounded",
-            },
-        },
-    },
-    {
         "nvim-mini/mini.diff",
         version = false,
         config = function()
@@ -605,14 +583,6 @@ return {
         },
     },
     {
-        "MeanderingProgrammer/render-markdown.nvim",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-mini/mini.icons",
-        },
-        opts = {},
-    },
-    {
         "dmmulroy/ts-error-translator.nvim",
         config = function()
             require("ts-error-translator").setup({
@@ -639,5 +609,32 @@ return {
         config = function()
             require 'colorizer'.setup()
         end
-    }
+    },
+    {
+        'stevearc/oil.nvim',
+        ---@module 'oil'
+        ---@type table
+        opts = {},
+        config = function()
+            require("oil").setup({
+                default_file_explorer = true,
+                delete_to_trash = true,
+                view_options = {
+                    show_hidden = true,
+                },
+                float = {
+                    max_width = 0.85,
+                    max_height = 0.85,
+                    min_width = 0.85,
+                    min_height = 0.85,
+                    border = "rounded",
+                },
+                keymaps = {
+                    ["q"] = { "actions.close", mode = "n" },
+                }
+            })
+        end,
+        dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+        lazy = false,
+    },
 }

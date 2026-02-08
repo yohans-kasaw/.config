@@ -52,17 +52,17 @@ vim.g.loaded_ruby_provider = 0
 -- spell
 vim.opt.spellcapcheck = ""
 local function enable_spell()
-	vim.opt_local.spell = true
-	vim.opt_local.spelllang = { "en_us" }
+    vim.opt_local.spell = true
+    vim.opt_local.spelllang = { "en_us" }
 end
 vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
-	desc = "Conditional spell checking activation",
-	callback = function(args)
-		local ft = vim.bo[args.buf].filetype
-		if vim.tbl_contains({ "markdown", "text" }, ft) then
-			enable_spell()
-		end
-	end,
+    desc = "Conditional spell checking activation",
+    callback = function(args)
+        local ft = vim.bo[args.buf].filetype
+        if vim.tbl_contains({ "markdown", "text" }, ft) then
+            enable_spell()
+        end
+    end,
 })
 
 -- Neovide
@@ -75,13 +75,15 @@ vim.g.neovide_confirm_quit = true
 
 -- git diff
 vim.opt.diffopt = {
-	"internal",
-	"filler",
-	"closeoff",
-	"context:12",
-	"algorithm:histogram",
-	"linematch:200",
-	"indent-heuristic",
+    "internal",
+    "filler",
+    "closeoff",
+    "context:12",
+    "algorithm:histogram",
+    "linematch:200",
+    "indent-heuristic",
 }
 
 vim.opt.fillchars:append { diff = "╱" }
+
+vim.o.autoread = true

@@ -19,6 +19,7 @@ require("lazy").setup({
 	spec = require("user.plugins"),
 })
 require("user.keymaps")
+require("user.commands")
 vim.o.laststatus = 0
 
 require("user.functions")
