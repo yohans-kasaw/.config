@@ -10,8 +10,8 @@ end, { desc = "Next Hunk" })
 vim.keymap.set({ "n", "x" }, "<A-Up>", function()
     require("gitsigns").nav_hunk("prev")
 end, { desc = "Previous Hunk" })
+
 vim.keymap.set({ "n", "x" }, "<leader>hr", require("gitsigns").reset_hunk, { desc = "Reset Hunk" })
-vim.keymap.set({ "n", "x" }, "<leader>hp", require("gitsigns").preview_hunk_inline, { desc = "Preview Hunk Inline" })
 
 -- window
 vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
@@ -28,6 +28,7 @@ vim.keymap.set("n", "<Tab>", require("fzf-lua").live_grep_native, { desc = "Grep
 vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "Resume Last Search" })
 vim.keymap.set("n", "<leader>g", require("fzf-lua").live_grep_native, { desc = "Grep" })
 vim.keymap.set("n", "<leader>w", require("fzf-lua").grep_cword, { desc = "Search Word Under Cursor" })
+vim.keymap.set("n", "<leader><Space>", require("fzf-lua").oldfiles, { desc = "Search Word Under Cursor" })
 
 vim.keymap.set("n", "<leader>ld", require("fzf-lua").lsp_definitions, { silent = true, desc = "Go to Definition" })
 vim.keymap.set("n", "<leader>lr", require("fzf-lua").lsp_references, { silent = true, desc = "Find References" })
@@ -46,9 +47,6 @@ vim.keymap.set("n", "'", "`", { noremap = true })
 vim.keymap.set("n", "<leader>t", ":ToggleTerm size=50 direction=vertical<cr>", { silent = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 
--- lsp
-vim.keymap.set("n", "<C-k>", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-
 
 -- trail
 vim.keymap.set({ "n", "v" }, "<S-Up>", "<cmd>Treewalker Up<cr>", { silent = true })
@@ -65,41 +63,12 @@ vim.keymap.set("n", "<leader>e", function()
 end, { desc = "Open parent directory" })
 
 -- snippets
-vim.keymap.set("i", "<C-e>", "if err != nil {\n\tfmt.Println(err)\n}<Esc>", { silent = true })
-vim.keymap.set("i", "<C-l>", "fmt.Println()<Esc>", { remap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-t>", '<C-R>=strftime("%H:%M")<CR>', { noremap = true })
-
 vim.keymap.set({ "n", "v" }, "<leader>lf", vim.lsp.buf.format, { desc = "Format file" })
 
-vim.keymap.set("n", "<A-d>", vim.diagnostic.setqflist, { desc = "Preview in Quickfix" })
-vim.keymap.set("n", "<leader>q", require("fzf-lua").quickfix, { desc = "Grep" })
-vim.keymap.set("n", "<A-h>", "<cmd>cnext<cr>", { desc = "Next in Quickfix" })
-vim.keymap.set("n", "<A-l>", "<cmd>cprev<cr>", { desc = "Preview in Quickfix" })
-vim.keymap.set("n", "<A-o>", "<cmd>copen<cr>", { desc = "Open Quickfix" })
 vim.keymap.set("n", ";v", "<cmd>DiffviewOpen<cr>", { desc = "toggle diff view" })
 vim.keymap.set("n", ";d", "<cmd>DiffviewOpen dev<cr>", { desc = "toggle diff view" })
-vim.keymap.set("n", ";g", "<cmd>Neogit<cr>", { desc = "toggle diff view" })
-vim.keymap.set("n", ";c", "<cmd>Assistant<cr>", { desc = "Preview in Quickfix" })
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "qf",
-    callback = function(args)
-        vim.api.nvim_buf_set_keymap(args.buf, "n", "q", "<cmd>cclose<cr>", { noremap = true, silent = true })
-    end,
-    desc = "Close quickfix window with q",
-})
 
 -- Normal and Visual modes
-vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
-vim.keymap.set({ "n", "v" }, "<leader>D", '"_D')
-vim.keymap.set({ "n", "v" }, "<leader>dd", '"_dd')
-vim.keymap.set("n", "gv", "`[v`]", { desc = "Reselect last pasted text" })
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>im",
-    [[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]],
-    { noremap = true, silent = true }
-)
 
 -- add breakpoint using dap
 vim.keymap.set("n", "<leader>db", require("dap").toggle_breakpoint, { silent = true })
@@ -120,35 +89,6 @@ end)
 
 vim.keymap.set("n", ";i", function()
     require("mini.diff").toggle_overlay(0)
-end)
-
-vim.keymap.set({ "n", "v" }, "<leader>n", function()
-    local mode = vim.fn.mode()
-    require("focus").toggle_zen({
-        zen = {
-            opts = {},
-        },
-    })
-    if mode == "v" or mode == "V" then
-        local start = vim.fn.line("v")
-        local cursor = vim.fn.line(".")
-
-        require("focus").toggle_narrow({
-            line1 = math.min(start, cursor),
-            line2 = math.max(start, cursor),
-        })
-    else
-        require("focus").toggle({
-            window = {
-                width = 0.50,
-            },
-        })
-    end
-end)
-
-vim.keymap.set({ "n" }, ";t", function()
-    local time = os.date("### --- %H:%M ---")
-    vim.api.nvim_put({ time }, "l", false, true)
 end)
 
 vim.keymap.set("n", "<leader>te", function()

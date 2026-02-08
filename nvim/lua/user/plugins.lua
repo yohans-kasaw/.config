@@ -98,29 +98,6 @@ return {
         end,
     },
     {
-        "nvimdev/lspsaga.nvim",
-        config = function()
-            require("lspsaga").setup({
-                ui = {
-                    border = "rounded",
-                },
-                hover = {
-                    max_width = 0.5,
-                },
-                symbol_in_winbar = {
-                    enable = true,
-                },
-                finder = {
-                    left_width = 0.16,
-                    right_width = 0.5,
-                },
-                lightbulb = {
-                    enable = false,
-                },
-            })
-        end,
-    },
-    {
         "Wansmer/treesj",
         config = function()
             require("treesj").setup({
@@ -421,10 +398,6 @@ return {
                 },
             })
         end,
-    },
-    {
-        "A7lavinraj/assistant.nvim",
-        opts = {},
     },
     {
         "romus204/go-tagger.nvim",

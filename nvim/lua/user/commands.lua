@@ -26,3 +26,37 @@ create_fzf_cmd("Schemes", "colorschemes", { desc = "Colorschemes" })
 create_fzf_cmd("Marks", "marks", { desc = "Marks" })
 create_fzf_cmd("Jumps", "jumps", { desc = "Jumps" })
 create_fzf_cmd("Spell", "spell_suggest", { desc = "Spelling Suggestions" })
+
+
+-- tern this to command
+-- vim.api.nvim_set_keymap(
+--     "n",
+--     "<leader>im",
+--     [[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]],
+--     { noremap = true, silent = true }
+-- )
+--
+--
+-- vim.keymap.set({ "n", "v" }, "<leader>n", function()
+--     local mode = vim.fn.mode()
+--     require("focus").toggle_zen({
+--         zen = {
+--             opts = {},
+--         },
+--     })
+--     if mode == "v" or mode == "V" then
+--         local start = vim.fn.line("v")
+--         local cursor = vim.fn.line(".")
+--
+--         require("focus").toggle_narrow({
+--             line1 = math.min(start, cursor),
+--             line2 = math.max(start, cursor),
+--         })
+--     else
+--         require("focus").toggle({
+--             window = {
+--                 width = 0.50,
+--             },
+--         })
+--     end
+-- end)

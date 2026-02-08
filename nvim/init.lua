@@ -20,6 +20,7 @@ require("lazy").setup({
 })
 require("user.keymaps")
 require("user.commands")
+require("user.autocmd")
 vim.o.laststatus = 0
 
 require("user.functions")
