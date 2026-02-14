@@ -18,7 +18,7 @@ create_fzf_cmd("Projects", "grep_project", { desc = "Grep Project" })
 create_fzf_cmd("Commits", "git_commits", { desc = "Git Commits (Project)" })
 create_fzf_cmd("Diagnostics", "diagnostics_document", { desc = "Document Diagnostics" })
 create_fzf_cmd("WDiagnostics", "diagnostics_workspace", { desc = "Workspace Diagnostics" })
-create_fzf_cmd("Buffers", "buffers", { desc = "Find Buffers" })
+create_fzf_cmd("Oldfiles", "oldfiles", { desc = "Find Oldfiles" })
 create_fzf_cmd("Keymaps", "keymaps", { desc = "Keymaps" })
 create_fzf_cmd("Help", "help_tags", { desc = "Help Tags" })
 create_fzf_cmd("Man", "man_pages", { desc = "Man Pages" })
@@ -27,6 +27,23 @@ create_fzf_cmd("Marks", "marks", { desc = "Marks" })
 create_fzf_cmd("Jumps", "jumps", { desc = "Jumps" })
 create_fzf_cmd("Spell", "spell_suggest", { desc = "Spelling Suggestions" })
 create_fzf_cmd("Commands", "commands", { desc = "Neovim Commands" })
+
+
+vim.api.nvim_create_user_command("Zen", function()
+    local mode = vim.fn.mode()
+
+    require("focus").toggle_zen({
+        zen = {
+            opts = {},
+        },
+    })
+
+    require("focus").toggle({
+        window = {
+            width = 0.50,
+        },
+    })
+end, { range = true, desc = "Toggle Zen/Narrow focus mode" })
 
 -- tern this to command
 -- vim.api.nvim_set_keymap(
@@ -37,26 +54,3 @@ create_fzf_cmd("Commands", "commands", { desc = "Neovim Commands" })
 -- )
 --
 --
--- vim.keymap.set({ "n", "v" }, "<leader>n", function()
---     local mode = vim.fn.mode()
---     require("focus").toggle_zen({
---         zen = {
---             opts = {},
---         },
---     })
---     if mode == "v" or mode == "V" then
---         local start = vim.fn.line("v")
---         local cursor = vim.fn.line(".")
---
---         require("focus").toggle_narrow({
---             line1 = math.min(start, cursor),
---             line2 = math.max(start, cursor),
---         })
---     else
---         require("focus").toggle({
---             window = {
---                 width = 0.50,
---             },
---         })
---     end
--- end)

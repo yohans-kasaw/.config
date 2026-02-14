@@ -25,7 +25,7 @@ vim.keymap.set("n", "<Tab>", require("fzf-lua").live_grep_native, { desc = "Grep
 vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "Resume Last Search" })
 vim.keymap.set("n", "<leader>g", require("fzf-lua").live_grep_native, { desc = "Grep" })
 vim.keymap.set("n", "<leader>w", require("fzf-lua").grep_cword, { desc = "Search Word Under Cursor" })
-vim.keymap.set("n", "<leader><Space>", require("fzf-lua").oldfiles, { desc = "Search Word Under Cursor" })
+vim.keymap.set("n", "<leader><Space>", require("fzf-lua").buffers, { desc = "Search Word Under Cursor" })
 
 vim.keymap.set("n", "<leader>ld", require("fzf-lua").lsp_definitions, { silent = true, desc = "Go to Definition" })
 vim.keymap.set("n", "<leader>lr", require("fzf-lua").lsp_references, { silent = true, desc = "Find References" })
