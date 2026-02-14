@@ -1,3 +1,4 @@
 [EmbedSettings]
 embed-application/epub+zip=false
 embed-application/pdf=false
+embed-audio/mpeg=false

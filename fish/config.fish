@@ -24,6 +24,7 @@ if status is-interactive
     alias t_fr "tmuxifier load-session t_fr"
     alias t_fota "tmuxifier load-session t_fota"
     alias libam "tmuxifier load-session libam"
+    alias t_read "tmuxifier load-session read"
 
     abbr glog "git log --graph --oneline --decorate -10"
     abbr gp "git push"
