@@ -610,5 +610,6 @@ return {
         dependencies = { { "nvim-mini/mini.icons", opts = {} } },
         lazy = false,
     },
+    { "szymonwilczek/vim-be-better" }
     -- { "tpope/vim-sleuth" }
 }
