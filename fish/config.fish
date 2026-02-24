@@ -32,6 +32,7 @@ if status is-interactive
     abbr gst "git status -sb"
 
     __auto_git_fetch
+    __python_venv
     starship init fish | source
 
     eval (~/.tmuxifier/bin/tmuxifier init - fish)

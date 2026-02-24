@@ -29,6 +29,7 @@
   },
   "plugin": [
     "@mohak34/opencode-notifier@latest",
+    "@tarquinen/opencode-dcp@latest",
     // "oh-my-opencode@latest"
   ],
   "provider": {

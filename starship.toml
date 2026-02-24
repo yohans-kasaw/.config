@@ -1,7 +1,6 @@
-add_newline = false 
+add_newline = false
 
 format = """
-$python\
 $jobs\
 $directory\
 $git_branch\
