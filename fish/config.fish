@@ -3,6 +3,7 @@ if status is-interactive
     set -x PAGER nvimpager
     set -x VISUAL nvim
     set -x EDITOR nvim
+    set -x OLLAMA_KEEP_ALIVE 0
 
     set -gx FZF_DEFAULT_COMMAND  "fd --follow --exclude .git --exclude ~/.config/fd/fzfcd-ignore-rules . $HOME"
     set -x FZF_DEFAULT_OPTS "--tiebreak=index --style full --smart-case --preview 'bat --color=always {}'"

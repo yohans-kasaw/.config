@@ -354,20 +354,20 @@ return {
         end,
     },
     { "aaronik/treewalker.nvim" },
-    {
-        "nvimtools/none-ls.nvim",
-        config = function()
-            local null_ls = require("null-ls")
-            null_ls.setup({
-                sources = {
-                    null_ls.builtins.formatting.goimports,
-                    null_ls.builtins.diagnostics.mypy,
-                    null_ls.builtins.formatting.isort,
-                    null_ls.builtins.formatting.autoflake,
-                },
-            })
-        end,
-    },
+    -- {
+    --     "nvimtools/none-ls.nvim",
+    --     config = function()
+    --         local null_ls = require("null-ls")
+    --         null_ls.setup({
+    --             sources = {
+    --                 null_ls.builtins.formatting.goimports,
+    --                 null_ls.builtins.diagnostics.mypy,
+    --                 null_ls.builtins.formatting.isort,
+    --                 null_ls.builtins.formatting.autoflake,
+    --             },
+    --         })
+    --     end,
+    -- },
     {
         "folke/persistence.nvim",
         config = true,
@@ -525,15 +525,15 @@ return {
     {
         "bullets-vim/bullets.vim",
     },
-    {
-        "nvim-mini/mini.trailspace",
-        version = false,
-        config = function()
-            require("mini.trailspace").setup({
-                only_in_normal_buffers = true,
-            })
-        end,
-    },
+    -- {
+    --     "nvim-mini/mini.trailspace",
+    --     version = false,
+    --     config = function()
+    --         require("mini.trailspace").setup({
+    --             only_in_normal_buffers = true,
+    --         })
+    --     end,
+    -- },
     {
         "arnamak/stay-centered.nvim",
         lazy = false,
@@ -610,6 +610,14 @@ return {
         dependencies = { { "nvim-mini/mini.icons", opts = {} } },
         lazy = false,
     },
-    { "szymonwilczek/vim-be-better" }
-    -- { "tpope/vim-sleuth" }
+    { "szymonwilczek/vim-be-better" },
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        build = "cd app && yarn install",
+        init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
+    },
 }

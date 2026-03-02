@@ -3,7 +3,6 @@ add_newline = false
 format = """
 $jobs\
 $directory\
-$git_branch\
 $git_state\
 $git_status\
 $git_metrics\
