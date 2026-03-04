@@ -25,9 +25,11 @@ vim.o.laststatus = 0
 
 require("user.functions")
 
-vim.cmd("colorscheme kanso-ink")
+-- vim.cmd("colorscheme kanso-ink")
 -- vim.cmd("colorscheme kanso-zen")
+-- vim.cmd("colorscheme kanagawa-dragon")
 -- vim.cmd("colorscheme kanso-pearl")
+vim.cmd("colorscheme poimandres")
 
 vim.lsp.enable({
 	"lua_ls",
@@ -65,7 +67,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 -- Highlights
--- vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
+-- vim.api.nvim_set_hl(0, "LineNr", { fg = "#54546d", bg = "NONE" })
+-- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#7e9cd8", bg = "NONE", bold = true })
+-- vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
 
 vim.filetype.add({
   extension = {

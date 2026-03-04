@@ -171,10 +171,10 @@ return {
             })
         end,
     },
-    {
-        "m4xshen/smartcolumn.nvim",
-        opts = {},
-    },
+    -- {
+    --     "m4xshen/smartcolumn.nvim",
+    --     opts = {},
+    -- },
     {
         "stevearc/conform.nvim",
         cmd = { "ConformInfo" },
@@ -620,4 +620,13 @@ return {
         end,
         ft = { "markdown" },
     },
+    {
+        'olivercederborg/poimandres.nvim',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require('poimandres').setup {
+            }
+        end,
+    }
 }
