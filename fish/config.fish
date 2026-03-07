@@ -10,8 +10,10 @@ if status is-interactive
     set fzf_preview_dir_cmd eza --all --color=always
     set fzf_fd_opts --hidden --max-depth 5
     set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
-    set -x KUBECONFIG '~/.kube/config/k3s.yaml'
 
+    if status is-interactive
+        set -gx SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
+    end
 
     fzf --fish | source
     fish_vi_key_bindings
