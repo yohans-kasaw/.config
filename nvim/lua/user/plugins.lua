@@ -156,6 +156,9 @@ return {
     },
     {
         "xiyaowong/transparent.nvim",
+        lazy = false,
+        lazy_window = false,
+        priority = 1000,
         config = function()
             require("transparent").setup({
                 exclude_groups = { "CursorLine" },
@@ -333,7 +336,10 @@ return {
             })
         end,
     },
-    { "webhooked/kanso.nvim",           priority = 1000 },
+    {
+        "webhooked/kanso.nvim",
+        priority = 1000,
+    },
     {
         "ggandor/leap.nvim",
         config = function()
@@ -620,13 +626,4 @@ return {
         end,
         ft = { "markdown" },
     },
-    {
-        'olivercederborg/poimandres.nvim',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require('poimandres').setup {
-            }
-        end,
-    }
 }

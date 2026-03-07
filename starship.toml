@@ -19,15 +19,15 @@ error_symbol = "[x❯](bold red)"
 truncation_length = 6
 truncation_symbol = "…/" 
 truncate_to_repo = false 
-style = "bold blue" 
+style = "bold blue dimmed" 
 
 [git_branch]
 symbol = "🌿"
-style = "bold yellow"
+style = "bold yellow dimmed"
 format = '[$symbol$branch(:$remote_branch)]($style) '
 
 [git_state]
-style = "bold red"
+style = "bold red dimmed"
 cherry_pick = '[🍒 PICKING](bold red)'
 
 [git_metrics]
@@ -45,13 +45,13 @@ staged = '🗃️'
 diverged = ''
 stashed = ''
 up_to_date = '👍'
-style = 'bold green'
+style = 'bold green dimmed'
 
 [custom.tmux]
 command = "tmux display-message -p '[#I:#W]'"
 when = 'printenv TMUX'
 shell = ["sh", "--norc"]
-style = "bold cyan"
+style = "bold cyan dimmed"
 format = "[$output]($style)"
 
 [python]

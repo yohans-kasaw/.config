@@ -60,3 +60,12 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.expandtab = true
     end,
 })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.defer_fn(function()
+      require("fzf-lua").files()
+    end, 50)
+  end,
+  desc = "Open fzf-lua file finder on startup",
+})

@@ -40,6 +40,9 @@ if status is-interactive
     eval (~/.tmuxifier/bin/tmuxifier init - fish)
 
     zoxide init fish | source
+
+    ta
+
 end
 
 fish_add_path "~/.tmuxifier/bin"
