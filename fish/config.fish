@@ -23,13 +23,6 @@ if status is-interactive
     abbr t touch
     abbr v "nvim"
 
-    alias floey "tmuxifier load-session floey"
-    alias t_fr "tmuxifier load-session t_fr"
-    alias t_fota "tmuxifier load-session t_fota"
-    alias libam "tmuxifier load-session libam"
-    alias t_read "tmuxifier load-session read"
-    alias t_docRefinery "tmuxifier load-session docRefinery"
-
     abbr glog "git log --graph --oneline --decorate -10"
     abbr gp "git push"
     abbr gpl "git pull"
@@ -38,8 +31,6 @@ if status is-interactive
     __auto_git_fetch
     __python_venv
     starship init fish | source
-
-    eval (~/.tmuxifier/bin/tmuxifier init - fish)
 
     zoxide init fish | source
 
