@@ -1,0 +1,57 @@
+[default_session]
+startup_command = "nvim"
+preview_command = "eza --all --git --icons --color=always {}"
+
+[[window]]
+name = "nvim"
+startup_script = "nvim"
+
+[[window]]
+name = "opencode"
+startup_script = "opencode"
+
+[[window]]
+name = "web"
+startup_script = "cd web && nvim"
+
+[[window]]
+name = "backend"
+startup_script = "cd backend && nvim"
+
+# --- sessions ---
+[[session]]
+name = "libam"
+path = "~/projects/libam"
+startup_command = "hyprctl dispatch exec '[workspace 6] firefox http://localhost:5173' & cd web & nvim"
+windows = ["backend", "opencode", "bun-dev", "air"]
+
+[[window]]
+name = "bun-dev"
+startup_script = "cd web & bun run dev"
+
+[[window]]
+name = "air"
+startup_script = "cd backend & air"
+
+[[session]]
+name = "read"
+path = "~/Downloads/books"
+windows = ["epr", "focus-read"]
+
+[[window]]
+name = "epr"
+startup_script = "epr \"The Gay Science - With a Prelude in Rhymes and an Appendix -- Friedrich Nietzsche, Bernard Williams, Josefine Nauckhoff, -- ( WeLib.org ).epub\""
+
+[[window]]
+name = "focus-read"
+startup_script = "/home/yohansh/projects/focus_read"
+
+[[session]]
+name = "sesh config"
+path = "~/.config/sesh"
+startup_command = "nvim ./sesh.toml"
+
+[[session]]
+name = "tmux config"
+path = "~/.config/tmux"
+startup_command = "nvim tmux.conf"
