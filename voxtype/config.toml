@@ -257,3 +257,6 @@ stopped = ""
 # [profiles.code]
 # post_process_command = "ollama run llama3.2:1b 'Format as code comment...'"
 # output_mode = "clipboard"
+
+[meeting]
+  enabled = true

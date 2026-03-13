@@ -18,20 +18,20 @@ startup_script = "cd web && nvim"
 name = "backend"
 startup_script = "cd backend && nvim"
 
+[[window]]
+name = "run"
+startup_script = "cd ."
+
+[[window]]
+name = "command"
+startup_script = "cd ."
+
 # --- sessions ---
 [[session]]
 name = "libam"
 path = "~/projects/libam"
 startup_command = "hyprctl dispatch exec '[workspace 6] firefox http://localhost:5173' & cd web & nvim"
-windows = ["backend", "opencode", "bun-dev", "air"]
-
-[[window]]
-name = "bun-dev"
-startup_script = "cd web & bun run dev"
-
-[[window]]
-name = "air"
-startup_script = "cd backend & air"
+windows = ["backend", "command", "opencode", "run"]
 
 [[session]]
 name = "read"
