@@ -11,11 +11,57 @@
 # with the actual clipboard content before copying the final prompt to your clipboard.
 
 prompts:
+  - name: "Explain exert"
+    prompt: |
+      explain the following exert. when explaining be witty, insight full and effective in moving your point across don't me academic and don't try to be accurate or correct. the main point is in moving your point across and help me understand.
+      break it down and explain each step by step one by one. to remind the user have the part of text you are explaining. don't skip and sentences. cover every one of them. at the end give summary. 
+      {
+      {{clipboard}}
+      }
+
+  - name: "Fix Grammar and Issues"
+    prompt: |
+      Act as a professional editor specializing in conversational transcripts. Clean up the provided voice-to-text transcription. Retain my original word choices, tone, and unique phrasing. Do not formalize the language or turn it into "written prose. Fix Technical Errors: Correct obvious typos, punctuation, and grammatical mistakes that impede readability. Remove excessive filler words (um, ah, like, you know) and repetitions. improve the flow and rearrange the sentences flow of thoughts for better reading experience. 
+      {
+      {{clipboard}}
+      }
+
+  - name: "Vocabulary"
+    prompt: |
+      - { {{clipboard}} }
+      - help me understand and commit to memory of the above world. do it in light way and funny way.
+      - have short concise writing style; almost poetic
+      - explore its origin or relation and associations of the word but only its helpful or funny.
+      - the whole purpose here is to have fun and learn, no need to be correct and accurate
+      - every sentence should be useful and worth reading.
+
+  - name: "Prompt Engineering"
+    prompt: |
+      Can you make this existing prompt at least 10x better right now? Do you have the capability to do it? Is there any way that it can be improved 10x?
+      {
+      {{clipboard}}
+      }
+
+  - name: "Code Review"
+    prompt: |
+      Please review the following code:
+      
+      ```
+      {{clipboard}}
+      ```
+      
+      Consider:
+      . Code quality and adherence to best practices
+      . Potential bugs or edge cases
+      . Readability and maintainability
+      Suggest improvements and explain your reasoning for each suggestion.
+      - don't dump the full code, only snippets to make your point
+
   - name: "Summarize Text"
     prompt: "Please provide a concise summary of the following text:\n\n{{clipboard}}"
+
   - name: "Refactor Code"
     prompt: "Refactor the following code to improve readability and performance:\n\n{{clipboard}}"
+
   - name: "Explain Code"
     prompt: "Can you explain what the following code does?\n\n{{clipboard}}"
-  - name: "Fix Grammar"
-    prompt: "Please fix any grammar and spelling mistakes in the following text:\n\n{{clipboard}}"
