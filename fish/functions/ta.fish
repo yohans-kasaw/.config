@@ -6,6 +6,6 @@ function ta --description 'Attach to existing tmux session or create new one'
             tmux attach
         end
     else
-        tmux new-session -s "default"
+        tmux new-session -s "entry"
     end
 end

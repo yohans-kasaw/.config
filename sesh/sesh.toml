@@ -1,5 +1,4 @@
 [default_session]
-startup_command = "nvim"
 preview_command = "eza --all --git --icons --color=always {}"
 
 [[window]]
@@ -26,17 +25,27 @@ startup_script = "cd ."
 name = "command"
 startup_script = "cd ."
 
+[[window]]
+name = "music"
+startup_script = "cd ~/Documents/clasical && ranger"
+
 # --- sessions ---
+[[session]]
+name = "default"
+path = "~/"
+startup_command = ""
+windows = ["music","focus-read"]
+
 [[session]]
 name = "libam"
 path = "~/projects/libam"
 startup_command = "hyprctl dispatch exec '[workspace 6] firefox http://localhost:5173' & cd web & nvim"
-windows = ["backend", "command", "opencode", "run"]
+windows = ["backend"]
 
 [[session]]
-name = "read"
-path = "~/Downloads/books"
-windows = ["epr", "focus-read"]
+name = "libam-command"
+path = "~/projects/libam"
+windows = ["command","run", "opencode"]
 
 [[window]]
 name = "epr"
@@ -45,13 +54,3 @@ startup_script = "epr \"The Gay Science - With a Prelude in Rhymes and an Append
 [[window]]
 name = "focus-read"
 startup_script = "/home/yohansh/projects/focus_read"
-
-[[session]]
-name = "sesh config"
-path = "~/.config/sesh"
-startup_command = "nvim ./sesh.toml"
-
-[[session]]
-name = "tmux config"
-path = "~/.config/tmux"
-startup_command = "nvim tmux.conf"

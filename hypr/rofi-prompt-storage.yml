@@ -1,0 +1,21 @@
+# Schema for rofi-prompt-storage.yml
+# 
+# The file should contain a list of prompts under the `prompts` key.
+# Each prompt has two fields:
+#   - name: The title of the prompt, which will be displayed in the rofi menu.
+#   - prompt: The actual text of the prompt.
+#
+# Clipboard Injection:
+# To inject the current clipboard content into your prompt, use the placeholder `{{clipboard}}` 
+# anywhere within the `prompt` string. The script will automatically replace this placeholder 
+# with the actual clipboard content before copying the final prompt to your clipboard.
+
+prompts:
+  - name: "Summarize Text"
+    prompt: "Please provide a concise summary of the following text:\n\n{{clipboard}}"
+  - name: "Refactor Code"
+    prompt: "Refactor the following code to improve readability and performance:\n\n{{clipboard}}"
+  - name: "Explain Code"
+    prompt: "Can you explain what the following code does?\n\n{{clipboard}}"
+  - name: "Fix Grammar"
+    prompt: "Please fix any grammar and spelling mistakes in the following text:\n\n{{clipboard}}"

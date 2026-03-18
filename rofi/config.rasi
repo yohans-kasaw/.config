@@ -11,7 +11,7 @@ configuration {
     display-run: "   ";
     display-window: "   ";
     display-combi: "   ";
-    font: "Noto Sans 30";
+    font: "JetBrains Mono 25";
 }
 
 * {
