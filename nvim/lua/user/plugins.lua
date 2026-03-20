@@ -225,12 +225,13 @@ return {
         "ibhagwan/fzf-lua",
         config = function()
             require("fzf-lua").setup({
-                fzf_opts = { ["--layout"] = "reverse" },
+                fzf_opts = { ["--layout"] = "default" },
+                -- fzf_opts = { ["--layout"] = "reverse" },
                 -- winopts = { fullscreen = true },
                 winopts = {
                     height = 0.95,
                     width  = 0.80,
-                    border = "rounded",
+                    -- border = "rounded",
                 },
                 defaults = {
                     file_icons = "mini",

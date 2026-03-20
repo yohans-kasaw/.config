@@ -69,7 +69,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
         -- Check if the current directory starts with the target directory path
         if cwd:find(target_dir, 1, true) == 1 then
             vim.defer_fn(function()
-                require("fzf-lua").files()
+                require("fzf-lua").files({
+                    previewer = false,
+                })
             end, 50)
         end
     end,

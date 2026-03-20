@@ -20,7 +20,16 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
 
 -- fzf
-vim.keymap.set("n", "-", require("fzf-lua").files, { desc = "Find Files" })
+vim.keymap.set(
+    "n",
+    "-",
+    function()
+        require("fzf-lua").files({
+                previewer = false,
+        })
+    end,
+    { desc = "Find Files" }
+)
 vim.keymap.set("n", "<Tab>", require("fzf-lua").live_grep_native, { desc = "Grep" })
 vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "Resume Last Search" })
 vim.keymap.set("n", "<leader>g", require("fzf-lua").live_grep_native, { desc = "Grep" })

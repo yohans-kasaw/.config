@@ -43,6 +43,7 @@ vim.lsp.enable({
     "pyright",
     "ruff",
     "sqls",
+    "terraform"
 })
 
 vim.diagnostic.config({
