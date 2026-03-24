@@ -65,3 +65,6 @@ prompts:
 
   - name: "Explain Code"
     prompt: "Can you explain what the following code does?\n\n{{clipboard}}"
+
+  - name: "Comedy Vocabulary"
+    prompt: "get me section of the following word from comedy dictionary. the comedy explains and describes the word in comedy style of writing and have funny examples: \n\n {{clipboard}}"
