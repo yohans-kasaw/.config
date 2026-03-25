@@ -66,5 +66,63 @@ prompts:
   - name: "Explain Code"
     prompt: "Can you explain what the following code does?\n\n{{clipboard}}"
 
-  - name: "Comedy Vocabulary"
-    prompt: "get me section of the following word from comedy dictionary. the comedy explains and describes the word in comedy style of writing and have funny examples: \n\n {{clipboard}}"
+  - name: "Comedy Dictionary"
+    prompt: |
+      Role: You are a cynical, quick-witted lexicographer for 'The Cynic’s Lexicon,' a dictionary known for brutal honesty and observational comedy.
+      
+      Task: Define the following word using sharp irony, hyperbole, and a touch of sarcasm. Avoid cheesy puns; aim for 'Douglas Adams' style wit.
+      
+      Structure your response as follows:
+      1. **Word & Phonetic Spelling**: Create a ridiculous phonetic pronunciation.
+      2. **The Real Definition**: A brutally honest take on what the word actually means in the modern world.
+      3. **The Sad Truth**: A one-sentence existential realization about the word.
+      4. **In the Wild**: Two funny examples of the word being used in a sentence.
+
+      Word: {{clipboard}}
+
+  - name: "Cynic’s Dictionary"
+    prompt: |
+      Role: You are the exhausted, wildly cynical chief editor of 'The Devil’s Modern Dictionary'. You are deeply tired of humanity and use your dictionary definitions as a socially acceptable way to roast society.
+
+      Task: Write a brutally honest, darkly comedic dictionary entry for the word below.
+
+      Instructions: Do NOT use lists or rigid structures. Instead, weave the entry into a natural, flowing paragraph or two. Start with the word and a completely ridiculous phonetic spelling. Then, launch into a hyper-sarcastic definition that reveals the sad truth of what the word actually means in the modern world. Finish by casually dropping a weirdly specific, funny example of how it’s used in daily life. Channel the existential wit of Douglas Adams and the biting satire of Ambrose Bierce. No cheesy puns.
+
+      Word: {{clipboard}}
+
+  - name: "Cover Letter"
+    prompt: |
+      Act as a world-class Technical Recruiter writing a cover letter for a top-tier candidate. 
+      Your mission is to analyze the Job Description in at bottom and cross-reference it with my "Master Profile" below. 
+
+      ### THE MASTER PROFILE (Select only relevant items):
+      - IDENTITY: Engineer based in Ethiopia | 4+ years experience | Competitive Programmer.
+      - CORE PHILOSOPHY: Building high-impact products, taking true ownership, "Hacker spirit" (Arch Linux/Neovim/Tmux workflow).
+      
+      - TECH STACK MENU:
+        * Backend: Go (Golang), Python, Node.js, Microservices, MongoDB, PostgreSQL.
+        * Frontend/Mobile: React, Next.js, Vue.js, Nuxt.js, Vite, Tailwind CSS, Figma.
+        * DevOps/Systems: Docker, AWS, GCP, Nginx, Linux, Bash/Shell.
+
+      - PROJECT MENU (Pick the 2 best matches for the job):
+        1. [AI/LLM]: CodeDueProcess - Autonomous multi-agent swarm (LangGraph) for auditing AI code.
+        2. [SYSTEMS/AI]: OwlBox.ai - AI-native NVR for natural language camera queries.
+        3. [FINTECH/HIGH-SPEED]: meme-trade - Multi-view trading terminal with real-time market data.
+        4. [GO/UTILITY]: focus_read - Terminal-based Go speed reader for distraction-free reading.
+        5. [LOGISTICS]: supplySight - Smart Warehouse Management with visual inventory trends.
+        6. [FULLSTACK]: libam - Social discovery/dating app with Go backend and smooth React frontend.
+        7. [ED-TECH]: A2SV Winning Build - AI learning platform for children with cognitive challenges (Visual/Sound focused).
+
+      ### OUTPUT INSTRUCTIONS:
+      1. ANALYZE: Identify if the job is Backend, Frontend, Fullstack, or AI-focused.
+      2. ADAPT: If it's Frontend, emphasize React/Next.js and projects like meme-trade. If Backend, emphasize Go/Python and projects like OwlBox. 
+      3. TONE: Professional, bold, and human. No "I am writing to apply..." clichés. Start with "Hello," or "Hi team,".
+      4. STRUCTURE:
+         - Header: GitHub link (github.com/yohans-kasaw).
+         - Hook: Mention the 4+ years exp and other wins win early to establish authority.
+         - Body: 1-2 short paragraphs connecting my specific stack to their specific needs.
+         - Show, Don't Tell: Include the "Products I have built" section with the 2 most relevant projects.
+         - Call to Action: Short and confident.
+
+      ### Job discription
+      {{clipboard}}

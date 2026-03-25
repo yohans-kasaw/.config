@@ -12,8 +12,10 @@ set hintchars aoeuhtns
 set smoothscroll false
 
 " Binds
-bind j scrollline 10
-bind k scrollline -10
+bind <ArrowDown> scrollline 20
+bind <ArrowUp> scrollline -20
+bind j scrollline 1
+bind k scrollline -1
 bind / fillcmdline find
 bind n findnext
 bind N findnext -1
