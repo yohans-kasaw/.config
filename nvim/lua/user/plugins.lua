@@ -191,7 +191,7 @@ return {
                     javascriptreact = { "prettier" },
                     json = { "prettier" },
                     lua = { "stylua" },
-                    python = { "black" },
+                    python = { "isort", "black" },
                     typescript = { "prettier" },
                     typescriptreact = { "prettier" },
                     vue = { "prettier" },
@@ -210,7 +210,7 @@ return {
                     prettier = {
                         prepend_args = {
                             "--tab-width",
-                            "4",
+                            "2",
                             "--single-quote",
                             "--no-semi",
                             "--trailing-comma",

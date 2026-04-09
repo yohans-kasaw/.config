@@ -11,6 +11,8 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = {
         "javascriptreact",
         "typescriptreact",
+        "javascript",
+        "typescript",
         "vue",
         "svelte",
         "astro",
@@ -36,8 +38,6 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Group 2: Systems, Backend, and Scripts (4 Spaces)
 vim.api.nvim_create_autocmd("FileType", {
     pattern = {
-        "javascript",
-        "typescript",
         "python",
         "c",
         "cpp",
@@ -61,19 +61,40 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function()
-        local cwd = vim.fn.getcwd()
-        local target_dir = vim.fn.expand("~/projects")
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--     callback = function()
+--         local cwd = vim.fn.getcwd()
+--         local target_dir = vim.fn.expand("~/projects")
+--
+--         -- Check if the current directory starts with the target directory path
+--         if cwd:find(target_dir, 1, true) == 1 then
+--             vim.defer_fn(function()
+--                 require("fzf-lua").files({
+--                     previewer = false,
+--                 })
+--             end, 50)
+--         end
+--     end,
+--     desc = "Open fzf-lua file finder on startup",
+-- })
+--
 
-        -- Check if the current directory starts with the target directory path
-        if cwd:find(target_dir, 1, true) == 1 then
-            vim.defer_fn(function()
-                require("fzf-lua").files({
-                    previewer = false,
-                })
-            end, 50)
-        end
+local function update_tmux_name()
+    local file_name = vim.fn.expand("%:t")
+    if file_name == "" then file_name = "[No Name]" end
+    vim.fn.system(string.format("tmux set-option -p @nvim_file_name %s", file_name))
+end
+
+--TODO:  add more cmds
+vim.api.nvim_create_autocmd({"BufEnter"}, {
+    callback = function()
+        update_tmux_name()
     end,
-    desc = "Open fzf-lua file finder on startup",
+    desc = "Update tmux file name display",
 })
+
+-- vim.api.nvim_create_autocmd("VimLeave", {
+--     callback = function()
+--         vim.fn.system("tmux set-option -p @nvim_file_name ''")
+--     end,
+-- })

@@ -25,7 +25,7 @@ vim.keymap.set(
     "-",
     function()
         require("fzf-lua").files({
-                previewer = false,
+            previewer = false,
         })
     end,
     { desc = "Find Files" }
@@ -62,6 +62,7 @@ vim.keymap.set({ "n", "v" }, "<leader>lf", vim.lsp.buf.format, { desc = "Format 
 
 vim.keymap.set("n", ";v", "<cmd>DiffviewOpen<cr>", { desc = "toggle diff view" })
 vim.keymap.set("n", ";d", "<cmd>DiffviewOpen dev<cr>", { desc = "toggle diff view" })
+vim.keymap.set("n", ";m", "<cmd>DiffviewOpen main<cr>", { desc = "toggle diff view" })
 vim.keymap.set("n", ";i", function() require("mini.diff").toggle_overlay(0) end, { desc = "inline diff" })
 
 -- have storte over as C-c
