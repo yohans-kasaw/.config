@@ -28,9 +28,7 @@
     // }
   },
   "plugin": [
-    // "@mohak34/opencode-notifier@latest",
     "@tarquinen/opencode-dcp@latest",
-    // "oh-my-opencode@latest"
   ],
   "provider": {
     "ollama": {
@@ -40,6 +38,6 @@
       "options": {
         "baseURL": "http://localhost:11434/v1"
       }
-    }
+    },
   }
 }

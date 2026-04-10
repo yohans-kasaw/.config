@@ -4,6 +4,11 @@ if status is-interactive
     set -x VISUAL nvim
     set -x EDITOR nvim
     set -x OLLAMA_KEEP_ALIVE 0
+    if not set -q GEMINI_API_KEY
+        set -gx OPENCODE_API_KEY (keyring get opencode_api_key default)
+        set -gx GEMINI_API_KEY (keyring get gemini_api_key default)
+        set -gx GOOGLE_GENERATIVE_AI_API_KEY $GEMINI_API_KEY
+    end
 
     set -gx FZF_DEFAULT_COMMAND  "fd --follow --exclude .git --exclude ~/.config/fd/fzfcd-ignore-rules . $HOME"
     set -x FZF_DEFAULT_OPTS "--tiebreak=index --style full --smart-case --preview 'bat --color=always {}'"

@@ -64,6 +64,8 @@
   "group/settings-group": {
     "orientation": "inherit",
     "modules": [
+      "custom/focus_timer",
+      "custom/productivity-timer",
       "custom/voxtype",
       "backlight",
       "pulseaudio",
@@ -128,5 +130,20 @@
     "format": "{}",
     "tooltip": true,
     "escape": true
-  }
+  },
+  "custom/focus_timer": {
+    "format": "{}",
+    "exec": "python ~/.config/waybar/scripts/focus_timer.py",
+    "return-type": "json",
+    "tooltip": true,
+    "escape": true
+  },
+  "custom/productivity-timer": {
+    "format": "{}",
+    "exec": "python ~/.config/waybar/scripts/productivity-timer.py",
+    "return-type": "json",
+    "interval": 1,
+    "on-click": "python ~/.config/waybar/scripts/productivity-timer.py --click",
+    "on-click-right": "python ~/.config/waybar/scripts/productivity-timer.py --stop"
+  },
 }
