@@ -2,12 +2,16 @@ import json
 import subprocess
 import time
 import sys
+import os
 import re
 from enum import Enum
 
 import urllib.request
 
 # --- Configuration ---
+WORK_DIR = os.path.dirname(os.path.abspath(__file__))
+STATE_FILE = os.path.join(WORK_DIR, "focus_state.json")
+
 MIN_FOCUS_DURATION = 180  # Seconds required to reset the bad switch counter
 MAX_GLANCE_DURATION = 8  # Seconds allowed to look away without losing focus context
 PENALTY_LIMIT = 4  # Number of bad switches before triggering a warning
@@ -33,6 +37,19 @@ CONSTRAINTS:
 - Witty, Creative, Nietzchean writting, every word deserves its place
 """
 
+def load_state():
+    try:
+        with open(STATE_FILE, "r") as f:
+            return json.load(f)
+    except:
+        return {"last_notification_time": 0.0}
+
+def save_state(state):
+    try:
+        with open(STATE_FILE, "w") as f:
+            json.dump(state, f)
+    except Exception as e:
+        print(f"Failed to save state: {e}", file=sys.stderr)
 
 def get_active_window() -> str:
     """Fetches the address of the currently active Hyprland window."""
@@ -97,7 +114,7 @@ def generate_message() -> str:
 
             return message.strip()
     except Exception as e:
-        print(f"Error calling Ollama API: {e}")
+        print(f"Error calling Ollama API: {e}", file=sys.stderr)
         return ""
 
 
@@ -108,11 +125,11 @@ def generate_and_notify() -> None:
     if not message:
         message = "Stop avoiding the real work. Your fractured attention is destroying your potential."
 
-    print(message)
+    print(message, file=sys.stderr)
     try:
         subprocess.run(["notify-send", "😵‍💫 To much context swiching", message], check=False)
     except Exception as e:
-        print(f"Failed to send notification: {e}")
+        print(f"Failed to send notification: {e}", file=sys.stderr)
 
 
 class FocusState(Enum):
@@ -133,7 +150,8 @@ class FocusTracker:
 
         self.glance_start_time = 0.0
         self.bad_switches = 0
-        self.last_notification_time = 0.0
+        state = load_state()
+        self.last_notification_time = state.get("last_notification_time", 0.0)
 
     def update(self, active_window: str, now: float) -> bool:
         """Updates the focus state. Returns True if a warning should be triggered."""
@@ -175,10 +193,19 @@ class FocusTracker:
 
                 # Check for penalties
                 if self.bad_switches >= PENALTY_LIMIT:
+                    state = load_state()
+                    self.last_notification_time = state.get("last_notification_time", 0.0)
+                    
                     if now - self.last_notification_time > COOLDOWN_PERIOD:
                         self.bad_switches = 0
+                        state["last_notification_time"] = now
+                        save_state(state)
                         self.last_notification_time = now
                         return True
+                    else:
+                        # Another instance already fired the notification within the cooldown period
+                        self.bad_switches = 0
+                        return False
 
         return False
 
@@ -197,6 +224,7 @@ class FocusTracker:
         self.focus_start_time = now
         self.current_window_start_time = now
         self.glance_start_time = 0.0
+        self.bad_switches = 0
 
 
 def main() -> None:

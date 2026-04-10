@@ -151,11 +151,9 @@ def handle_stop():
 
 
 def check_milestones(elapsed: int, state: dict):
-    changed = False
-
     if elapsed >= 3600 and not state.get("milestone_60"):
         state["milestone_60"] = True
-        changed = True
+        save_state(state)
         generate_and_notify(
             "🫠 Time to Rest!",
             REST_PROMPT,
@@ -165,16 +163,13 @@ def check_milestones(elapsed: int, state: dict):
 
     elif elapsed >= 5400 and not state.get("milestone_90"):
         state["milestone_90"] = True
-        changed = True
+        save_state(state)
         generate_and_notify(
             "🌳 TOUCH GRASS!!!",
             GRASS_PROMPT,
             "You've been at it for 90 minutes. Go outside and touch some grass!",
             "critical",
         )
-
-    if changed:
-        save_state(state)
 
 
 def main():
