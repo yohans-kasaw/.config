@@ -22,8 +22,8 @@
             "Your frantic switching is the shallow breath of inadequacy, dreading the weight of one focus. Is the fear of the blank page worse than the terror of completion?",
             "The flickering tabs mask a dread of stillness, perhaps a shallow breath when the demanding thought appears. When will you dare inhabit a single, difficult moment and claim its necessary burden?"
         ],
-        "usage_count": 0,
-        "next_index": 0
+        "usage_count": 1,
+        "next_index": 1
     },
     "REST_PROMPT": {
         "responses": [
@@ -48,8 +48,8 @@
             "Holy fucking shit, that was a cathedral of attentional sovereignty. Now, your prefrontal cortex is screaming for glycogen and cervical spine decompression.",
             "Yo, you nailed that cathedral of silence today. The PFC glycogen debt demands stasis; cease, Jo."
         ],
-        "usage_count": 1,
-        "next_index": 1
+        "usage_count": 5,
+        "next_index": 5
     },
     "GRASS_PROMPT": {
         "responses": [
@@ -74,7 +74,7 @@
             "Is \"just five more minutes\" merely the coward's refusal to face the abyss? Your compulsion to work is just fear of the quiet truth.",
             "That \"just five more\" is just your fear of stillness disguised as effort. The greatest life is found not in the compulsion, but in the terrifying beauty of the pause."
         ],
-        "usage_count": 1,
-        "next_index": 1
+        "usage_count": 2,
+        "next_index": 2
     }
 }

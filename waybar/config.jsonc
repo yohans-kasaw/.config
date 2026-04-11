@@ -136,7 +136,8 @@
     "exec": "python ~/.config/waybar/scripts/focus_timer.py",
     "return-type": "json",
     "tooltip": true,
-    "escape": true
+    "escape": true,
+    "on-click": "python ~/.config/waybar/scripts/focus_timer.py --click"
   },
   "custom/productivity-timer": {
     "format": "{}",
