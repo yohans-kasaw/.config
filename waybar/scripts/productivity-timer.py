@@ -84,15 +84,49 @@ def get_progress_emoji(elapsed: int) -> str:
     return PROGRESS_EMOJIS[-1]
 
 
-def print_waybar(text: str, tooltip: str, css_class: str = "running") -> None:
+def print_waybar(text: str, str = "running") -> None:
     """Outputs a JSON string formatted for Waybar."""
     print(
-        json.dumps({"text": text, "class": css_class, "tooltip": tooltip}), flush=True
+        json.dumps({"text": text}), flush=True
     )
 
 
-def generate_message(prompt: str) -> str:
+def get_cached_message(prompt_id: str) -> str:
+    cache_file = os.path.join(WORK_DIR, "ollama_cache.json")
+    try:
+        with open(cache_file, "r") as f:
+            cache = json.load(f)
+        
+        if prompt_id in cache and cache[prompt_id].get("responses"):
+            entry = cache[prompt_id]
+            responses = entry["responses"]
+            if not responses:
+                return ""
+                
+            idx = entry.get("next_index", 0)
+            if idx >= len(responses):
+                idx = 0
+            
+            msg = responses[idx]
+            
+            # Update usage state
+            entry["next_index"] = (idx + 1) % len(responses)
+            entry["usage_count"] = entry.get("usage_count", 0) + 1
+            
+            with open(cache_file, "w") as f:
+                json.dump(cache, f, indent=4)
+                
+            return msg
+    except Exception:
+        pass
+    return ""
+
+def generate_message(prompt: str, prompt_id: str) -> str:
     """Generates a message via Ollama based on the provided prompt."""
+    cached_msg = get_cached_message(prompt_id)
+    if cached_msg:
+        return cached_msg
+
     url = "http://localhost:11434/api/generate"
     data = json.dumps(
         {"model": "gemma4:e4b", "prompt": prompt, "stream": False}
@@ -118,10 +152,10 @@ def generate_message(prompt: str) -> str:
 
 
 def generate_and_notify(
-    title: str, prompt: str, fallback: str, urgency: str = "normal"
+    title: str, prompt: str, prompt_id: str, fallback: str, urgency: str = "normal"
 ) -> None:
     """Generates a message via Ollama and sends a desktop notification."""
-    message = generate_message(prompt) or fallback
+    message = generate_message(prompt, prompt_id) or fallback
     subprocess.run(["notify-send", "-u", urgency, title, message])
 
 
@@ -157,6 +191,7 @@ def check_milestones(elapsed: int, state: dict):
         generate_and_notify(
             "🫠 Time to Rest!",
             REST_PROMPT,
+            "REST_PROMPT",
             "Rest is the basis of movement. Take a break.",
             "normal",
         )
@@ -167,6 +202,7 @@ def check_milestones(elapsed: int, state: dict):
         generate_and_notify(
             "🌳 TOUCH GRASS!!!",
             GRASS_PROMPT,
+            "GRASS_PROMPT",
             "You've been at it for 90 minutes. Go outside and touch some grass!",
             "critical",
         )
@@ -185,11 +221,7 @@ def main():
 
     # If not running, display stopped state
     if not state.get("running") or state.get("start_time") is None:
-        print_waybar(
-            "⏱️ Stopped",
-            "Productivity Timer\nLeft-click: Start\nRight-click: Stop",
-            css_class="stopped",
-        )
+        print_waybar( "Stopped")
         return
 
     elapsed = int(time.time() - state["start_time"])
@@ -198,9 +230,8 @@ def main():
 
     emoji = get_progress_emoji(elapsed)
     time_str = format_time(elapsed)
-    tooltip = f"Productivity Timer\nElapsed: {time_str}\nLeft-click: Reset to Zero\nRight-click: Stop"
 
-    print_waybar(f"  {emoji} {time_str}", tooltip)
+    print_waybar(f"  {emoji} {time_str}",)
 
 
 if __name__ == "__main__":

@@ -85,10 +85,45 @@ def get_progress_emoji(elapsed: int) -> str:
 
 def print_waybar(text: str) -> None:
     """Outputs a JSON string formatted for Waybar."""
-    print(json.dumps({"text": text}), flush=True)
+    out = {"text": text}
+    print(json.dumps(out), flush=True)
 
+
+def get_cached_message(prompt_id: str) -> str:
+    cache_file = os.path.join(WORK_DIR, "ollama_cache.json")
+    try:
+        with open(cache_file, "r") as f:
+            cache = json.load(f)
+        
+        if prompt_id in cache and cache[prompt_id].get("responses"):
+            entry = cache[prompt_id]
+            responses = entry["responses"]
+            if not responses:
+                return ""
+                
+            idx = entry.get("next_index", 0)
+            if idx >= len(responses):
+                idx = 0
+            
+            msg = responses[idx]
+            
+            # Update usage state
+            entry["next_index"] = (idx + 1) % len(responses)
+            entry["usage_count"] = entry.get("usage_count", 0) + 1
+            
+            with open(cache_file, "w") as f:
+                json.dump(cache, f, indent=4)
+                
+            return msg
+    except Exception:
+        pass
+    return ""
 
 def generate_message() -> str:
+    cached_msg = get_cached_message("WARNING_PROMPT")
+    if cached_msg:
+        return cached_msg
+        
     url = "http://localhost:11434/api/generate"
     data = json.dumps(
         {"model": "gemma4:e4b", "prompt": WARNING_PROMPT, "stream": False}
@@ -228,9 +263,30 @@ class FocusTracker:
 
 
 def main() -> None:
+    if len(sys.argv) > 1 and sys.argv[1] == "--click":
+        state = load_state()
+        is_running = state.get("is_running", True)
+        state["is_running"] = not is_running
+        save_state(state)
+        return
+
     tracker = FocusTracker(get_active_window(), time.time())
+    last_run_state = True
 
     while True:
+        state = load_state()
+        is_running = state.get("is_running", True)
+
+        if not is_running:
+            print_waybar("Paused")
+            last_run_state = False
+            time.sleep(1)
+            continue
+
+        if not last_run_state:
+            tracker = FocusTracker(get_active_window(), time.time())
+            last_run_state = True
+
         now = time.time()
         current_window = get_active_window()
 
@@ -245,9 +301,9 @@ def main() -> None:
         elapsed = tracker.get_elapsed_time(now)
         emoji = get_progress_emoji(elapsed)
         time_str = format_time(elapsed)
-        prefix = f"{tracker.bad_switches} 💢 " if tracker.bad_switches > 0 else ""
+        prefix = f"{tracker.bad_switches} 💢 " if tracker.bad_switches > 1 else ""
 
-        print_waybar(f"{prefix}{emoji} {time_str}")
+        print_waybar(f"  {prefix} {emoji} {time_str}")
         time.sleep(1)
 
 
