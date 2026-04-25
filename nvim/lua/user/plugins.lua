@@ -102,7 +102,7 @@ return {
         config = function()
             require("treesj").setup({
                 use_default_keymaps = false,
-                max_join_length = 420,
+                max_join_length = 1000,
             })
         end,
     },
@@ -205,12 +205,8 @@ return {
             require("fzf-lua").setup({
                 fzf_opts = { ["--layout"] = "default" },
                 winopts = {
-                    height = 0.95,
-                    width  = 0.80,
-                    -- border = "rounded",
-                },
-                defaults = {
-                    file_icons = "mini",
+                    height = 0.94,
+                    width  = 0.94,
                 },
                 keymap = { fzf = { ["ctrl-q"] = "select-all+accept" } },
             })
@@ -294,20 +290,6 @@ return {
         end,
     },
     { "aaronik/treewalker.nvim" },
-    -- {
-    --     "nvimtools/none-ls.nvim",
-    --     config = function()
-    --         local null_ls = require("null-ls")
-    --         null_ls.setup({
-    --             sources = {
-    --                 null_ls.builtins.formatting.goimports,
-    --                 null_ls.builtins.diagnostics.mypy,
-    --                 null_ls.builtins.formatting.isort,
-    --                 null_ls.builtins.formatting.autoflake,
-    --             },
-    --         })
-    --     end,
-    -- },
     {
         "esmuellert/nvim-eslint",
         config = function()
@@ -336,7 +318,16 @@ return {
         "nvim-mini/mini.diff",
         version = false,
         config = function()
-            require("mini.diff").setup()
+            require("mini.diff").setup({
+                view = {
+                    style = "sign",
+                },
+                mappings = {
+                    reset = "<leader>hr",
+                    goto_prev = "<C-Up>",
+                    goto_next = "<C-Down>",
+                },
+            })
         end,
     },
     {
