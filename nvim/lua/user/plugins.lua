@@ -140,12 +140,6 @@ return {
             require("nvim-ts-autotag").setup()
         end,
     },
-    {
-        "lewis6991/gitsigns.nvim",
-        config = function()
-            require("gitsigns").setup()
-        end,
-    },
     { "HiPhish/rainbow-delimiters.nvim" },
     {
         "mcauley-penney/visual-whitespace.nvim",
@@ -153,30 +147,15 @@ return {
         event = "ModeChanged *:[vV\22]",
         opts = {},
     },
-    -- {
-    --     "xiyaowong/transparent.nvim",
-    --     lazy = false,
-    --     lazy_window = false,
-    --     priority = 1000,
-    --     config = function()
-    --         require("transparent").setup({
-    --             exclude_groups = { "CursorLine" },
-    --         })
-    --     end,
-    -- },
     {
         "yamatsum/nvim-cursorline",
         config = function()
             require("nvim-cursorline").setup({
-                cursorline = { enable = false},
+                cursorline = { enable = false },
                 cursorword = { enable = true, min_length = 3, hl = { underline = true } },
             })
         end,
     },
-    -- {
-    --     "m4xshen/smartcolumn.nvim",
-    --     opts = {},
-    -- },
     {
         "stevearc/conform.nvim",
         cmd = { "ConformInfo" },
@@ -225,8 +204,6 @@ return {
         config = function()
             require("fzf-lua").setup({
                 fzf_opts = { ["--layout"] = "default" },
-                -- fzf_opts = { ["--layout"] = "reverse" },
-                -- winopts = { fullscreen = true },
                 winopts = {
                     height = 0.95,
                     width  = 0.80,
@@ -243,24 +220,6 @@ return {
         "folke/persistence.nvim",
         event = "BufReadPre",
         opts = {},
-    },
-    {
-        "folke/which-key.nvim",
-        opts = { preset = "helix", delay = 800 },
-        init = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-        end,
-    },
-    {
-        "akinsho/toggleterm.nvim",
-        version = "*",
-        config = function()
-            require("toggleterm").setup({
-                insert_mappings = true,
-                shade_terminals = false,
-            })
-        end,
     },
     {
         "nvim-treesitter/nvim-treesitter",
@@ -296,7 +255,6 @@ return {
         end,
         dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
     },
-
     {
         "chrisgrieser/nvim-various-textobjs",
         opts = { keymaps = { useDefaults = true } },
@@ -316,40 +274,6 @@ return {
             },
         },
     },
-    {
-        "nvim-tree/nvim-tree.lua",
-        config = function()
-            require("nvim-tree").setup({
-                view = { side = "right" },
-                renderer = {
-                    full_name = true,
-                    group_empty = true,
-                    indent_markers = { enable = true },
-                    icons = {
-                        git_placement = "signcolumn",
-                        show = { folder = false },
-                    },
-                },
-                diagnostics = { enable = true, show_on_dirs = true },
-                update_focused_file = { enable = true },
-                filters = { custom = { "^.git$" } },
-            })
-        end,
-    },
-    -- {
-    --     "catppuccin/nvim",
-    --     priority = 1000,
-    --     config = function()
-    --         require("catppuccin").setup({
-    --             transparent_background = true,
-    --             float = {
-    --                 transparent = true,
-    --                 solid = true,
-    --             },
-    --         })
-    --         vim.cmd.colorscheme "catppuccin-nvim"
-    --     end,
-    -- },
     {
         url = "https://codeberg.org/andyg/leap.nvim",
         config = function()
@@ -385,17 +309,10 @@ return {
     --     end,
     -- },
     {
-        "folke/persistence.nvim",
-        config = true,
-    },
-    {
         "esmuellert/nvim-eslint",
         config = function()
             require("nvim-eslint").setup({})
         end,
-    },
-    {
-        "NeogitOrg/neogit",
     },
     {
         "sindrets/diffview.nvim",
@@ -414,88 +331,6 @@ return {
                 },
             })
         end,
-    },
-    {
-        "romus204/go-tagger.nvim",
-        config = function()
-            require("go-tagger").setup({
-                skip_private = true, -- Skip unexported fields (starting with lowercase)
-            })
-        end,
-    },
-    {
-        "maxandron/goplements.nvim",
-        ft = "go",
-        opts = {
-            prefix = {
-                interface = "//Implemented by: ",
-                struct = "//Implements: ",
-            },
-            highlight = "Comment",
-        },
-    },
-    { "nvim-telescope/telescope.nvim" },
-    {
-        "fredrikaverpil/godoc.nvim",
-        version = "*",
-        build = "go install github.com/lotusirous/gostdsym/stdsym@latest",
-        cmd = { "GoDoc" },
-        opts = {
-            window = {
-                type = "vsplit",
-            },
-            picker = {
-                type = "fzf_lua",
-                fzf_lua = {},
-            },
-        },
-    },
-    {
-        "mfussenegger/nvim-dap",
-        dependencies = {
-            "leoluz/nvim-dap-go",
-            "rcarriga/nvim-dap-ui",
-            "theHamsta/nvim-dap-virtual-text",
-            "nvim-neotest/nvim-nio",
-        },
-        config = function()
-            require("dapui").setup({})
-            require("dap-go").setup({})
-            require("nvim-dap-virtual-text").setup({})
-
-            local dap = require("dap")
-            local dapui = require("dapui")
-
-            dap.listeners.after.attach.dapui_config = function()
-                dapui.open()
-            end
-
-            dap.listeners.after.launch.dapui_config = function()
-                dapui.open()
-            end
-
-            dap.listeners.before.event_terminated.dapui_config = function()
-                dapui.close()
-            end
-
-            dap.listeners.before.event_exited.dapui_config = function()
-                dapui.close()
-            end
-        end,
-    },
-    {
-        "chentoast/marks.nvim",
-        event = "VeryLazy",
-        opts = {
-            mappings = {
-                next = "<C-S-Down>",
-                prev = "<C-S-Up>",
-                toggle = "m,",
-                set = false,
-                preview = false,
-                set_next = false,
-            },
-        },
     },
     {
         "nvim-mini/mini.diff",
@@ -528,28 +363,12 @@ return {
         },
     },
     {
-        "cdmill/focus.nvim",
-        cmd = { "Focus", "Zen", "Narrow" },
-        opts = {},
-        lazy = false,
-    },
-    {
         "bullets-vim/bullets.vim",
     },
-    -- {
-    --     "nvim-mini/mini.trailspace",
-    --     version = false,
-    --     config = function()
-    --         require("mini.trailspace").setup({
-    --             only_in_normal_buffers = true,
-    --         })
-    --     end,
-    -- },
     {
         "arnamak/stay-centered.nvim",
         lazy = false,
         opts = {
-            -- skip_filetypes = { "lua", "typescript" },
         },
     },
     {
@@ -595,41 +414,11 @@ return {
         end
     },
     {
-        'stevearc/oil.nvim',
-        ---@module 'oil'
-        ---@type table
-        opts = {},
+        'nvim-mini/mini.files',
+        version = '*',
         config = function()
-            require("oil").setup({
-                default_file_explorer = true,
-                delete_to_trash = true,
-                view_options = {
-                    show_hidden = true,
-                },
-                float = {
-                    max_width = 0.85,
-                    max_height = 0.85,
-                    min_width = 0.85,
-                    min_height = 0.85,
-                    border = "rounded",
-                },
-                keymaps = {
-                    ["q"] = { "actions.close", mode = "n" },
-                }
-            })
-        end,
-        dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-        lazy = false,
-    },
-    { "szymonwilczek/vim-be-better" },
-    {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        build = "cd app && yarn install",
-        init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-        ft = { "markdown" },
+            require('mini.files').setup()
+        end
     },
     {
         "OXY2DEV/markview.nvim",
@@ -648,7 +437,7 @@ return {
         init = function()
             require("kanagawa-paper").setup({
                 transparent = true,
-                diag_background = true,
+                diag_background = false,
             })
 
             vim.cmd.colorscheme("kanagawa-paper-ink")

@@ -87,3 +87,4 @@ vim.opt.diffopt = {
 vim.opt.fillchars:append { diff = "╱" }
 
 vim.o.autoread = true
+vim.o.laststatus = 0

@@ -61,34 +61,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
--- vim.api.nvim_create_autocmd("VimEnter", {
---     callback = function()
---         local cwd = vim.fn.getcwd()
---         local target_dir = vim.fn.expand("~/projects")
---
---         -- Check if the current directory starts with the target directory path
---         if cwd:find(target_dir, 1, true) == 1 then
---             vim.defer_fn(function()
---                 require("fzf-lua").files({
---                     previewer = false,
---                 })
---             end, 50)
---         end
---     end,
---     desc = "Open fzf-lua file finder on startup",
--- })
-
--- vim.api.nvim_create_autocmd("VimEnter", {
---     callback = function()
---         require("focus").toggle({
---             window = {
---                 width = 0.50,
---             },
---         })
---     end,
---     desc = "Focus mode",
--- })
---
 
 local function update_tmux_name()
     local file_name = vim.fn.expand("%:t")

@@ -14,22 +14,13 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 require("user.options")
 require("lazy").setup({
     spec = require("user.plugins"),
 })
-
 require("user.keymaps")
 require("user.commands")
 require("user.autocmd")
-
-
-vim.o.laststatus = 0
-
-require("user.functions")
-
-
 
 vim.lsp.enable({
     "lua_ls",

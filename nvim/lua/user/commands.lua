@@ -1,5 +1,3 @@
-local fzf = require("fzf-lua")
-
 local function create_fzf_cmd(cmd, fzf_func, opts)
     opts = opts or {}
     local desc = opts.desc or ("FzfLua " .. fzf_func)
@@ -29,35 +27,6 @@ create_fzf_cmd("Spell", "spell_suggest", { desc = "Spelling Suggestions" })
 create_fzf_cmd("Commands", "commands", { desc = "Neovim Commands" })
 
 
-vim.api.nvim_create_user_command("Focus", function()
-    require("focus").toggle({
-        window = {
-            width = 0.50,
-        },
-    })
-end, { range = true, desc = "Toggle Zen/Narrow focus mode" })
-
-vim.api.nvim_create_user_command("Zen", function()
-    require("focus").toggle_zen({
-        zen = {
-            opts = {},
-        },
-    })
-
-    require("focus").toggle({
-        window = {
-            width = 0.50,
-        },
-    })
-end, { range = true, desc = "Toggle Zen/Narrow focus mode" })
-
-
--- tern this to command
--- vim.api.nvim_set_keymap(
---     "n",
---     "<leader>im",
---     [[<cmd>lua require'telescope'.extensions.goimpl.goimpl{}<CR>]],
---     { noremap = true, silent = true }
--- )
---
---
+-- vim.keymap.set("n", "<leader>te", function()
+--     require("pretty-ts-errors").show_formatted_error()
+-- end, { desc = "Show TS error" })
