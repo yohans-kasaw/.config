@@ -149,17 +149,20 @@ class TodoUI:
 
         matched_task = display_map.get(user_input)
 
-        if ret_code == RofiAction.ENTER:
-            if matched_task:
-                self.manager.toggle_wip(matched_task)
-            elif user_input:
-                self.manager.add_task(user_input)
-        elif ret_code == RofiAction.INCREASE_PRIORITY and matched_task:
-            self.manager.increase_priority(matched_task)
-        elif ret_code == RofiAction.REMOVE_TASK and matched_task:
-            self.manager.remove_task(matched_task.id)
-        else:
-            return False
+        match ret_code:
+            case RofiAction.ENTER:
+                if matched_task:
+                    self.manager.toggle_wip(matched_task)
+                elif user_input:
+                    self.manager.add_task(user_input)
+            case RofiAction.INCREASE_PRIORITY:
+                if matched_task:
+                    self.manager.increase_priority(matched_task)
+            case RofiAction.REMOVE_TASK:
+                if matched_task:
+                    self.manager.remove_task(matched_task.id)
+            case _:
+                return False
 
         return True
 

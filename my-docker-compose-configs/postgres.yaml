@@ -3,6 +3,8 @@ services:
     image: postgres:18
     environment:
       POSTGRES_PASSWORD: strongpassword123 
+      TZ: UTC 
+      PGTZ: UTC 
     ports:
       - "5432:5432"
     healthcheck:
@@ -12,3 +14,4 @@ services:
       retries: 3
     volumes:
       - /home/yohansh/postgres_instances/selfware:/var/lib/postgresql
+      - /home/yohansh/.config/my-docker-compose-configs/pg_sockets:/var/run/postgresql

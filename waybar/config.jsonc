@@ -19,16 +19,9 @@
     "format": "{icon}",
     "format-icons": {
       "1": "lap 󰲠",
-      "2": "lap 󰲢",
-      "3": "run",
-      "4": "code",
-      "6": "lab",
-      "5": "brow",
-      "7": "write",
-      "8": "read",
-      "9": "agent",
-      "10": "rest",
-      "11": "log",
+      "2": "code",
+      "3": "brow",
+      "4": "lab",
       "urgent": "󱈸",
       "default": ""
     },
@@ -65,7 +58,6 @@
     "orientation": "inherit",
     "modules": [
       "custom/focus_timer",
-      "custom/productivity-timer",
       "custom/voxtype",
       "backlight",
       "pulseaudio",
@@ -138,13 +130,5 @@
     "tooltip": true,
     "escape": true,
     "on-click": "python ~/.config/waybar/scripts/focus_timer.py --click"
-  },
-  "custom/productivity-timer": {
-    "format": "{}",
-    "exec": "python ~/.config/waybar/scripts/productivity-timer.py",
-    "return-type": "json",
-    "interval": 1,
-    "on-click": "python ~/.config/waybar/scripts/productivity-timer.py --click",
-    "on-click-right": "python ~/.config/waybar/scripts/productivity-timer.py --stop"
-  },
+  }
 }

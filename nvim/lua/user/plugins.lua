@@ -113,7 +113,6 @@ return {
                 enable_autocmd = false,
             })
             local org_get_option = vim.filetype.get_option
-            ---@diagnostic disable-next-line: duplicate-set-field, duplicate-field
             vim.filetype.get_option = function(filetype, option)
                 return option == "commentstring"
                     and require("ts_context_commentstring.internal").calculate_commentstring()
@@ -154,22 +153,22 @@ return {
         event = "ModeChanged *:[vV\22]",
         opts = {},
     },
-    {
-        "xiyaowong/transparent.nvim",
-        lazy = false,
-        lazy_window = false,
-        priority = 1000,
-        config = function()
-            require("transparent").setup({
-                exclude_groups = { "CursorLine" },
-            })
-        end,
-    },
+    -- {
+    --     "xiyaowong/transparent.nvim",
+    --     lazy = false,
+    --     lazy_window = false,
+    --     priority = 1000,
+    --     config = function()
+    --         require("transparent").setup({
+    --             exclude_groups = { "CursorLine" },
+    --         })
+    --     end,
+    -- },
     {
         "yamatsum/nvim-cursorline",
         config = function()
             require("nvim-cursorline").setup({
-                cursorline = { enable = false },
+                cursorline = { enable = false},
                 cursorword = { enable = true, min_length = 3, hl = { underline = true } },
             })
         end,
@@ -337,12 +336,22 @@ return {
             })
         end,
     },
+    -- {
+    --     "catppuccin/nvim",
+    --     priority = 1000,
+    --     config = function()
+    --         require("catppuccin").setup({
+    --             transparent_background = true,
+    --             float = {
+    --                 transparent = true,
+    --                 solid = true,
+    --             },
+    --         })
+    --         vim.cmd.colorscheme "catppuccin-nvim"
+    --     end,
+    -- },
     {
-        "webhooked/kanso.nvim",
-        priority = 1000,
-    },
-    {
-        "ggandor/leap.nvim",
+        url = "https://codeberg.org/andyg/leap.nvim",
         config = function()
             require("leap").setup({
                 safe_labels = {},
@@ -442,12 +451,6 @@ return {
         },
     },
     {
-        "edolphin-ydf/goimpl.nvim",
-        config = function()
-            require("telescope").load_extension("goimpl")
-        end,
-    },
-    {
         "mfussenegger/nvim-dap",
         dependencies = {
             "leoluz/nvim-dap-go",
@@ -528,6 +531,7 @@ return {
         "cdmill/focus.nvim",
         cmd = { "Focus", "Zen", "Narrow" },
         opts = {},
+        lazy = false,
     },
     {
         "bullets-vim/bullets.vim",
@@ -627,4 +631,28 @@ return {
         end,
         ft = { "markdown" },
     },
+    {
+        "OXY2DEV/markview.nvim",
+        lazy = false,
+        opts = {
+            preview = {
+                filetypes = { "markdown", "codecompanion" },
+                ignore_buftypes = {},
+            },
+        },
+    },
+    {
+        "thesimonho/kanagawa-paper.nvim",
+        lazy = false,
+        priority = 1000,
+        init = function()
+            require("kanagawa-paper").setup({
+                transparent = true,
+                diag_background = true,
+            })
+
+            vim.cmd.colorscheme("kanagawa-paper-ink")
+        end,
+        opts = { ... },
+    }
 }

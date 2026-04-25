@@ -77,24 +77,29 @@ vim.api.nvim_create_autocmd("FileType", {
 --     end,
 --     desc = "Open fzf-lua file finder on startup",
 -- })
+
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--     callback = function()
+--         require("focus").toggle({
+--             window = {
+--                 width = 0.50,
+--             },
+--         })
+--     end,
+--     desc = "Focus mode",
+-- })
 --
 
 local function update_tmux_name()
     local file_name = vim.fn.expand("%:t")
     if file_name == "" then file_name = "[No Name]" end
-    vim.fn.system(string.format("tmux set-option -p @nvim_file_name %s", file_name))
+    vim.system({ "tmux", "set-option", "-p", "@nvim_file_name", file_name })
 end
 
---TODO:  add more cmds
-vim.api.nvim_create_autocmd({"BufEnter"}, {
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
     callback = function()
         update_tmux_name()
     end,
     desc = "Update tmux file name display",
 })
 
--- vim.api.nvim_create_autocmd("VimLeave", {
---     callback = function()
---         vim.fn.system("tmux set-option -p @nvim_file_name ''")
---     end,
--- })

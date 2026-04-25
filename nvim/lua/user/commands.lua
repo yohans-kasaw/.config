@@ -29,9 +29,15 @@ create_fzf_cmd("Spell", "spell_suggest", { desc = "Spelling Suggestions" })
 create_fzf_cmd("Commands", "commands", { desc = "Neovim Commands" })
 
 
-vim.api.nvim_create_user_command("Zen", function()
-    local mode = vim.fn.mode()
+vim.api.nvim_create_user_command("Focus", function()
+    require("focus").toggle({
+        window = {
+            width = 0.50,
+        },
+    })
+end, { range = true, desc = "Toggle Zen/Narrow focus mode" })
 
+vim.api.nvim_create_user_command("Zen", function()
     require("focus").toggle_zen({
         zen = {
             opts = {},
@@ -44,6 +50,7 @@ vim.api.nvim_create_user_command("Zen", function()
         },
     })
 end, { range = true, desc = "Toggle Zen/Narrow focus mode" })
+
 
 -- tern this to command
 -- vim.api.nvim_set_keymap(

@@ -22,6 +22,14 @@ name = "run"
 startup_script = "cd ."
 
 [[window]]
+name = "fastapi"
+startup_script = "cd backend && hyprctl dispatch exec '[workspace 6] firefox http://localhost:8000' && fastapi dev"
+
+[[window]]
+name = "bun"
+startup_script = "cd web && hyprctl dispatch exec '[workspace 6] firefox http://localhost:5173' && bun run dev"
+
+[[window]]
 name = "command"
 startup_script = "cd ."
 
@@ -29,12 +37,20 @@ startup_script = "cd ."
 name = "music"
 startup_script = "cd ~/Documents/clasical && ranger"
 
+[[window]]
+name = "postgres-docker"
+startup_script = "cd ~/.config/my-docker-compose-configs && docker compose -f postgres.yaml up -d && docker compose -f qdrant.yaml up -d"
+
+[[window]]
+name = "grepai"
+startup_script = "cd ~/projects/selfware/"
+
 # --- sessions ---
 [[session]]
 name = "default"
 path = "~/"
 startup_command = ""
-windows = ["music","focus-read"]
+windows = ["postgres-docker","grepai"]
 
 [[session]]
 name = "libam"
@@ -54,3 +70,16 @@ startup_script = "epr \"The Gay Science - With a Prelude in Rhymes and an Append
 [[window]]
 name = "focus-read"
 startup_script = "/home/yohansh/projects/focus_read"
+
+[[session]]
+name = "selfware-web"
+path = "~/projects/selfware/web/"
+
+[[session]]
+name = "selfware-backend"
+path = "~/projects/selfware/backend"
+
+[[session]]
+name = "selfware-command"
+path = "~/projects/selfware"
+windows = ["command", "fastapi", "bun", "opencode"]

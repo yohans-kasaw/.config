@@ -16,7 +16,7 @@
       },
       "type": "remote",
       "url": "https://mcp.context7.com/mcp"
-    }
+    },
     // "shadcn": {
     //   "enabled": true,
     //   "type": "local",
@@ -32,12 +32,17 @@
   ],
   "provider": {
     "ollama": {
-      "models": {},
-      "name": "Ollama (local)",
+      "models": {
+        "gemma4:e4b": {
+          "_launch": true,
+          "name": "gemma4:e4b"
+        },
+      },
+      "name": "Ollama",
       "npm": "@ai-sdk/openai-compatible",
       "options": {
-        "baseURL": "http://localhost:11434/v1"
+        "baseURL": "http://127.0.0.1:11434/v1"
       }
-    },
+    }
   }
 }
