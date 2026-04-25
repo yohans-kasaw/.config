@@ -6,7 +6,6 @@ $directory\
 $git_branch\
 $git_state\
 $git_status\
-$git_metrics\
 $status
 $character
 """
@@ -22,38 +21,22 @@ truncate_to_repo = false
 style = "bold blue dimmed" 
 
 [git_branch]
-symbol = "🌿"
+symbol = ""
 style = "bold yellow dimmed"
 format = '[$symbol$branch(:$remote_branch)]($style) '
 
 [git_state]
 style = "bold red dimmed"
-cherry_pick = '[🍒 PICKING](bold red)'
-
-[git_metrics]
-disabled = false
-format = '([{+$added}]($added_style))([{-$deleted}]($deleted_style))'
 
 [git_status]
 format = '[$all_status$ahead_behind]($style)'
-conflicted = '🚩'
-ahead = '💨'
-behind = '🐢'
-untracked = '👻'
-modified = '✍️'
-staged = '🗃️'
+conflicted = '!' 
+ahead = '↑'
+behind = '↓'
+modified = '✎' 
+staged = '+'
+untracked = '' 
 diverged = ''
 stashed = ''
-up_to_date = '👍'
+up_to_date = ''
 style = 'bold green dimmed'
-
-[custom.tmux]
-command = "tmux display-message -p '[#I:#W]'"
-when = 'printenv TMUX'
-shell = ["sh", "--norc"]
-style = "bold cyan dimmed"
-format = "[$output]($style)"
-
-[python]
-pyenv_version_name = true
-format = "[${pyenv_prefix}](bold cyan)"
