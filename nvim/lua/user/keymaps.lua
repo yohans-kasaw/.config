@@ -43,7 +43,8 @@ vim.keymap.set({ "n", "v" }, "<S-Left>", "<cmd>Treewalker Left<cr>", { silent = 
 vim.keymap.set({ "n", "v" }, "<S-Right>", "<cmd>Treewalker Right<cr>", { silent = true })
 
 vim.keymap.set("n", "<leader>e", function()
-    require('mini.files').open()
+    local buf_dir = vim.fn.expand("%:p:h")
+    require("mini.files").open(buf_dir, false)
 end, { desc = "Open parent directory" })
 
 -- snippets
@@ -57,3 +58,6 @@ vim.keymap.set("n", "<leader>m", require("treesj").toggle)
 vim.keymap.set("n", ";i", function()
     require("mini.diff").toggle_overlay()
 end, { desc = "inline diff" })
+
+vim.keymap.set("n", "<leader>;", "<Plug>(WayfinderOpen)", { desc = "Wayfinder" })
+vim.keymap.set("n", ";;", ":Twilight<CR>", { desc = "twilight" })

@@ -434,5 +434,30 @@ return {
             vim.cmd.colorscheme("kanagawa-paper-ink")
         end,
         opts = { ... },
+    },
+    {
+        "folke/twilight.nvim",
+        opts = {
+            dimming = { alpha = 0.20 },
+            context = 20,
+            expand = {
+                "function",
+                "method",
+                "table",
+                "if_statement",
+            },
+        }
+    },
+    {
+        "error311/wayfinder.nvim",
+        opts = {},
+        config = function()
+            require("wayfinder").setup({
+                layout = {
+                    width = 0.94,
+                    height = 0.98,
+                },
+            })
+        end
     }
 }
