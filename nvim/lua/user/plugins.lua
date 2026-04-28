@@ -437,16 +437,18 @@ return {
     },
     {
         "folke/twilight.nvim",
-        opts = {
-            dimming = { alpha = 0.20 },
-            context = 20,
-            expand = {
-                "function",
-                "method",
-                "table",
-                "if_statement",
-            },
-        }
+        config = function()
+            require("twilight").setup({
+                dimming = { alpha = 0.20 },
+                context = 8,
+                expand = {
+                    "function",
+                    "method",
+                    "table",
+                    "if_statement",
+                },
+            })
+        end
     },
     {
         "error311/wayfinder.nvim",
