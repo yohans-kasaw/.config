@@ -204,9 +204,8 @@ return {
         config = function()
             require("fzf-lua").setup({
                 fzf_opts = { ["--layout"] = "default" },
-                winopts = {
-                    height = 0.94,
-                    width  = 0.94,
+                defaults = {
+                    previewer = true,
                 },
                 keymap = { fzf = { ["ctrl-q"] = "select-all+accept" } },
             })
@@ -405,13 +404,6 @@ return {
         end
     },
     {
-        'nvim-mini/mini.files',
-        version = '*',
-        config = function()
-            require('mini.files').setup()
-        end
-    },
-    {
         "OXY2DEV/markview.nvim",
         lazy = false,
         opts = {
@@ -440,7 +432,7 @@ return {
         config = function()
             require("twilight").setup({
                 dimming = { alpha = 0.20 },
-                context = 8,
+                context = 18,
                 expand = {
                     "function",
                     "method",
@@ -461,5 +453,32 @@ return {
                 },
             })
         end
-    }
+    },
+    {
+        'stevearc/oil.nvim',
+        ---@module 'oil'
+        ---@type table
+        opts = {},
+        config = function()
+            require("oil").setup({
+                default_file_explorer = true,
+                delete_to_trash = true,
+                view_options = {
+                    show_hidden = true,
+                },
+                float = {
+                    max_width = 0.85,
+                    max_height = 0.85,
+                    min_width = 0.85,
+                    min_height = 0.85,
+                    border = "rounded",
+                },
+                keymaps = {
+                    ["q"] = { "actions.close", mode = "n" },
+                }
+            })
+        end,
+        dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+        lazy = false,
+    },
 }

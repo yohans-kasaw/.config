@@ -21,11 +21,21 @@ vim.keymap.set(
     end,
     { desc = "Find Files" }
 )
+vim.keymap.set(
+    "n",
+    "<leader><Space>",
+    function()
+        require("fzf-lua").buffers({
+            previewer = false,
+        })
+    end,
+
+    { desc = "Search Word Under Cursor" }
+)
 vim.keymap.set("n", "<Tab>", require("fzf-lua").live_grep_native, { desc = "Grep" })
 vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "Resume Last Search" })
 vim.keymap.set("n", "<leader>w", require("fzf-lua").grep_cword, { desc = "Search Word Under Cursor" })
 vim.keymap.set("n", "<leader>j", require("fzf-lua").jumps, { desc = "Search Word Under Cursor" })
-vim.keymap.set("n", "<leader><Space>", require("fzf-lua").buffers, { desc = "Search Word Under Cursor" })
 
 vim.keymap.set("n", "<leader>ld", require("fzf-lua").lsp_definitions, { silent = true, desc = "Go to Definition" })
 vim.keymap.set("n", "<leader>lr", require("fzf-lua").lsp_references, { silent = true, desc = "Find References" })
@@ -43,8 +53,7 @@ vim.keymap.set({ "n", "v" }, "<S-Left>", "<cmd>Treewalker Left<cr>", { silent = 
 vim.keymap.set({ "n", "v" }, "<S-Right>", "<cmd>Treewalker Right<cr>", { silent = true })
 
 vim.keymap.set("n", "<leader>e", function()
-    local buf_dir = vim.fn.expand("%:p:h")
-    require("mini.files").open(buf_dir, false)
+    require("oil").toggle_float()
 end, { desc = "Open parent directory" })
 
 -- snippets

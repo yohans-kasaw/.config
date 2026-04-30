@@ -58,11 +58,11 @@ vim.api.nvim_create_autocmd("VimEnter", {
     nested = true,
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
-    group = vim.api.nvim_create_augroup("twilight mode", { clear = true }),
-    command = "TwilightEnable",
-    nested = true,
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--     group = vim.api.nvim_create_augroup("twilight mode", { clear = true }),
+--     command = "TwilightEnable",
+--     nested = true,
+-- })
 
 vim.filetype.add({
     extension = {
