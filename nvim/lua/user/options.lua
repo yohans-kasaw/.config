@@ -66,7 +66,7 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
 })
 
 -- Neovide
-vim.o.guifont = "Monaspace Neon Frozen:h27"
+vim.o.guifont = "Monaspace Neon Frozen:h20"
 vim.g.neovide_scroll_animation_length = 0
 vim.g.neovide_cursor_animation_length = 0
 vim.g.neovide_cursor_vfx_mode = ""

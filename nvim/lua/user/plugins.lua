@@ -3,10 +3,8 @@ return {
     { "nvim-tree/nvim-web-devicons" },
     {
         "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
         config = function()
             local cmp = require("cmp")
-            local cmp_mapping = require("cmp.config.mapping")
             local cmp_autopairs = require("nvim-autopairs.completion.cmp")
             local lspkind = require("lspkind")
 
@@ -20,9 +18,8 @@ return {
                     { name = "path" },
                     { name = "buffer" },
                 }),
-                window = {
-                    completion = cmp.config.window.bordered({ scrollbar = false }),
-                    documentation = cmp.config.window.bordered({ scrollbar = false }),
+                completion = {
+                    autocomplete = false,
                 },
                 formatting = {
                     format = lspkind.cmp_format({
@@ -39,31 +36,12 @@ return {
                     }),
                 },
                 mapping = cmp.mapping.preset.insert({
-                    ["<Tab>"] = cmp_mapping(function(fb)
-                        if cmp.visible() then
-                            cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-                        else
-                            fb()
-                        end
-                    end, { "i", "s" }),
-                    ["<S-Tab>"] = cmp_mapping(function(fb)
-                        if cmp.visible() then
-                            cmp.select_prev_item()
-                        else
-                            fb()
-                        end
-                    end, { "i", "s" }),
-                    ["<CR>"] = cmp_mapping(function(fb)
-                        if cmp.visible() and cmp.get_selected_entry() then
-                            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
-                        else
-                            fb()
-                        end
-                    end, { "i", "s" }),
+                    ["<Tab>"] = cmp.mapping.select_next_item(),
+                    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+                    ["<CR>"] = cmp.mapping.confirm(),
                 }),
                 matching = { disallow_symbol_nonprefix_matching = false },
             })
-            cmp.setup.filetype("markdown", { enabled = false })
             cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
         end,
         dependencies = {

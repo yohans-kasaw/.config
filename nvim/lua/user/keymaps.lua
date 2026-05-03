@@ -70,3 +70,4 @@ end, { desc = "inline diff" })
 
 vim.keymap.set("n", "<leader>;", "<Plug>(WayfinderOpen)", { desc = "Wayfinder" })
 vim.keymap.set("n", ";;", ":Twilight<CR>", { desc = "twilight" })
+vim.keymap.set("n", ";p", ":Markview<CR>", { desc = "twilight" })
