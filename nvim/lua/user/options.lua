@@ -17,7 +17,7 @@ vim.o.showbreak = "↳⋅"
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.smartindent = false
+vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.copyindent = true
 vim.opt.linebreak = true
@@ -66,12 +66,12 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
 })
 
 -- Neovide
-vim.o.guifont = "Monaspace Neon Frozen:h20"
-vim.g.neovide_scroll_animation_length = 0
-vim.g.neovide_cursor_animation_length = 0
-vim.g.neovide_cursor_vfx_mode = ""
-vim.g.neovide_cursor_trail_size = 0
-vim.g.neovide_confirm_quit = true
+vim.o.guifont = "Monaspace Neon Frozen:h26"
+-- vim.g.neovide_scroll_animation_length = 0
+-- vim.g.neovide_cursor_animation_length = 0
+-- vim.g.neovide_cursor_vfx_mode = ""
+-- vim.g.neovide_cursor_trail_size = 0
+-- vim.g.neovide_confirm_quit = true
 
 -- git diff
 vim.opt.diffopt = {
@@ -88,3 +88,4 @@ vim.opt.fillchars:append { diff = "╱" }
 
 vim.o.autoread = true
 vim.o.laststatus = 0
+vim.o.winborder = 'rounded'

@@ -15,9 +15,7 @@ vim.keymap.set(
     "n",
     "-",
     function()
-        require("fzf-lua").files({
-            previewer = false,
-        })
+        require("fzf-lua").files()
     end,
     { desc = "Find Files" }
 )
@@ -25,9 +23,7 @@ vim.keymap.set(
     "n",
     "<leader><Space>",
     function()
-        require("fzf-lua").buffers({
-            previewer = false,
-        })
+        require("fzf-lua").buffers()
     end,
 
     { desc = "Search Word Under Cursor" }

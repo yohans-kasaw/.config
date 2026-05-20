@@ -5,9 +5,6 @@ return {
         "hrsh7th/nvim-cmp",
         config = function()
             local cmp = require("cmp")
-            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-            local lspkind = require("lspkind")
-
             cmp.setup({
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
@@ -22,18 +19,17 @@ return {
                     autocomplete = false,
                 },
                 formatting = {
-                    format = lspkind.cmp_format({
-                        mode = "symbol",
-                        ellipsis_char = "...",
-                        menu = {
+                    format = function(entry, vim_item)
+                        vim_item.menu = ({
                             nvim_lsp = "[lsp]",
                             nvim_lua = "[lua]",
                             buffer = "[buf]",
                             path = "[path]",
                             treesitter = "[tree]",
                             go_pkgs = "[pkgs]",
-                        },
-                    }),
+                        })[entry.source.name] or ''
+                        return vim_item
+                    end,
                 },
                 mapping = cmp.mapping.preset.insert({
                     ["<Tab>"] = cmp.mapping.select_next_item(),
@@ -42,7 +38,10 @@ return {
                 }),
                 matching = { disallow_symbol_nonprefix_matching = false },
             })
-            cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+            cmp.event:on(
+                "confirm_done",
+                require("nvim-autopairs.completion.cmp").on_confirm_done()
+            )
         end,
         dependencies = {
             { "hrsh7th/cmp-nvim-lsp" },
@@ -50,7 +49,6 @@ return {
             { "hrsh7th/cmp-path" },
             { "ray-x/cmp-treesitter" },
             { "hrsh7th/cmp-nvim-lua" },
-            { "onsails/lspkind.nvim" },
             { "Snikimonkd/cmp-go-pkgs" },
         },
     },
@@ -182,9 +180,6 @@ return {
         config = function()
             require("fzf-lua").setup({
                 fzf_opts = { ["--layout"] = "default" },
-                defaults = {
-                    previewer = true,
-                },
                 keymap = { fzf = { ["ctrl-q"] = "select-all+accept" } },
             })
         end,
@@ -196,14 +191,16 @@ return {
     },
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "main",
         build = ":TSUpdate",
-        event = { "BufReadPre" },
         config = function()
-            local configs = require("nvim-treesitter.configs")
-            configs.setup({
+            require("nvim-treesitter").setup({
                 auto_install = true,
                 highlight = { enable = true },
-                indent = { enable = true, disable = { "markdown" } },
+                indent = {
+                    enable = true,
+                    disable = { "markdown", "typescript", "tsx" },
+                },
                 incremental_selection = {
                     enable = true,
                     keymaps = {
@@ -212,21 +209,8 @@ return {
                         node_decremental = "<S-CR>",
                     },
                 },
-                textobjects = {
-                    select = {
-                        enable = true,
-                        lookahead = true,
-                        keymaps = {
-                            ["af"] = "@function.outer",
-                            ["if"] = "@function.inner",
-                            ["ac"] = "@call.outer",
-                            ["ic"] = "@call.inner",
-                        },
-                    },
-                },
             })
         end,
-        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
     },
     {
         "chrisgrieser/nvim-various-textobjs",
@@ -376,12 +360,6 @@ return {
         opts = {},
     },
     {
-        'norcalli/nvim-colorizer.lua',
-        config = function()
-            require 'colorizer'.setup()
-        end
-    },
-    {
         "OXY2DEV/markview.nvim",
         lazy = false,
         opts = {
@@ -416,18 +394,6 @@ return {
                     "method",
                     "table",
                     "if_statement",
-                },
-            })
-        end
-    },
-    {
-        "error311/wayfinder.nvim",
-        opts = {},
-        config = function()
-            require("wayfinder").setup({
-                layout = {
-                    width = 0.94,
-                    height = 0.98,
                 },
             })
         end

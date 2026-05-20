@@ -13,11 +13,10 @@
 
 ## General
 - Never read entire file trees—use grepAI to pinpoint locations first
-- Never run grep and searching tools with first consulting grepAI
-- When you find a function, also look for its usages
+- Never run grep and searching tools without first consulting grepAI
 
 ## Execution & Testing
 - Never run or verify code—human does all execution and verification
 - Never write tests unless user explicitly asks for a test
 - Never Run tests, precommits, formaters, linters unless user asked you explicitly 
-- After providing code, hand over control with phrases like "Please run the program and verify doing this and this, also perhaps provide checklist"
+- After providing code, hand over control with phrases like "Please run the program and verify doing this and this, also perhaps provide checklist for human manual testing and verification of the code, with both happy and bad path checking"
