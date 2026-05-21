@@ -201,14 +201,6 @@ return {
                     enable = true,
                     disable = { "markdown", "typescript", "tsx" },
                 },
-                incremental_selection = {
-                    enable = true,
-                    keymaps = {
-                        init_selection = "<CR>",
-                        node_incremental = "<CR>",
-                        node_decremental = "<S-CR>",
-                    },
-                },
             })
         end,
     },
@@ -425,4 +417,5 @@ return {
         dependencies = { { "nvim-mini/mini.icons", opts = {} } },
         lazy = false,
     },
+    {"shushtain/incselect.nvim"}
 }
