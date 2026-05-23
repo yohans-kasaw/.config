@@ -24,7 +24,7 @@ require("user.autocmd")
 
 vim.lsp.enable({
     "lua_ls",
-    -- "ts_ls",
+    "ts_ls",
     "emmet_language_server",
     "vue_ls",
     "tailwind",

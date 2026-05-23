@@ -51,27 +51,9 @@ vim.g.loaded_ruby_provider = 0
 
 -- spell
 vim.opt.spellcapcheck = ""
-local function enable_spell()
-    vim.opt_local.spell = true
-    vim.opt_local.spelllang = { "en_us" }
-end
-vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
-    desc = "Conditional spell checking activation",
-    callback = function(args)
-        local ft = vim.bo[args.buf].filetype
-        if vim.tbl_contains({ "markdown", "text" }, ft) then
-            enable_spell()
-        end
-    end,
-})
 
 -- Neovide
 vim.o.guifont = "Monaspace Neon Frozen:h26"
--- vim.g.neovide_scroll_animation_length = 0
--- vim.g.neovide_cursor_animation_length = 0
--- vim.g.neovide_cursor_vfx_mode = ""
--- vim.g.neovide_cursor_trail_size = 0
--- vim.g.neovide_confirm_quit = true
 
 -- git diff
 vim.opt.diffopt = {
@@ -89,3 +71,4 @@ vim.opt.fillchars:append { diff = "╱" }
 vim.o.autoread = true
 vim.o.laststatus = 0
 vim.o.winborder = 'rounded'
+vim.opt.cmdheight = 0

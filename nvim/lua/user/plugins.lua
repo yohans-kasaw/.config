@@ -1,5 +1,4 @@
 return {
-    { "nvim-lua/plenary.nvim" },
     { "nvim-tree/nvim-web-devicons" },
     {
         "hrsh7th/nvim-cmp",
@@ -9,7 +8,6 @@ return {
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "nvim_lua" },
-                    { name = "go_pkgs" },
                 }, {
                     { name = "treesitter" },
                     { name = "path" },
@@ -26,7 +24,6 @@ return {
                             buffer = "[buf]",
                             path = "[path]",
                             treesitter = "[tree]",
-                            go_pkgs = "[pkgs]",
                         })[entry.source.name] or ''
                         return vim_item
                     end,
@@ -49,7 +46,6 @@ return {
             { "hrsh7th/cmp-path" },
             { "ray-x/cmp-treesitter" },
             { "hrsh7th/cmp-nvim-lua" },
-            { "Snikimonkd/cmp-go-pkgs" },
         },
     },
     {
@@ -70,15 +66,6 @@ return {
                     { name = "path" },
                     { name = "cmdline" },
                 }),
-            })
-        end,
-    },
-    {
-        "Wansmer/treesj",
-        config = function()
-            require("treesj").setup({
-                use_default_keymaps = false,
-                max_join_length = 1000,
             })
         end,
     },
@@ -118,64 +105,6 @@ return {
     },
     { "HiPhish/rainbow-delimiters.nvim" },
     {
-        "mcauley-penney/visual-whitespace.nvim",
-        config = true,
-        event = "ModeChanged *:[vV\22]",
-        opts = {},
-    },
-    {
-        "yamatsum/nvim-cursorline",
-        config = function()
-            require("nvim-cursorline").setup({
-                cursorline = { enable = false },
-                cursorword = { enable = true, min_length = 3, hl = { underline = true } },
-            })
-        end,
-    },
-    {
-        "stevearc/conform.nvim",
-        cmd = { "ConformInfo" },
-        config = function()
-            require("conform").setup({
-                formatters_by_ft = {
-                    css = { "prettier" },
-                    go = { "gofmt" },
-                    html = { "prettier" },
-                    javascript = { "prettier" },
-                    javascriptreact = { "prettier" },
-                    json = { "prettier" },
-                    lua = { "stylua" },
-                    python = { "isort", "black" },
-                    typescript = { "prettier" },
-                    typescriptreact = { "prettier" },
-                    vue = { "prettier" },
-                    yaml = { "prettier" },
-                },
-                formatters = {
-                    black = {
-                        prepend_args = {
-                            "--skip-string-normalization",
-                            "--skip-magic-trailing-comma",
-                        },
-                    },
-                    gofmt = {
-                        prepend_args = { "-s" },
-                    },
-                    prettier = {
-                        prepend_args = {
-                            "--tab-width",
-                            "2",
-                            "--single-quote",
-                            "--no-semi",
-                            "--trailing-comma",
-                            "all",
-                        },
-                    },
-                },
-            })
-        end,
-    },
-    {
         "ibhagwan/fzf-lua",
         config = function()
             require("fzf-lua").setup({
@@ -205,25 +134,6 @@ return {
         end,
     },
     {
-        "chrisgrieser/nvim-various-textobjs",
-        opts = { keymaps = { useDefaults = true } },
-    },
-    {
-        "folke/noice.nvim",
-        opts = {
-            top_down = false,
-            presets = {
-                bottom_search = true,
-                command_palette = true,
-            },
-            lsp = {
-                progress = {
-                    enabled = false,
-                },
-            },
-        },
-    },
-    {
         url = "https://codeberg.org/andyg/leap.nvim",
         config = function()
             require("leap").setup({
@@ -240,13 +150,6 @@ return {
                     return true
                 end,
             })
-        end,
-    },
-    { "aaronik/treewalker.nvim" },
-    {
-        "esmuellert/nvim-eslint",
-        config = function()
-            require("nvim-eslint").setup({})
         end,
     },
     {
@@ -307,61 +210,6 @@ return {
         },
     },
     {
-        "bullets-vim/bullets.vim",
-    },
-    {
-        "arnamak/stay-centered.nvim",
-        lazy = false,
-        opts = {
-        },
-    },
-    {
-        "youyoumu/pretty-ts-errors.nvim",
-        opts = {
-            executable = "pretty-ts-errors-markdown",
-            float_opts = {
-                border = "rounded",
-                max_width = 80,
-                max_height = 20,
-                wrap = true,
-            },
-            auto_open = false,
-            lazy_window = false,
-        },
-    },
-    {
-        "dmmulroy/ts-error-translator.nvim",
-        config = function()
-            require("ts-error-translator").setup({
-                auto_attach = true,
-
-                servers = {
-                    "ts_ls",
-                    "typescript-tools",
-                    "vtsls",
-                },
-            })
-        end,
-    },
-    {
-        "pmizio/typescript-tools.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "neovim/nvim-lspconfig",
-        },
-        opts = {},
-    },
-    {
-        "OXY2DEV/markview.nvim",
-        lazy = false,
-        opts = {
-            preview = {
-                filetypes = { "markdown", "codecompanion" },
-                ignore_buftypes = {},
-            },
-        },
-    },
-    {
         "thesimonho/kanagawa-paper.nvim",
         lazy = false,
         priority = 1000,
@@ -374,21 +222,6 @@ return {
             vim.cmd.colorscheme("kanagawa-paper-ink")
         end,
         opts = { ... },
-    },
-    {
-        "folke/twilight.nvim",
-        config = function()
-            require("twilight").setup({
-                dimming = { alpha = 0.20 },
-                context = 18,
-                expand = {
-                    "function",
-                    "method",
-                    "table",
-                    "if_statement",
-                },
-            })
-        end
     },
     {
         'stevearc/oil.nvim',
@@ -414,8 +247,6 @@ return {
                 }
             })
         end,
-        dependencies = { { "nvim-mini/mini.icons", opts = {} } },
         lazy = false,
     },
-    {"shushtain/incselect.nvim"}
 }

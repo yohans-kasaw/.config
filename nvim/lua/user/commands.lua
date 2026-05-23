@@ -25,8 +25,3 @@ create_fzf_cmd("Marks", "marks", { desc = "Marks" })
 create_fzf_cmd("Jumps", "jumps", { desc = "Jumps" })
 create_fzf_cmd("Spell", "spell_suggest", { desc = "Spelling Suggestions" })
 create_fzf_cmd("Commands", "commands", { desc = "Neovim Commands" })
-
-
--- vim.keymap.set("n", "<leader>te", function()
---     require("pretty-ts-errors").show_formatted_error()
--- end, { desc = "Show TS error" })
