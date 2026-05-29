@@ -75,16 +75,12 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     desc = "Update tmux file name display",
 })
 
-local function enable_spell()
-    vim.opt_local.spell = true
-    vim.opt_local.spelllang = { "en_us" }
-end
-
 vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
     callback = function(args)
         local ft = vim.bo[args.buf].filetype
         if vim.tbl_contains({ "markdown", "text" }, ft) then
-            enable_spell()
+            vim.opt_local.spell = true
+            vim.opt_local.spelllang = { "en_us" }
         end
     end,
 })

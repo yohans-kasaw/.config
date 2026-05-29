@@ -1,67 +1,31 @@
 vim.keymap.set("n", "gl", function()
     vim.diagnostic.open_float(nil, {})
-end, { noremap = true, silent = true, desc = "Show Line Diagnostics" })
+end, { noremap = true, silent = true})
 
--- window
+vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
+vim.keymap.set( "n", "-", require("fzf-lua").files)
+vim.keymap.set("n", "<leader><Space>", require("fzf-lua").buffers)
+vim.keymap.set("n", "<Tab>", require("fzf-lua").live_grep_native)
+vim.keymap.set("n", "<leader>r", require("fzf-lua").resume)
+vim.keymap.set("n", "<leader>w", require("fzf-lua").grep_cword)
+vim.keymap.set("n", "<leader>j", require("fzf-lua").jumps)
+vim.keymap.set("n", "<leader>s", require("fzf-lua").git_status)
+vim.keymap.set("n", "<leader>d", require("fzf-lua").lsp_definitions)
+vim.keymap.set("n", "<leader>r", require("fzf-lua").lsp_references)
+
+vim.keymap.set("n", "<C-n>", "<Cmd>noh<CR>")
+vim.keymap.set("n", "<leader>o", ":w<CR>")
+vim.keymap.set("n", "q", ":q!<CR>")
+
 vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
-
--- leap
-vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)", { noremap = true, silent = true })
-
--- fzf
-vim.keymap.set(
-    "n",
-    "-",
-    function()
-        require("fzf-lua").files()
-    end,
-    { desc = "Find Files" }
-)
-
-vim.keymap.set(
-    "n",
-    "<leader><Space>",
-    function()
-        require("fzf-lua").buffers()
-    end,
-
-    { desc = "Search Word Under Cursor" }
-)
-
-vim.keymap.set("n", "<Tab>", require("fzf-lua").live_grep_native, { desc = "Grep" })
-vim.keymap.set("n", "<leader>r", require("fzf-lua").resume, { desc = "Resume Last Search" })
-vim.keymap.set("n", "<leader>w", require("fzf-lua").grep_cword, { desc = "Search Word Under Cursor" })
-vim.keymap.set("n", "<leader>j", require("fzf-lua").jumps, { desc = "Search Word Under Cursor" })
-
-vim.keymap.set("n", "<leader>ld", require("fzf-lua").lsp_definitions, { silent = true, desc = "Go to Definition" })
-vim.keymap.set("n", "<leader>lr", require("fzf-lua").lsp_references, { silent = true, desc = "Find References" })
-vim.keymap.set("n", "<leader>lf", require("fzf-lua").lsp_finder, { silent = true, desc = "Find References" })
-
--- Msc
-vim.keymap.set("n", "<C-n>", "<Cmd>noh<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>o", ":w<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>q", ":q!<CR>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>", { noremap = true, silent = false })
 vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>e", require("oil").toggle_float)
 
-vim.keymap.set("n", "<leader>e", function()
-    require("oil").toggle_float()
-end, { desc = "Open parent directory" })
+vim.keymap.set("n", ";v", "<cmd>DiffviewOpen<cr>")
+vim.keymap.set("n", ";d", "<cmd>DiffviewOpen dev<cr>")
+vim.keymap.set("n", ";m", "<cmd>DiffviewOpen main<cr>")
+vim.keymap.set("n", ";i", require("mini.diff").toggle_overlay)
 
--- snippets
-vim.keymap.set({ "n", "v" }, "<leader>F", vim.lsp.buf.format, { desc = "Format file" })
-
-vim.keymap.set("n", ";v", "<cmd>DiffviewOpen<cr>", { desc = "toggle diff view" })
-vim.keymap.set("n", ";d", "<cmd>DiffviewOpen dev<cr>", { desc = "toggle diff view" })
-vim.keymap.set("n", ";m", "<cmd>DiffviewOpen main<cr>", { desc = "toggle diff view" })
-
-vim.keymap.set("n", ";i", function()
-    require("mini.diff").toggle_overlay()
-end, { desc = "inline diff" })
-
-vim.keymap.set("n", "<leader>;", "<Plug>(WayfinderOpen)", { noremap = true, desc = "Wayfinder" })
-vim.keymap.set("n", ";;", ":Twilight<CR>", { desc = "twilight" })
-vim.keymap.set("n", ";p", ":Markview<CR>", { desc = "twilight" })
-
-vim.keymap.set({'n', 'v'}, 'x', '"_d')
+vim.keymap.set({ "n", "v" }, "<leader>f", vim.lsp.buf.format)

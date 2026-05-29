@@ -1,5 +1,4 @@
 return {
-    { "nvim-tree/nvim-web-devicons" },
     {
         "hrsh7th/nvim-cmp",
         config = function()
@@ -35,10 +34,6 @@ return {
                 }),
                 matching = { disallow_symbol_nonprefix_matching = false },
             })
-            cmp.event:on(
-                "confirm_done",
-                require("nvim-autopairs.completion.cmp").on_confirm_done()
-            )
         end,
         dependencies = {
             { "hrsh7th/cmp-nvim-lsp" },
@@ -69,41 +64,6 @@ return {
             })
         end,
     },
-    {
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        config = function()
-            require("ts_context_commentstring").setup({
-                enable_autocmd = false,
-            })
-            local org_get_option = vim.filetype.get_option
-            vim.filetype.get_option = function(filetype, option)
-                return option == "commentstring"
-                    and require("ts_context_commentstring.internal").calculate_commentstring()
-                    or org_get_option(filetype, option)
-            end
-        end,
-    },
-    {
-        "kylechui/nvim-surround",
-        version = "*",
-        config = function()
-            require("nvim-surround").setup({})
-        end,
-    },
-    {
-        "windwp/nvim-autopairs",
-        config = function()
-            require("nvim-autopairs").setup()
-        end,
-    },
-    {
-        "windwp/nvim-ts-autotag",
-        event = { "BufReadPre", "BufNewFile" },
-        config = function()
-            require("nvim-ts-autotag").setup()
-        end,
-    },
-    { "HiPhish/rainbow-delimiters.nvim" },
     {
         "ibhagwan/fzf-lua",
         config = function()
@@ -187,25 +147,18 @@ return {
         end,
     },
     {
+      'nvim-mini/mini.pairs',
+      config = function()
+        require('mini.pairs').setup({})
+      end
+    },
+    {
         "mistweaverco/kulala.nvim",
         ft = { "http" },
         opts = {
             global_keymaps = true,
-            global_keymaps_prefix = ".",
             ui = {
                 display_mode = "float",
-            },
-        },
-    },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        opts = {
-            scope = {
-                enabled = false,
-            },
-            indent = {
-                char = "┊",
             },
         },
     },
@@ -249,4 +202,19 @@ return {
         end,
         lazy = false,
     },
+    {
+      "pmizio/typescript-tools.nvim",
+      dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+      config = function()
+          require("typescript-tools").setup {
+            settings = {
+                jsx_close_tag = {
+                    enable = false,
+                    filetypes = { "javascriptreact", "typescriptreact" },
+                }
+            }
+          }
+      end
+    }
 }
+
