@@ -62,19 +62,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 
-local function update_tmux_name()
-    local file_name = vim.fn.expand("%:t")
-    if file_name == "" then file_name = "[No Name]" end
-    vim.system({ "tmux", "set-option", "-p", "@nvim_file_name", file_name })
-end
-
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-    callback = function()
-        update_tmux_name()
-    end,
-    desc = "Update tmux file name display",
-})
-
 vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
     callback = function(args)
         local ft = vim.bo[args.buf].filetype
@@ -83,4 +70,11 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
             vim.opt_local.spelllang = { "en_us" }
         end
     end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "svelte",
+  callback = function()
+    vim.treesitter.start()
+  end,
 })

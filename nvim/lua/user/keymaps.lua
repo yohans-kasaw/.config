@@ -12,6 +12,7 @@ vim.keymap.set("n", "<leader>j", require("fzf-lua").jumps)
 vim.keymap.set("n", "<leader>s", require("fzf-lua").git_status)
 vim.keymap.set("n", "<leader>d", require("fzf-lua").lsp_definitions)
 vim.keymap.set("n", "<leader>r", require("fzf-lua").lsp_references)
+vim.keymap.set("n", "<leader>q", require("fzf-lua").quickfix)
 
 vim.keymap.set("n", "<C-n>", "<Cmd>noh<CR>")
 vim.keymap.set("n", "<leader>o", ":w<CR>")
@@ -29,3 +30,6 @@ vim.keymap.set("n", ";m", "<cmd>DiffviewOpen main<cr>")
 vim.keymap.set("n", ";i", require("mini.diff").toggle_overlay)
 
 vim.keymap.set({ "n", "v" }, "<leader>f", vim.lsp.buf.format)
+
+vim.api.nvim_set_keymap('n', '<leader>yp', ':let @+ = expand("%")<CR>', { noremap = true })
+

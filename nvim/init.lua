@@ -6,6 +6,7 @@ require("user.autocmd")
 
 vim.lsp.enable({
     "basedpyright",
+    "svelte"
 })
 
 vim.api.nvim_create_autocmd("VimEnter", {

@@ -79,21 +79,6 @@ return {
         opts = {},
     },
     {
-        "nvim-treesitter/nvim-treesitter",
-        branch = "main",
-        build = ":TSUpdate",
-        config = function()
-            require("nvim-treesitter").setup({
-                auto_install = true,
-                highlight = { enable = true },
-                indent = {
-                    enable = true,
-                    disable = { "markdown", "typescript", "tsx" },
-                },
-            })
-        end,
-    },
-    {
         url = "https://codeberg.org/andyg/leap.nvim",
         config = function()
             require("leap").setup({
@@ -150,6 +135,13 @@ return {
       'nvim-mini/mini.pairs',
       config = function()
         require('mini.pairs').setup({})
+      end
+    },
+    {
+      'echasnovski/mini.surround',
+      version = false,
+      config = function()
+        require('mini.surround').setup({})
       end
     },
     {
