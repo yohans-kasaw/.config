@@ -4,7 +4,6 @@ return {
   root_markers = {
     'pyproject.toml',
     'requirements.txt',
-    'Pipfile',
     '.git',
   },
   settings = {
