@@ -42,8 +42,6 @@ if status is-interactive
 
     zoxide init fish | source
 
-    ta
-
 end
 
 fish_add_path "/home/yohansh/.local/bin"
