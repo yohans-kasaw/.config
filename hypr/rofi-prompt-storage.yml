@@ -37,7 +37,7 @@ prompts:
 
   - name: "Prompt Engineering"
     prompt: |
-      Can you make this existing prompt at least 10x better right now? Do you have the capability to do it? Is there any way that it can be improved 10x?
+      Improve this prompt for clarity, specificity, and usefulness. First ask me up to 3 quick clarifying questions to clear ambiguty. Then rewrite it with concrete instructions and a measurable success check.
       {
       {{clipboard}}
       }

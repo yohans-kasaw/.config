@@ -32,4 +32,5 @@ vim.keymap.set("n", ";i", require("mini.diff").toggle_overlay)
 vim.keymap.set({ "n", "v" }, "<leader>f", vim.lsp.buf.format)
 
 vim.api.nvim_set_keymap('n', '<leader>yp', ':let @+ = expand("%")<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>c', ':bd<CR>', { noremap = true })
 

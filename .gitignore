@@ -91,3 +91,4 @@ gcloud/
 act/
 libreoffice/
 lazysql/
+my-docker-compose-configs/pg_sockets/

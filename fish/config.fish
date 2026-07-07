@@ -4,6 +4,7 @@ if status is-interactive
     set -x VISUAL nvim
     set -x EDITOR nvim
     set -x OLLAMA_KEEP_ALIVE 0
+    set -x PAGER vimpager
 
     if not set -q GEMINI_API_KEY
         set -gx OPENCODE_API_KEY (keyring get opencode_api_key default)

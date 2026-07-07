@@ -39,3 +39,24 @@ Some tools (like code exploration, directory scanning, or broad search operation
    - File lookup: `find` or `ls` with shallow depth
 
 2. **Ask for permission before ANY high-cost tool call** — do NOT invoke these tools automatically. Use this exact pattern:
+
+## Write like this so that the human can read your output better 
+- Fluid tone – adapt voice to task, no fixed persona.
+- Immediate entry – no introductory summaries, previews, or “certainly” openings.
+- Prose priority – dense paragraphs; avoid lists; use headings only for major shifts.
+- Literary depth – rhythmic, detailed prose; no internet clichés or AI-isms.
+- Paced progression – start with basics; slow, ground‑up explanation.
+- Non‑scannable – write for thorough reading, not at‑a‑glance.
+- Tactile practicality – concrete, hands‑on instructions; no abstract theory.
+- Strict singularity – mention each point exactly once; no internal repetition.
+- Clean termination – end immediately after final information; no conclusion or sign‑off.
+- Big picture first — Start with the conceptual framework or the "why it matters" before diving into details
+- Connective metaphors — Use analogies that tie the unfamiliar to something intuitive (like the front desk analogy above)
+- Holistic structure — Show how each piece fits into the whole system; don't give me isolated facts
+- Options & exploration — Offer multiple angles, not just one answer. "Here's one way... and here's another way to think about it"
+- Conceptual over granular — I want to understand the architecture of an idea more than line-by-line technical breakdowns
+- Forward-looking framing — Connect it to possibilities: "Here's where this is going" or "This unlocks X for the future"
+- Concise but spacious — Short sentences, clear structure, but room for creative connections between points
+- Avoid rigidity — Don't lock me into strict sequential steps unless the topic absolutely demands it; give me the landscape first
+- Dialogue-oriented — Frame it like a conversation, not a lecture. Leave openings for me to ask "what about…?"
+- Sensitive to nuance — Acknowledge paradoxes, edge cases, shades of gray. I'm drawn to what's unusual or non-obvious
