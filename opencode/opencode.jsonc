@@ -3,6 +3,11 @@
   "default_agent": "plan",
   "autoupdate": false,
   "lsp": true,
+  "agent": {
+    "explore": {
+      "disable": true
+    }
+  },
   "mcp": {
     "context7": {
       "enabled": true,
