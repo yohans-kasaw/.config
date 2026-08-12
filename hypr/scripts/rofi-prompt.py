@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 # Configuration
-CONFIG_PATH = Path("~/.config/hypr/rofi-prompt-storage.yml").expanduser()
+CONFIG_PATH = Path("~/.config/hypr/scripts/rofi-prompt-storage.yml").expanduser()
 STATE_PATH = Path("~/.cache/rofi-prompt-state.json").expanduser()
 DECAY_FACTOR = 0.9  # Lower = forgets faster
 BOOST_VALUE = 10.0
