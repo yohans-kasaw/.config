@@ -4,13 +4,13 @@ if status is-interactive
     set -x VISUAL nvim
     set -x EDITOR nvim
     set -x OLLAMA_KEEP_ALIVE 0
-    set -x PAGER vimpager
 
     if not set -q GEMINI_API_KEY
         set -gx OPENCODE_API_KEY (keyring get opencode_api_key default)
         set -gx GEMINI_API_KEY (keyring get gemini_api_key default)
         set -gx GOOGLE_GENERATIVE_AI_API_KEY $GEMINI_API_KEY
         set -gx DEEPSEEK_API_KEY (keyring get DEEPSEEK_API_KEY default)
+        set -gx OPENROUTER_API_KEY (keyring get DEEPSEEK_API_KEY default)
     end
 
     set -gx FZF_DEFAULT_COMMAND  "fd --follow --exclude .git --exclude ~/.config/fd/fzfcd-ignore-rules . $HOME"
@@ -41,6 +41,8 @@ if status is-interactive
     starship init fish | source
 
     zoxide init fish | source
+
+    ta
 
 end
 

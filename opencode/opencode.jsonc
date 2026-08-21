@@ -2,13 +2,41 @@
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "plan",
   "autoupdate": false,
-  "lsp": true,
+  "lsp": false,
+  "provider": {
+    "headroom": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Headroom Proxy",
+      "options": {
+        "baseURL": "http://127.0.0.1:8787/v1",
+        "apiKey": "sk-b59c45c1d2df4f948e6537b822359fa5",
+      },
+      "models": {
+        "deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro",
+          "limit": { "context": 100000, "output": 384000 }
+        },
+        "deepseek-v4-flash": {
+          "name": "DeepSeek V4 Flash",
+          "limit": { "context": 100000, "output": 384000 }
+        }
+      }
+    }
+  },
   "agent": {
     "explore": {
       "disable": true
     }
   },
   "mcp": {
+    "serena": {
+      "type": "local",
+      "command": [
+        "serena",
+        "start-mcp-server"
+      ],
+      "enabled": true
+    },
     "context7": {
       "enabled": true,
       "headers": {
@@ -17,41 +45,33 @@
       "type": "remote",
       "url": "https://mcp.context7.com/mcp"
     },
-    "probe-tools": {
-      "enabled": true,
+    "codegraph": {
       "type": "local",
-      "command": ["probe", "mcp", "--lsp", "--timeout", "60"]
+      "command": [
+        "codegraph",
+        "serve",
+        "--mcp"
+      ],
+      "enabled": true, 
     },
   },
   "permission": {
-    "read": {
-      "*": "ask",
-      "*.env": "deny",
-      "*.env.*": "deny",
-      "*.env.example": "allow"
-    },
-    "webfetch": "ask",
-    "websearch": "ask",
-    "bash": {
-      "*": "allow",
-      "cat *": "ask",
-      "head *": "ask",
-      "tail *": "ask"
-    },
-    "context7_resolve-library-id": "ask",
-    "context7_query-docs": "ask",
-    "probe-tools_search_code": "ask",
-    "probe-tools_query_code": "ask",
-    "probe-tools_extract_code": "ask",
-    "probe-tools_symbols_code": "ask",
-    "probe-tools_grep": "ask"
+    "*": "ask",
   },
   "plugin": [
     "@tarquinen/opencode-dcp@latest",
     "open-plan-annotator@latest",
     "opencode-snip@latest",
-    "@ramtinj95/opencode-tokenscope@latest"
+    "openslimedit@latest",
   ],
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "keep": {
+      "tokens": 2000
+    },
+    "buffer": 10000
+  },
   "experimental": {
     "mcp_timeout": 60000
   },
