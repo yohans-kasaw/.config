@@ -16,6 +16,47 @@
       },
       "type": "remote",
       "url": "https://mcp.context7.com/mcp"
-    }
+    },
+    "probe-tools": {
+      "enabled": true,
+      "type": "local",
+      "command": ["probe", "mcp", "--lsp", "--timeout", "60"]
+    },
+  },
+  "permission": {
+    "read": {
+      "*": "ask",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
+    },
+    "webfetch": "ask",
+    "websearch": "ask",
+    "bash": {
+      "*": "allow",
+      "cat *": "ask",
+      "head *": "ask",
+      "tail *": "ask"
+    },
+    "context7_resolve-library-id": "ask",
+    "context7_query-docs": "ask",
+    "probe-tools_search_code": "ask",
+    "probe-tools_query_code": "ask",
+    "probe-tools_extract_code": "ask",
+    "probe-tools_symbols_code": "ask",
+    "probe-tools_grep": "ask"
+  },
+  "plugin": [
+    "@tarquinen/opencode-dcp@latest",
+    "open-plan-annotator@latest",
+    "opencode-snip@latest",
+    "@ramtinj95/opencode-tokenscope@latest"
+  ],
+  "experimental": {
+    "mcp_timeout": 60000
+  },
+  "tool_output": {
+    "max_lines": 300,
+    "max_bytes": 16384
   }
 }

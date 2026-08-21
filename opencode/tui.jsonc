@@ -4,5 +4,8 @@
   "mouse": true,
   "attention": {
     "enabled": false,
-  }
+  },
+  "plugin": [
+    "opencode-quotes-plugin"
+  ]
 }
