@@ -8,22 +8,15 @@ windows:
   start_directory: /home/yohansh/projects/selfware/backend
   panes:
   - shell_command: nvim
-- window_name: research
-  start_directory: /home/yohansh/projects/selfware
-  panes:
-  - shell_command: opencode
-- window_name: command
-  start_directory: /home/yohansh/projects/selfware/backend
-  focus: 'true'
 - window_name: run
   layout: even-horizontal
   panes:
   - shell_command:
-    - hyprctl dispatch exec '[workspace 4] firefox http://localhost:5173'
+    - hyprctl dispatch 'hl.dsp.exec_cmd("firefox http://localhost:5173", { workspace = "4" })'
     - cd /home/yohansh/projects/selfware/web
     - bun run dev
   - shell_command:
     - docker compose -f /home/yohansh/config/my-docker-compose-configs/postgres.yaml up -d
-    - hyprctl dispatch exec '[workspace 4] firefox http://localhost:8000/docs'
+    - hyprctl dispatch 'hl.dsp.exec_cmd("firefox http://localhost:8000/docs", { workspace = "4" })'
     - cd /home/yohansh/projects/selfware/backend
     - fastapi dev
