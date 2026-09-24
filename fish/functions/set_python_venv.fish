@@ -1,4 +1,4 @@
-function __python_venv --on-variable PWD
+function set_python_venv --on-variable PWD
     if test -f .venv/bin/activate.fish
         source .venv/bin/activate.fish
         # Sync to tmux session environment
