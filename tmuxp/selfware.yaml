@@ -16,7 +16,7 @@ windows:
     - cd /home/yohansh/projects/selfware/web
     - bun run dev
   - shell_command:
-    - docker compose -f /home/yohansh/config/my-docker-compose-configs/postgres.yaml up -d
+    - docker compose -f /home/yohansh/config/my-dockers/postgres.yaml up -d
     - hyprctl dispatch 'hl.dsp.exec_cmd("firefox http://localhost:8000/docs", { workspace = "4" })'
     - cd /home/yohansh/projects/selfware/backend
     - fastapi dev

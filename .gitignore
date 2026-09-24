@@ -20,6 +20,7 @@ falkon/
 go/
 goa-1.0/
 google-chrome/
+ghostty/
 gnome-boxes/
 gnome-layout-switcher.conf
 gnome-session/
@@ -90,4 +91,11 @@ gcloud/
 act/
 libreoffice/
 lazysql/
-my-docker-compose-configs/pg_sockets/
+voxtype/
+QtProject/
+chromium/
+fish/functions/y.fish
+gthumb/
+kdeconnect/
+sioyek/sioyek.conf
+stripe/

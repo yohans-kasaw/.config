@@ -188,31 +188,6 @@ return {
       opts= {},
       dependencies = { 'nvim-treesitter/nvim-treesitter' },
       ft = { 'html', 'svelte', 'typescriptreact'},
-    },
-    {
-      "olimorris/codecompanion.nvim",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-treesitter/nvim-treesitter",
-      },
-      config = function()
-        require("codecompanion").setup({
-            display = {
-                chat = {
-                  show_reasoning = false,
-                },
-            },
-            interactions = {
-                chat = {
-                    adapter = {name = "deepseek", model="deepseek-v4-flash"}
-                },
-                inline = {
-                    adapter = {name = "deepseek", model="deepseek-v4-flash"}
-                }
-            },
-        })
-
-      end
-    },
+    }
 }
 
