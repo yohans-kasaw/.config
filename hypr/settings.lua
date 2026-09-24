@@ -77,3 +77,9 @@ hl.config({
 hl.config({
   animations = { enabled = false },
 })
+
+hl.config({
+    binds = {
+        hide_special_on_workspace_change = true,
+    },
+})

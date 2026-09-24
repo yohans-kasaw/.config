@@ -11,6 +11,96 @@
 # with the actual clipboard content before copying the final prompt to your clipboard.
 
 prompts:
+  - name: "writing prose"
+    prompt:  |
+      My primary goal is to **learn**. 
+
+      Think broadly and make intelligent connections. Introduce concepts from other fields when they genuinely illuminate the subject. Use historical context, scientific research, real-world examples, anecdotes, everyday situations, thought experiments, and concrete cases when appropriate. Abstract ideas should become intuitive without being dumbed down.
+
+      Treat me as an intelligent, curious, avid reader. Do not assume I already know the subject, but do not talk down to me or explain obvious things unnecessarily. Build understanding progressively: establish the necessary foundations, then allow the discussion to become more sophisticated as the ideas develop.
+
+      Most importantly, **think through the subject rather than merely listing information about it.** Let one idea naturally lead to the next. Look for the underlying mechanisms, tensions, surprising connections, historical developments, and broader implications. The reader should feel that the subject is being discovered and understood as the explanation unfolds.
+
+      ### Writing & Prose
+
+      Write like a **great nonfiction book**, not like an AI assistant, textbook, blog post, LinkedIn article, or Wikipedia page.
+
+      The prose should be:
+
+      * Elegant
+      * Curious
+      * Vivid
+      * Literary
+      * Intelligent
+      * Natural
+      * Occasionally humorous
+      * Deep-thinking and reflective
+      * Intuitive and memorable
+      * Focused on the big picture without losing the important details
+
+      Favor **continuous intellectual flow** over lists of disconnected facts. One paragraph should create a reason to read the next. Ideas should develop naturally, with transitions that emerge from the logic of the subject rather than artificial signposting.
+
+      Use interesting introductions and headings when they improve the reading experience. Headings should feel like something you would encounter in a thoughtful nonfiction book, not generic labels such as "Introduction," "Key Points," or "Conclusion."
+
+      Prefer paragraphs and flowing prose over bullet points. Use bullets only when the information genuinely demands a list or when they substantially improve clarity. Do not turn an interesting idea into a collection of fragments simply because lists are easy to generate.
+
+      Use examples generously but intelligently. Historical episodes, anecdotes, everyday situations, scientific observations, thought experiments, and concrete human experiences should be used to make ideas intuitive and memorable. Do not add examples merely to fill space. A good example should illuminate the idea, complicate it, or make it difficult to forget.
+
+      Favor **specificity over abstraction**. When an idea is difficult, find the concrete situation, observation, story, mechanism, or comparison that makes it click.
+
+      Assume the reader appreciates substantial prose. Longer paragraphs and extended explanations are welcome when they are developing a worthwhile idea. Never shorten an explanation merely for the sake of brevity. At the same time, never pad the writing. **Every sentence must earn its place.**
+
+      Avoid all cheap filler and recognizable AI prose. In particular, avoid:
+
+      * Generic introductions
+      * Empty rhetorical questions
+      * "In today's world..."
+      * "It's important to note..."
+      * "Let's dive into..."
+      * "There are several key..."
+      * Repetitive summaries
+      * Artificial transitions
+      * Excessive sectioning
+      * Corporate or LinkedIn-style language
+      * Fake profundity
+      * Unnecessary disclaimers
+      * Restating the question
+      * Repeating an idea in slightly different words
+      * Mechanical "first, second, third" structures
+      * Choppy fragments masquerading as punchy prose
+      * Excessive use of em dashes
+      * Writing that sounds optimized for engagement rather than understanding
+
+      Do not constantly announce what you are about to explain. **Just explain it.**
+
+      Do not manufacture a neat conclusion when the subject does not naturally have one. Let the final idea land naturally. There is no requirement for a "Conclusion" section or a summary at the end.
+
+      The prose should have **rhythm**. Mix sentence lengths naturally. Allow a short sentence to land after a long thought. Use precise words. Occasionally let a sentence be beautiful simply because the idea deserves beautiful language.
+
+      Aim for the feeling of a **deeply curious nonfiction writer thinking aloud with exceptional clarity**: someone who knows a great deal, is fascinated by the subject, sees connections across time and disciplines, and wants the reader to see them too.
+
+      The ultimate goal is not merely that I finish reading with more information.
+
+      It is that I finish reading with a **better mental model of the world**, and that some of the ideas remain in my head long after I have closed the page.
+  - name: "Bullet Points"
+    prompt: |
+      Act as a professional editor specializing in transcripts and note taking.
+      
+      Convert the provided transcription into a clean, list of atomic bullet points.
+      
+      Instructions:
+      1. Fix technical errors – Correct typos, punctuation, and grammatical mistakes that impede readability.
+      2. Remove fillers – Eliminate excessive filler words (um, ah, like, you know) and repetitions.
+      3. Improve flow – Rearrange the sequence of thoughts for logical coherence when needed.
+      
+      Output format requirements:
+      - Produce a bulleted list only.
+      - Do NOT include any summary, title, heading, or introductory sentence.
+      - These bullets are for an AI to track what was said, what to add, what to remove, and what to act on.
+      
+      ## Input text to process:
+      {{clipboard}}
+
   - name: "Explain exert"
     prompt: |
       explain the following exert. when explaining be witty, insight full and effective in moving your point across don't me academic and don't try to be accurate or correct. the main point is in moving your point across and help me understand.
@@ -21,7 +111,7 @@ prompts:
 
   - name: "Fix Grammar and Issues"
     prompt: |
-      Act as a professional editor specializing in conversational transcripts. Clean up the provided voice-to-text transcription. Retain my original word choices, tone, and unique phrasing. Do not formalize the language or turn it into "written prose. Fix Technical Errors: Correct obvious typos, punctuation, and grammatical mistakes that impede readability. Remove excessive filler words (um, ah, like, you know) and repetitions. improve the flow and rearrange the sentences flow of thoughts for better reading experience. 
+      Act as a professional editor specializing in conversational transcripts. Clean up the provided voice-to-text transcription. Retain my original word choices, tone, and unique phrasing. Do not formalize the language or turn it into "written prose. Fix Technical Errors: Correct obvious typos, punctuation, and grammatical mistakes that impede readability. Remove excessive filler words (um, ah, like, you know) and repetitions. improve the flow and rearrange the sentences flow of thoughts for better reading experience. Avoid em dashes.
       {
       {{clipboard}}
       }
@@ -73,6 +163,7 @@ prompts:
       Task: Define the following word using sharp irony, hyperbole, and a touch of sarcasm. Avoid cheesy puns; aim for 'Douglas Adams' style wit.
       
       Structure your response as follows:
+      0. Short formal accurate definition in case it needed
       1. **Word & Phonetic Spelling**: Create a ridiculous phonetic pronunciation.
       2. **The Real Definition**: A brutally honest take on what the word actually means in the modern world.
       3. **The Sad Truth**: A one-sentence existential realization about the word.
@@ -89,40 +180,3 @@ prompts:
       Instructions: Do NOT use lists or rigid structures. Instead, weave the entry into a natural, flowing paragraph or two. Start with the word and a completely ridiculous phonetic spelling. Then, launch into a hyper-sarcastic definition that reveals the sad truth of what the word actually means in the modern world. Finish by casually dropping a weirdly specific, funny example of how it’s used in daily life. Channel the existential wit of Douglas Adams and the biting satire of Ambrose Bierce. No cheesy puns.
 
       Word: {{clipboard}}
-
-  - name: "Cover Letter"
-    prompt: |
-      Act as a world-class Technical Recruiter writing a cover letter for a top-tier candidate. 
-      Your mission is to analyze the Job Description in at bottom and cross-reference it with my "Master Profile" below. 
-
-      ### THE MASTER PROFILE (Select only relevant items):
-      - IDENTITY: Engineer based in Ethiopia | 4+ years experience | Competitive Programmer.
-      - CORE PHILOSOPHY: Building high-impact products, taking true ownership, "Hacker spirit" (Arch Linux/Neovim/Tmux workflow).
-      
-      - TECH STACK MENU:
-        * Backend: Go (Golang), Python, Node.js, Microservices, MongoDB, PostgreSQL.
-        * Frontend/Mobile: React, Next.js, Vue.js, Nuxt.js, Vite, Tailwind CSS, Figma.
-        * DevOps/Systems: Docker, AWS, GCP, Nginx, Linux, Bash/Shell.
-
-      - PROJECT MENU (Pick the 2 best matches for the job):
-        1. [AI/LLM]: CodeDueProcess - Autonomous multi-agent swarm (LangGraph) for auditing AI code.
-        2. [SYSTEMS/AI]: OwlBox.ai - AI-native NVR for natural language camera queries.
-        3. [FINTECH/HIGH-SPEED]: meme-trade - Multi-view trading terminal with real-time market data.
-        4. [GO/UTILITY]: focus_read - Terminal-based Go speed reader for distraction-free reading.
-        5. [LOGISTICS]: supplySight - Smart Warehouse Management with visual inventory trends.
-        6. [FULLSTACK]: libam - Social discovery/dating app with Go backend and smooth React frontend.
-        7. [ED-TECH]: A2SV Winning Build - AI learning platform for children with cognitive challenges (Visual/Sound focused).
-
-      ### OUTPUT INSTRUCTIONS:
-      1. ANALYZE: Identify if the job is Backend, Frontend, Fullstack, or AI-focused.
-      2. ADAPT: If it's Frontend, emphasize React/Next.js and projects like meme-trade. If Backend, emphasize Go/Python and projects like OwlBox. 
-      3. TONE: Professional, bold, and human. No "I am writing to apply..." clichés. Start with "Hello," or "Hi team,".
-      4. STRUCTURE:
-         - Header: GitHub link (github.com/yohans-kasaw).
-         - Hook: Mention the 4+ years exp and other wins win early to establish authority.
-         - Body: 1-2 short paragraphs connecting my specific stack to their specific needs.
-         - Show, Don't Tell: Include the "Products I have built" section with the 2 most relevant projects.
-         - Call to Action: Short and confident.
-
-      ### Job discription
-      {{clipboard}}
