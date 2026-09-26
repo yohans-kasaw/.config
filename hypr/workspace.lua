@@ -1,10 +1,10 @@
 local env = require("env")
 
 hl.workspace_rule({ workspace = "1", monitor = env.monitor_laptop })
-hl.workspace_rule({ workspace = tostring(env.craft_ws), monitor = env.monitor_external, on_created_empty = tostring(env.term) })
-hl.workspace_rule({ workspace = tostring(env.brow_ws), monitor = env.monitor_external, on_created_empty = tostring(env.brow) })
-hl.workspace_rule({ workspace = tostring(env.testing_ws), monitor = env.monitor_external, on_created_empty = tostring(env.testing_brow) })
-hl.workspace_rule({ workspace = tostring(env.reading_ws), monitor = env.monitor_external, on_created_empty = tostring(env.reader)})
+hl.workspace_rule({ workspace = tostring(env.craft_ws), monitor = env.monitor_external})
+hl.workspace_rule({ workspace = tostring(env.brow_ws), monitor = env.monitor_external})
+hl.workspace_rule({ workspace = tostring(env.testing_ws), monitor = env.monitor_external})
+hl.workspace_rule({ workspace = tostring(env.reading_ws), monitor = env.monitor_external})
 
 hl.workspace_rule({
   workspace = "special:planning",
