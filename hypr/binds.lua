@@ -13,15 +13,15 @@ hl.bind(env.mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("/home/yohansh/.config/hy
 hl.bind(env.mainMod .. " + SHIFT + Space", hl.dsp.exec_cmd("voxtype record toggle"))
 hl.bind(env.mainMod .. " + SHIFT + S", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
 
-hl.bind(env.mainMod .. " + Q", hl.dsp.focus({ workspace = "1" }))
+hl.bind(env.mainMod .. " + Q", hl.dsp.focus({ workspace = tostring(env.laptop_ws)}))
 hl.bind(env.mainMod .. " + A", hl.dsp.focus({ workspace = tostring(env.craft_ws) }))
 hl.bind(env.mainMod .. " + O", hl.dsp.focus({ workspace = tostring(env.brow_ws) }))
 hl.bind(env.mainMod .. " + E", hl.dsp.focus({ workspace = tostring(env.testing_ws) }))
 hl.bind(env.mainMod .. " + U", hl.dsp.focus({ workspace = tostring(env.reading_ws) }))
+hl.bind(env.mainMod .. " + N", hl.dsp.focus({ workspace = tostring(env.visible_note) }))
 
 hl.bind(env.mainMod .. " + semicolon", hl.dsp.workspace.toggle_special("focus_read"))
 hl.bind(env.mainMod .. " + P", hl.dsp.workspace.toggle_special("planning"))
-hl.bind(env.mainMod .. " + N", hl.dsp.workspace.toggle_special("note"))
 
 hl.bind(env.mainMod .. " + SHIFT + Q", hl.dsp.window.move({ workspace = "1" }))
 hl.bind(env.mainMod .. " + SHIFT + A", hl.dsp.window.move({ workspace = tostring(env.craft_ws) }))
