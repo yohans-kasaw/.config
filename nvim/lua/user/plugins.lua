@@ -67,10 +67,55 @@ return {
     {
         "ibhagwan/fzf-lua",
         config = function()
-            require("fzf-lua").setup({
+            local fzf = require("fzf-lua")
+            local funcs = require("user.funcs")
+
+            fzf.setup({
                 fzf_opts = { ["--layout"] = "default" },
                 keymap = { fzf = { ["ctrl-q"] = "select-all+accept" } },
             })
+
+            local pickers = {
+                "files", "buffers", "git_status", "git_commits", "grep",
+                "grep_last", "lgrep", "lgrep_last", "live_grep",
+                "oldfiles", "quickfix", "lsp_references", "lsp_definitions",
+                "lsp_implementations", "lsp_type_definitions", "lsp_document_symbols",
+                "lsp_workspace_symbols", "lsp_live_workspace_symbols",
+                "diagnostics_document", "diagnostics_workspace",
+                "marks",
+            }
+
+            -- Build the wrapped "open" action once, reuse for every picker + key.
+            local function make_tile_action(base_action)
+                return function(selected, o)
+                    local cmd = funcs.tile_command(false)
+                    if cmd then
+                        vim.cmd(cmd)
+                    end
+
+                    if base_action then
+                        return base_action(selected, o)
+                    end
+                    -- fall back to fzf-lua's built-in default behavior
+                    return require("fzf-lua.actions").file_edit(selected, o)
+                end
+            end
+
+            for _, picker in ipairs(pickers) do
+                local original = fzf[picker]
+                if type(original) == "function" then
+                    fzf[picker] = function(opts, ...)
+                        opts = opts or {}
+                        local user_actions = opts.actions or {}
+
+                        user_actions["default"] = make_tile_action(user_actions["default"])
+                        user_actions["enter"]   = make_tile_action(user_actions["enter"])
+
+                        opts.actions = user_actions
+                        return original(opts, ...)
+                    end
+                end
+            end
         end,
     },
     {
@@ -163,7 +208,9 @@ return {
         ---@type table
         opts = {},
         config = function()
-            require("oil").setup({
+            local oil = require("oil")
+            local funcs = require("user.funcs")
+            oil.setup({
                 default_file_explorer = true,
                 delete_to_trash = true,
                 view_options = {
@@ -178,6 +225,30 @@ return {
                 },
                 keymaps = {
                     ["q"] = { "actions.close", mode = "n" },
+                    ["<CR>"] = {
+                        callback = function()
+                            local entry = oil.get_cursor_entry()
+                            local dir = oil.get_current_dir()
+                            if not entry or not dir then return end
+
+                            local full_path = dir .. entry.name
+
+                            if entry.type == "directory" then
+                                oil.open(full_path)
+                                return
+                            end
+
+                            oil.close()
+
+                            local cmd = funcs.tile_command(false)
+
+                            if cmd then
+                                vim.cmd(cmd .. " " .. vim.fn.fnameescape(full_path))
+                            else
+                                vim.cmd("edit " .. vim.fn.fnameescape(full_path))
+                            end
+                        end,
+                    },
                 }
             })
         end,

@@ -22,7 +22,8 @@ vim.opt.breakindent = true
 
 vim.o.undofile = true
 vim.opt.swapfile = false
-vim.o.hidden = true
+vim.o.hidden = false
+vim.opt.bufhidden = "wipe"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.jumpoptions = "stack"

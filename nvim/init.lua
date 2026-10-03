@@ -1,6 +1,6 @@
 require("config.lazy")
 require("user.options")
-require("user.keymaps")
+require("user.binding")
 require("user.commands")
 require("user.autocmd")
 

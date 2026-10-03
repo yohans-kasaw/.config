@@ -30,35 +30,11 @@ end, { desc = 'Restart LSP' })
 vim.keymap.set({ "n", "v" }, "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>e", require("oil").toggle_float)
 vim.keymap.set("n", "<leader>o", ":w<CR>")
-
 -- ; 
-local fzf = require("fzf-lua")
-local function open_fzf_with_split(split_cmd)
-    fzf.files({
-        actions = {
-            ["default"] = function(selected)
-                if selected and #selected > 0 then
-                    local file = fzf.path.entry_to_file(selected[1]).path
-                    vim.cmd(split_cmd .. " " .. vim.fn.fnameescape(file))
-                end
-            end,
-        },
-    })
-end
-
-local function open_vsplit_fzf()
-  open_fzf_with_split("rightbelow vsplit")
-end
-
-local function open_hsplit_fzf()
-  open_fzf_with_split("rightbelow split")
-end
-
-vim.api.nvim_set_keymap('n', ';.', ':bd<CR>', { noremap = true })
+vim.keymap.set("n", "q", ":bd<CR>")
 vim.api.nvim_set_keymap('n', ';C', ':%bd<CR>', { noremap = true })
 vim.keymap.set("n", ";<Space>", "<C-w>w", { noremap = true, silent = true, desc = "Cycle next split window" })
-vim.keymap.set("n", ";<CR>", open_vsplit_fzf, { noremap = true, silent = true, desc = "Open file in vertical split" })
-vim.keymap.set("n", ";h", open_hsplit_fzf, { noremap = true, silent = true, desc = "Open file in horizontal split" })
+
 vim.keymap.set("n", ";v", "<cmd>DiffviewOpen<cr>")
 vim.keymap.set("n", ";d", "<cmd>DiffviewOpen dev<cr>")
 vim.keymap.set("n", ";m", "<cmd>DiffviewOpen main<cr>")
@@ -71,7 +47,6 @@ vim.keymap.set('n', ';y', ':let @+ = expand("%")<CR>', { noremap = true })
 vim.keymap.set({ "n", "v" }, "<Down>", "<C-f>", { noremap = true, silent = false })
 vim.keymap.set({ "n", "v" }, "<Up>", "<C-b>", { noremap = true, silent = false })
 vim.keymap.set("n", "<C-n>", "<Cmd>noh<CR>")
-vim.keymap.set("n", "q", ":q!<CR>")
 
 vim.keymap.set("n", "j",function() 
     return (vim.v.count == 0 and "gj") or "j"
