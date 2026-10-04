@@ -1,13 +1,4 @@
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "qf",
-    callback = function(args)
-        vim.api.nvim_buf_set_keymap(args.buf, "n", "q", "<cmd>cclose<cr>", { noremap = true, silent = true })
-    end,
-    desc = "Close quickfix window with q",
-})
-
--- Group 1: Modern Web and Data (2 Spaces)
-vim.api.nvim_create_autocmd("FileType", {
     pattern = {
         "javascriptreact",
         "typescriptreact",
@@ -70,13 +61,6 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
             vim.opt_local.spelllang = { "en_us" }
         end
     end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "svelte",
-  callback = function()
-    vim.treesitter.start()
-  end,
 })
 
 local augroup = vim.api.nvim_create_augroup("UserEmptyBufferFzf", { clear = true })

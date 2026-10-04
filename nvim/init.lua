@@ -6,7 +6,6 @@ require("user.autocmd")
 
 vim.lsp.enable({
     "basedpyright",
-    "svelte",
     "tailwind",
     "typescript",
 })

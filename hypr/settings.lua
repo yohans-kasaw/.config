@@ -83,3 +83,16 @@ hl.config({
         hide_special_on_workspace_change = true,
     },
 })
+
+hl.config { 
+    plugin = { 
+        dynamic_cursors = {
+            enabled = true,
+            threshold = 1,
+            tilt = {
+                window = 400,
+                full = 120,
+            },
+        }
+    }
+}

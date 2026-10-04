@@ -21,4 +21,10 @@ hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("GBM_BACKEND", "nvidia-drm")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 
+-- Mouse cursor
+hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Ice")
+hl.env("XCURSOR_THEME","Bibata-Modern-Ice")
+hl.env("HYPRCURSOR_SIZE", "44")
+hl.env("XCURSOR_SIZE","44")
+
 return env

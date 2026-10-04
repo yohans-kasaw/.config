@@ -11,9 +11,8 @@ return {
   end,
   -- filetypes copied and adjusted from tailwindcss-intellisense
   filetypes = {
-    -- html
+    'html',
     'astro',
-    'astro-markdown',
     'html',
     'css',
     'javascript',
