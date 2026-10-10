@@ -11,7 +11,7 @@
 # with the actual clipboard content before copying the final prompt to your clipboard.
 
 prompts:
-  - name: "writing prose"
+  - name: "Writing prose"
     prompt:  |
       My primary goal is to **learn**. 
 
